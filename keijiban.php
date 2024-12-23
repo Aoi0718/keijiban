@@ -6,22 +6,19 @@
     </head>
     <body>
         <h1>掲示板</h1>
-    <form action="" method="POST">
+    <form action="name.php" method="POST">
         <input type="submit" value="投稿者一覧">
     </form>
-    <form action="" method="POST">
+    <form action="insert_K.php" method="POST">
         <input type="submit" value="記事を投稿する">
     </form>
 <?php
     include ".php";
-    $sql = "select * from テーブル名";
+    $sql = "select * from toukou";
     $sql_res = $dbh->query( $sql );
     $html_body = "";
     while( $rec = $sql_res->fetch() ){
-        echo "{$rec['']}<br>";
-        echo "{$rec['']}<br>";
-        echo "<h2>{$rec['']}</h2>";
-        echo "<p>{$rec['']}</p>";
-        echo "<p>{$rec['']}</p>";
+        echo "<h2>{$rec['title']}</h2>";
+        echo "<p>{$rec['content']}</p>";
     }
     echo $html_body;
