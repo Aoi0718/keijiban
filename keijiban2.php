@@ -28,13 +28,10 @@
         p{
             text-align: center;
         }
-        body{
-            background-image: url("haikei.img");
-        }
     </style>
 <?php
     include "../open.php";
-    $sql = "select * from toukou, user";
+    $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
     $sql_res = $dbh->query( $sql );
     $html_body = "";
     while( $rec = $sql_res->fetch() ){
