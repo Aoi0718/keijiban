@@ -9,8 +9,8 @@
 
 <?php
 include "../db_open.php";
-$name = $_GET[''];
-
+$id = $_GET['id'];
+$name = $_GET['name'];
 $sql = "select * from toukou where id = '$id'";
 $sql_res = $dbh->query( $sql );
 
