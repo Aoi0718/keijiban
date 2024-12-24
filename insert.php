@@ -9,7 +9,6 @@
     <form method="POST" action="exec_insert.php">
         <p>タイトル：<input type="text" name="title"></p>
         <p>投稿内容：<textarea name="content"></textarea></p>
-        <p></p>
         <input type="hidden" name="login_id" value="test">
         <input type="submit" value="投稿">
     </form>
