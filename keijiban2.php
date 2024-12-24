@@ -30,13 +30,14 @@
         }
     </style>
 <?php
-    include "../open.php";
-    $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
+    include "../db_open.php";
+    $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
     $sql_res = $dbh->query( $sql );
+    
+    echo "<h2>投稿一覧</h2>";
 
     $html_body = "";
     while( $rec = $sql_res->fetch() ){
-        echo "<h2>投稿一覧</h2>";
         echo "<h3>{$rec['title']}</h3>";
         echo "<p>{$rec['user_name']}</p>";
         echo "<p>{$rec['date']}</p>";
