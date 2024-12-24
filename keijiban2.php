@@ -9,9 +9,14 @@
     <form action="name.php" method="POST">
         <input type="submit" value="投稿者一覧">
     </form>
-    <form action="insert_K.php" method="POST">
+    <form action="insert.php" method="POST">
         <input type="submit" value="記事を投稿する">
     </form>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
 <?php
     include "../open.php";
     $sql = "select * from toukou";
@@ -23,3 +28,6 @@
         echo "<p>{$rec['content']}</p>";
     }
     echo $html_body;
+?>
+    </body>
+</html>
