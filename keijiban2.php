@@ -3,6 +3,7 @@
     <head>
         <title>掲示板</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <h1>掲示板</h1>
@@ -31,6 +32,9 @@
         p{
             text-align: center;
         }
+        @media screen and (max-width: 450px){
+        }
+
     </style>
 <?php
     include "../open.php";
