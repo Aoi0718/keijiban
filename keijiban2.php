@@ -13,6 +13,9 @@
         <input type="submit" value="記事を投稿する">
     </form>
     <style>
+        body{
+            background-image: url("okumono_mahjonggara10-1536x864.png");
+        }
         h1 {
             text-align: center;
         }
