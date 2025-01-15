@@ -14,6 +14,29 @@
     <form action="insert.php" method="POST">
         <input type="submit" value="記事を投稿する">
     </form>
+    <style>
+        body {
+            background-image: url("okumono_mahjonggara10-1536x864.png");
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        h3 {
+            text-align: center;    
+        }
+        p{
+            text-align: center;
+        }
+        @media screen and (max-width: 450px){
+        }
+
+    </style>
 <?php
     include "../db_open.php";
     $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
