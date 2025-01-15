@@ -14,7 +14,6 @@
     <form action="insert.php" method="POST">
         <input type="submit" value="記事を投稿する">
     </form>
-G
 <?php
     include "../db_open.php";
     $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
