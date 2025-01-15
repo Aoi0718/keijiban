@@ -24,5 +24,10 @@ while( $record = $sql_res->fetch() ){
 
 
 ?>
+ <style>
+        body {
+            background-image: url("okumono_mahjonggara10-1536x864.png");
+        }
+    </style>
 </body>
 </html>
