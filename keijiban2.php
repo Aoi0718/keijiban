@@ -33,7 +33,7 @@
         }
     </style>
 <?php
-    include "../open.php";
+    include "../db_open.php";
     $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
     $sql_res = $dbh->query( $sql );
     $html_body = "";
