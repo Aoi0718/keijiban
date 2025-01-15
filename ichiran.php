@@ -19,8 +19,8 @@ echo "<h2>「{$name}」の投稿一覧</h2>";
 echo "<a href='name.php'>戻る</a></br>";
 while( $record = $sql_res->fetch() ){
     echo "{$record['id']}";
-    echo "　{$record['title']}</br>";
-    echo "　　　　　　{$record['date']}</br>";
+    echo "  {$record['title']}</br>";
+    echo "           {$record['date']}</br>";
     echo "{$record['content']}";
 }
 ?>
