@@ -37,7 +37,7 @@
 
     </style>
 <?php
-    include "../db_db_open.php";
+    include "../db_open.php";
     $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
     $sql_res = $dbh->query( $sql );
     
