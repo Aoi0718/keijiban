@@ -22,7 +22,7 @@ while( $record = $sql_res->fetch() ){
     echo "<div>";
     echo "{$record['id']}";
     echo "　{$record['title']}</br>";
-    echo "　　　　　　　　　　　({$record['date']})</br>";
+    echo "　　　　　　　　({$record['date']})</br>";
     echo "　{$record['content']}";
     echo "</div>";
 }
