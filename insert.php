@@ -17,6 +17,12 @@
             </form>
         </div>
     </div>
+
+    <style>
+        body {
+            background-image: url("okumono_mahjonggara10-1536x864.png");
+        }
+    </style>
     <?php
         include "../db_open.php";
     ?>

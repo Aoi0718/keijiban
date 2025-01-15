@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="keijiban2.css">
     </head>
     <body>
+<<<<<<< HEAD
         <h1>掲示板</h1>
     <form action="name.php" method="POST">
         <input type="submit" value="投稿者一覧">
@@ -14,6 +15,30 @@
     <form action="insert.php" method="POST">
         <input type="submit" value="記事を投稿する">
     </form>
+=======
+        <div class="contena">
+            <h1>掲示板</h1>
+            <form action="name.php" method="POST">
+                <input type="submit" value="投稿者一覧">
+            </form>
+            <form action="insert.php" method="POST">
+                <input type="submit" value="記事を投稿する">
+            </form>
+        </div>
+    <style>
+        body {
+            background-image: url("okumono_mahjonggara10-1536x864.png");
+        }
+
+        .contena {
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 450px){
+        }
+
+    </style>
+>>>>>>> origin/komatsu
 <?php
     include "../db_open.php";
     $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
@@ -26,27 +51,28 @@
         echo <<<___EOF___
         <div class="content"
             <div class="border">
-                <h3>{$rec['title']}</h3>
-                <p>{$rec['user_name']}</p>
-                <p>{$rec['date']}</p>
-                <p>{$rec['content']}</p>
+                <p>{$rec['id']} 【{$rec['title']}】 名前：{$rec['user_name']}　:{$rec['date']}<br><br>{$rec['content']}
             </div>
         </div>
 
         <style>
+            h2 {
+                text-align: center;
+            }
+
             .border {
+                text-align: center;
+                display: block;
+            }
+
+            .content {
                 border: 1px solid #000;
                 border-radius: 8px;
                 margin: 16px auto;
                 padding-left: 0;;
                 list-style: none;
                 display: inline-block;
-                padding: 10px 100px;
-            }
-
-            .content {
-                text-align: center;
-                align-items: center;
+                padding: 5px 50px;
             }
         </style>
         ___EOF___;
