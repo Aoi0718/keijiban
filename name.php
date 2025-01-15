@@ -17,12 +17,6 @@ echo "<p><a href='keijiban2.php'>戻る</a></p>";
 while( $record = $sql_res->fetch() ){
     echo "<p>{$record['id']}.<a href='ichiran.php?id={$record['id']}&user_name={$record['user_name']}'>{$record['user_name']}</a></p>";
 }
-
-
-
-
-
-
 ?>
 </body>
 </html>
