@@ -25,8 +25,4 @@ while( $record = $sql_res->fetch() ){
 }
 ?>
     </body>
-
-
-
-
 </html>
