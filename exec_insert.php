@@ -39,6 +39,10 @@
             p {
                 text-align: center;
             }
+            
+            body {
+                background-image: url("okumono_mahjonggara10-1536x864.png");
+            }
         </style>
     </body>
 </html>
