@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 include "../db_open.php";
 $login_id = 1;
@@ -37,3 +38,33 @@ echo $val1 . ":" . $val2;
 // $stmt-> bindParam(':id',$id,PDO::PARAM_STR); # $stmt->bindParam()で当てはめる部分に当てはめたい値を入れるよ bindParam(当てはめる場所,当てはめる値,型),例(:id,$id,:PDO::PARAM_STR)
 // $stmt -> execute(); #当てはめたらexcuteでsqlを呼び出し
 // $posts = $stmt->fetchAll();#結果をfetch()、またはfetchAll()で取り出して格納してる -->
+=======
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="name.css" rel="stylesheet">
+    <title>一覧画面</title>
+</head>
+<body>
+<?php
+include "../db_open.php";
+$sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
+$sql_res = $dbh->query( $sql );
+
+echo "<h2>投稿者一覧</h2>";
+echo "<p><a href='keijiban2.php'>戻る</a></p>";
+while( $record = $sql_res->fetch() ){
+    echo "<p>{$record['id']}.<a href='ichiran.php?id={$record['id']}&user_name={$record['user_name']}'>{$record['user_name']}</a></p>";
+}
+
+
+
+
+
+
+?>
+</body>
+</html>
+>>>>>>> origin/main
