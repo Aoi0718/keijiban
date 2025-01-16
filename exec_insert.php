@@ -8,6 +8,7 @@
         
         <?php
             include "../db_open.php";
+            session_start();
 
             if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
                 echo "<p>不正なアクセスです。</p>";
@@ -24,7 +25,7 @@
                 // SQL
                 $sql = "SELECT * FROM toukou LEFT outer join user on toukou.login_id = user.login_id";
                 $sql_res = $dbh->query( $sql );
-                $sql = "INSERT INTO toukou VALUE (null, '{$date}', '{$title}', '{$content}', '{$login_id}')";
+                $sql = "INSERT INTO toukou VALUE (null, '{$date}', '{$title}', '{$content}', '{$login_id}','{$_SESSION['uname']}')";
                 $sql_res = $dbh->query( $sql );
                 
                 echo "<h2>記事を追加しました。</h2>";
@@ -38,6 +39,10 @@
 
             p {
                 text-align: center;
+            }
+            
+            body {
+                background-image: url("okumono_mahjonggara10-1536x864.png");
             }
         </style>
     </body>

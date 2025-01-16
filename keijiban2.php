@@ -24,34 +24,39 @@
     $html_body = "";
     while( $rec = $sql_res->fetch() ){
         echo <<<___EOF___
-        <div class="content"
+        <div class="content">
             <div class="border">
-                <h3>{$rec['title']}</h3>
-                <p>{$rec['user_name']}</p>
-                <p>{$rec['date']}</p>
-                <p>{$rec['content']}</p>
+                <p>{$rec['id']} 【{$rec['title']}】 名前：{$rec['user_name']}　({$rec['date']})<br>{$rec['content']}
             </div>
         </div>
 
         <style>
+            h2 {
+                text-align: center;
+            }
+
             .border {
-                border: 1px solid #000;
-                border-radius: 8px;
-                margin: 16px auto;
-                padding-left: 0;;
-                list-style: none;
-                display: inline-block;
-                padding: 10px 100px;
+                text-align: center;
             }
 
             .content {
-                text-align: center;
-                align-items: center;
+                border: 1px solid #000;
+                border-radius: 8px;
+                margin: 16px auto;
+                 0;;
+                list-style: none;
+                padding: 10px 100px;
+            }
+
+            .home {
+                margin-right: 20%;
+                margin-left: 20%;
             }
         </style>
         ___EOF___;
     }
     echo $html_body;
 ?>
+    </div>
     </body>
 </html>
