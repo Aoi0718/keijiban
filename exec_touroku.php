@@ -8,6 +8,7 @@
     
     <?php
         include "../db_open.php";
+        session_start();
 
         if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
             echo "<p>不正なアクセスです。</p>";
@@ -16,6 +17,10 @@
             $LoginID = $_POST['id'];
             $pass = $_POST['pass'];
             $uname = $_POST['uname'];
+            // セッション
+            $_SESSION['id'] = $LoginID;
+            $_SESSION['pass'] = $pass;
+            $_SESSION['uname'] = $uname;
             // XSS対策
             $LoginID = htmlspecialchars($LoginID, ENT_QUOTES, 'UTF-8');
             $pass = htmlspecialchars($pass, ENT_QUOTES, 'UTF-8');

@@ -15,6 +15,7 @@
                 <input type="hidden" name="login_id" value="test">
                 <input type="submit" value="投稿">
             </form>
+            <a href="keijiban2.php"><input type="submit" value="戻る"></a>
         </div>
     </div>
 
