@@ -18,5 +18,10 @@ while( $record = $sql_res->fetch() ){
     echo "<p>{$record['id']}.<a href='ichiran.php?id={$record['id']}&user_name={$record['user_name']}'>{$record['user_name']}</a></p>";
 }
 ?>
+ <style>
+        body {
+            background-image: url("okumono_mahjonggara10-1536x864.png");
+        }
+    </style>
 </body>
 </html>
