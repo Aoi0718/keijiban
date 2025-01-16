@@ -18,8 +18,6 @@
             $pass = $_POST['pass'];
             $uname = $_POST['uname'];
             // セッション
-            $_SESSION['id'] = $LoginID;
-            $_SESSION['pass'] = $pass;
             $_SESSION['uname'] = $uname;
             // XSS対策
             $LoginID = htmlspecialchars($LoginID, ENT_QUOTES, 'UTF-8');
