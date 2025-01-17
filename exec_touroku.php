@@ -18,8 +18,6 @@
             $pass = $_POST['pass'];
             $uname = $_POST['uname'];
             // セッション
-            $_SESSION['id'] = $LoginID;
-            $_SESSION['pass'] = $pass;
             $_SESSION['uname'] = $uname;
             // XSS対策
             $LoginID = htmlspecialchars($LoginID, ENT_QUOTES, 'UTF-8');
@@ -32,7 +30,7 @@
             $sql_res = $dbh->query( $sql );
 
             echo "<p>ユーザーの登録が完了しました。</p>";
-            echo "<p>ログイン画面に戻る</p>";
+            echo "<p><a href='login.php'>ログイン画面に戻る</a></p>";
         }
     ?>
     <style>
