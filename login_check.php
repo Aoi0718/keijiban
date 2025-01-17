@@ -15,14 +15,9 @@
  $passwd = $_POST['passwd'];
  $id = htmlspecialchars( $id, ENT_QUOTES, 'UTF-8' );
  $passwd = htmlspecialchars( $passwd, ENT_QUOTES, 'UTF-8' );
-<<<<<<< HEAD
- 
- echo " <link rel='stylesheet' href='login_check.css'>";
-=======
 
  $sql = "select * from user where login_id = '{$id}'";
  $sql_res = $dbh->query( $sql );
->>>>>>> origin/ishidaaoi
  while($rec = $sql_res->fetch()){
     if($rec['login_id'] == $id && $rec['passwd'] == $passwd){
         $_SESSION['login_id'] = $id;
@@ -33,20 +28,12 @@
 
     }
     echo "<p>IDまたはパスワードに誤りがあります。</p>";
-<<<<<<< HEAD
-<<<<<<< HEAD
-    echo "<a href='login.php' class='login' style='text-align: center;'>ログイン画面に戻る</a>";
-
-=======
-=======
     echo "<div>";
->>>>>>> origin/ishidaaoi
     echo "<a href='login.php' class='login'>ログイン画面に戻る</a>";
     echo "</div>";
 ?>
 </body>
 </html>
->>>>>>> origin/ishidaaoi
     
  
  
