@@ -7,19 +7,6 @@
         <link rel="stylesheet" href="keijiban2.css">
     </head>
     <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/main
-        <h1>掲示板</h1>
-    <form action="name.php" method="POST">
-        <input type="submit" value="投稿者一覧">
-    </form>
-    <form action="insert.php" method="POST">
-        <input type="submit" value="記事を投稿する">
-    </form>
-<<<<<<< HEAD
-=======
         <div class="contena">
             <h1>掲示板</h1>
             <form action="name.php" method="POST">
@@ -42,9 +29,6 @@
         }
 
     </style>
->>>>>>> origin/komatsu
-=======
->>>>>>> origin/main
 <?php
     include "../db_open.php";
     session_start();
