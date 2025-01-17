@@ -26,10 +26,13 @@
 
         $html_body = "";
         while( $rec = $sql_res->fetch() ){
+            $content = $rec['content'];
+            $container = wordwrap($content,70,'<br/>',true);
+
             echo <<<___EOF___
             <div class="content">
                 <div class="border">
-                    <p>{$rec['id']} 【{$rec['title']}】 名前：{$rec['user_name']}　({$rec['date']})<br>{$rec['content']}
+                    <p>{$rec['id']} 【{$rec['title']}】 名前：{$rec['user_name']}　({$rec['date']})<br>{$container}
                 </div>
             </div>
 
