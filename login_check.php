@@ -1,13 +1,15 @@
 <?php
  include "../db_open.php";
  session_start();
- $sql = "select * from user";
+ $sql = "select * from user where login_id = '{$id}'";
  $sql_res = $dbh->query( $sql );
+
  $id = $_POST['id'];
  $passwd = $_POST['passwd'];
  $id = htmlspecialchars( $id, ENT_QUOTES, 'UTF-8' );
  $passwd = htmlspecialchars( $passwd, ENT_QUOTES, 'UTF-8' );
  
+ echo " <link rel='stylesheet' href='login_check.css'>";
  while($rec = $sql_res->fetch()){
     if($rec['login_id'] == $id && $rec['passwd'] == $passwd){
         $_SESSION['login_id'] = $id;
@@ -17,7 +19,9 @@
     }
 
     }
-    echo "error";
+    echo "<p>IDまたはパスワードに誤りがあります。</p>";
+    echo "<a href='login.php' class='login' style='text-align: center;'>ログイン画面に戻る</a>";
+
     
  
  
