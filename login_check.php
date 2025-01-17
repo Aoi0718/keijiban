@@ -34,7 +34,6 @@
         echo "<a href='keijiban2.php'>掲示板へ</a>";
         exit;
     }
-
     }}
     echo "<p>IDまたはパスワードに誤りがあります。</p>";
     echo "<div>";
