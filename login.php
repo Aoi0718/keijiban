@@ -11,6 +11,7 @@
 <h6>設定したIDとパスワードを入力してログイン</h6>
 <?php
 include "../db_open.php";
+session_start();
 
     echo "<div>";
     echo "<form method='POST' action='login_check.php'>";

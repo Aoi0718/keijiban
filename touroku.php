@@ -1,3 +1,8 @@
+<?php
+    include "../db_open.php";
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -24,8 +29,5 @@
             background-image: url("okumono_mahjonggara10-1536x864.png");
         }
     </style>
-    <?php
-        include "../db_open.php";
-    ?>
 </body>
 </html>

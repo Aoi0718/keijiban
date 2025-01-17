@@ -8,6 +8,7 @@
     
     <?php
         include "../db_open.php";
+        session_start();
 
         if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
             echo "<p>不正なアクセスです。</p>";
@@ -23,7 +24,7 @@
             // SQL
             $sql = "SELECT * FROM toukou LEFT outer join user on toukou.login_id = user.login_id";
             $sql_res = $dbh->query( $sql );
-            $sql = "INSERT INTO user VALUE ('{$LoginID}','{$pass}','{$name}')";
+            $sql = "INSERT INTO user VALUE ('{$LoginID}','{$pass}','{$uname}')";
             $sql_res = $dbh->query( $sql );
 
             echo "<p>ユーザーの登録が完了しました。</p>";
