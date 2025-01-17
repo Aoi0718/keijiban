@@ -20,7 +20,11 @@
  $sql = "select * from user where login_id = '{$id}'";
  $sql_res = $dbh->query( $sql );
 
- while($rec = $sql_res->fetch()){
+ if(mb_strlen($title) > 30) {    // タイトルが30文字オーバーなら。
+    echo "<p>タイトルが長すぎます。</p>";
+}elseif(mb_strlen($poster) > 30) {   // 投稿者名が30文字オーバーなら。
+    echo "<p>名前が長すぎます。</p>";
+}else{ while($rec = $sql_res->fetch()){
     if($rec['login_id'] == $id && $rec['passwd'] == $passwd){
         // セッション
         $_SESSION['id'] = $id;
@@ -31,7 +35,7 @@
         exit;
     }
 
-    }
+    }}
     echo "<p>IDまたはパスワードに誤りがあります。</p>";
     echo "<div>";
     echo "<a href='login.php' class='login'>ログイン画面に戻る</a>";
