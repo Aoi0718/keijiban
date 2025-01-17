@@ -1,3 +1,8 @@
+<?php
+    include "../db_open.php";
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,7 +17,6 @@
             <form method="POST" action="exec_insert.php">
                 <p>タイトル：<input type="text" name="title"></p>
                 <p>投稿内容：<textarea name="content"></textarea></p>
-                <input type="hidden" name="login_id" value="test">
                 <input type="submit" value="投稿">
             </form>
             <a href="keijiban2.php"><input type="submit" value="戻る"></a>
@@ -24,8 +28,5 @@
             background-image: url("okumono_mahjonggara10-1536x864.png");
         }
     </style>
-    <?php
-        include "../db_open.php";
-    ?>
 </body>
 </html>

@@ -16,6 +16,8 @@
     </form>
 <?php
     include "../db_open.php";
+    session_start();
+
     $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
     $sql_res = $dbh->query( $sql );
     
