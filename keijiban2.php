@@ -4,31 +4,16 @@
         <title>掲示板</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="keijiban2.css">
     </head>
     <body>
-        <div class="home">
-        <div class="contena">
-            <h1>掲示板</h1>
-            <form action="name.php" method="POST">
-                <input type="submit" value="投稿者一覧">
-            </form>
-            <form action="insert.php" method="POST">
-                <input type="submit" value="記事を投稿する">
-            </form>
-        </div>
-    <style>
-        body {
-            background-image: url("okumono_mahjonggara10-1536x864.png");
-        }
-
-        .contena {
-            text-align: center;
-        }
-        
-        @media screen and (max-width: 450px){
-        }
-
-    </style>
+        <h1>掲示板</h1>
+    <form action="name.php" method="POST">
+        <input type="submit" value="投稿者一覧">
+    </form>
+    <form action="insert.php" method="POST">
+        <input type="submit" value="記事を投稿する">
+    </form>
 <?php
     include "../db_open.php";
     session_start();
