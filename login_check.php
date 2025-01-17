@@ -15,8 +15,7 @@
     if($rec['login_id'] == $id && $rec['passwd'] == $passwd){
         // セッション
         $_SESSION['id'] = $id;
-        $_SESSION['login_id'] = $rec['login_id'];
-        $_SESSION['uname'] = $rec['user_name'];
+        // $_SESSION['login_id'] = $rec['login_id'];
         var_dump($_SESSION['uname']);
         
         echo "<p>ログインが完了しました。</p>";
