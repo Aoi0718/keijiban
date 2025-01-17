@@ -1,4 +1,12 @@
 body{
     background-image: url("okumono_mahjonggara10-1536x864.png");
-    text-align: center;
+}
+@media screen and (max-width: 450px){
+    div{
+        text-align: center;
+    }
+    h2{
+        text-align: center;
+    }
+
 }
