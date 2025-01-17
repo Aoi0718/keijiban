@@ -14,6 +14,10 @@
  $passwd = htmlspecialchars( $passwd, ENT_QUOTES, 'UTF-8' );
  
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ echo " <link rel='stylesheet' href='login_check.css'>";
+>>>>>>> origin/main
  while($rec = $sql_res->fetch()){
     if($rec['login_id'] == $id && $rec['passwd'] == $passwd){
         $_SESSION['login_id'] = $id;
@@ -36,7 +40,9 @@
     }
 
     }
-    echo "error";
+    echo "<p>IDまたはパスワードに誤りがあります。</p>";
+    echo "<a href='login.php' class='login' style='text-align: center;'>ログイン画面に戻る</a>";
+
     
  
  
