@@ -34,10 +34,15 @@
     }
     echo "<p>IDまたはパスワードに誤りがあります。</p>";
 <<<<<<< HEAD
+<<<<<<< HEAD
     echo "<a href='login.php' class='login' style='text-align: center;'>ログイン画面に戻る</a>";
 
 =======
+=======
+    echo "<div>";
+>>>>>>> origin/ishidaaoi
     echo "<a href='login.php' class='login'>ログイン画面に戻る</a>";
+    echo "</div>";
 ?>
 </body>
 </html>
