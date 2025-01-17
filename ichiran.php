@@ -19,12 +19,17 @@ $sql_res = $dbh->query( $sql );
 echo "<h2>「{$name}」の投稿一覧</h2>";
 echo "<p><a href='name.php'>戻る</a></p>";
 while( $record = $sql_res->fetch() ){
-    echo "<div>";
-    echo "{$record['id']}";
-    echo "　{$record['title']}</br>";
-    echo "　　　　　　　　({$record['date']})</br>";
-    echo "　{$record['content']}";
-    echo "</div>";
+    echo<<<___EOF___
+        <div class='side'>
+            <div class='center'>
+            <p>{$record['id']}</p>
+            <p>{$record['title']}</P>
+            <p>{$record['date']}</p>
+            <p>{$record['content']}</p>
+            </div>
+        </div>
+
+    ___EOF___;
 }
 ?>
  <style>
