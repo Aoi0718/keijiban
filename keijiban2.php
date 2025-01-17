@@ -33,47 +33,48 @@
     include "../db_open.php";
     session_start();
 
-    $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
-    $sql_res = $dbh->query( $sql );
-    
-    echo "<h2>投稿一覧</h2>";
+        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
+        $sql_res = $dbh->query( $sql );
+        
+        echo "<h2>投稿一覧</h2>";
 
-    $html_body = "";
-    while( $rec = $sql_res->fetch() ){
-        echo <<<___EOF___
-        <div class="content">
-            <div class="border">
-                <p>{$rec['id']} 【{$rec['title']}】 名前：{$rec['user_name']}　({$rec['date']})<br>{$rec['content']}
+        $html_body = "";
+        while( $rec = $sql_res->fetch() ){
+            echo <<<___EOF___
+            <div class="content">
+                <div class="border">
+                    <p>{$rec['id']} 【{$rec['title']}】 名前：{$rec['user_name']}　({$rec['date']})<br>{$rec['content']}
+                </div>
+            </div>
+
+            <style>
+                h2 {
+                    text-align: center;
+                }
+
+                .border {
+                    text-align: center;
+                }
+
+                .content {
+                    border: 1px solid #000;
+                    border-radius: 8px;
+                    margin: 16px auto;
+                    0;;
+                    list-style: none;
+                    padding: 10px 100px;
+                }
+
+                .home {
+                    margin-right: 20%;
+                    margin-left: 20%;
+                }
+            </style>
+            ___EOF___;
+        }
+        echo $html_body;
+    ?>
             </div>
         </div>
-
-        <style>
-            h2 {
-                text-align: center;
-            }
-
-            .border {
-                text-align: center;
-            }
-
-            .content {
-                border: 1px solid #000;
-                border-radius: 8px;
-                margin: 16px auto;
-                 0;;
-                list-style: none;
-                padding: 10px 100px;
-            }
-
-            .home {
-                margin-right: 20%;
-                margin-left: 20%;
-            }
-        </style>
-        ___EOF___;
-    }
-    echo $html_body;
-?>
-    </div>
     </body>
 </html>
