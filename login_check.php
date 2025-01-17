@@ -33,7 +33,9 @@
 
     }
     echo "<p>IDまたはパスワードに誤りがあります。</p>";
+    echo "<div>";
     echo "<a href='login.php' class='login'>ログイン画面に戻る</a>";
+    echo "</div>";
 ?>
 </body>
 </html>
