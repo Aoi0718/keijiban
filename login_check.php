@@ -1,9 +1,10 @@
 <?php
  include "../db_open.php";
  session_start();
- 
+ // 値の取り出し
  $id = $_POST['id'];
  $passwd = $_POST['passwd'];
+ // XSS対策
  $id = htmlspecialchars( $id, ENT_QUOTES, 'UTF-8' );
  $passwd = htmlspecialchars( $passwd, ENT_QUOTES, 'UTF-8' );
  

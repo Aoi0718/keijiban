@@ -12,7 +12,7 @@
             <form method="POST" action="exec_insert.php">
                 <p>タイトル：<input type="text" name="title"></p>
                 <p>投稿内容：<textarea name="content"></textarea></p>
-                <input type="hidden" name="login_id" value="test">
+                <input type="hidden" name="login_id" value="$_SESSION['login_id']">
                 <input type="submit" value="投稿">
             </form>
             <a href="keijiban2.php"><input type="submit" value="戻る"></a>
