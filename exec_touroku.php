@@ -24,15 +24,9 @@
             // SQL
             $sql = "SELECT * FROM toukou LEFT outer join user on toukou.login_id = user.login_id";
             $sql_res = $dbh->query( $sql );
-<<<<<<< HEAD
-<<<<<<< HEAD
             $sql = "INSERT INTO user VALUE ('{$LoginID}','{$pass}','{$name}')";
-=======
             $sql = "INSERT INTO user VALUE ('{$LoginID}','{$pass}','{$username}')";
->>>>>>> origin/komatsu
-=======
             $sql = "INSERT INTO user VALUE ('{$LoginID}','{$pass}','{$uname}')";
->>>>>>> origin/komatsu
             $sql_res = $dbh->query( $sql );
 
             echo "<p>ユーザーの登録が完了しました。</p>";
