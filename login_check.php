@@ -20,9 +20,9 @@
  $sql = "select * from user where login_id = '{$id}'";
  $sql_res = $dbh->query( $sql );
 
- if(mb_strlen($id) > 30) {    // タイトルが30文字オーバーなら。
+ if(mb_strlen($id) > 30) {    
     echo "<p>IDが長すぎます。</p>";
-}elseif(mb_strlen($passwd) > 30) {   // 投稿者名が30文字オーバーなら。
+}elseif(mb_strlen($passwd) > 30) {   
     echo "<p>パスワードが長すぎます。</p>";
 }else{ while($rec = $sql_res->fetch()){
     if($rec['login_id'] == $id && $rec['passwd'] == $passwd){
