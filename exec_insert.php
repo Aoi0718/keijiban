@@ -28,7 +28,7 @@
 
                 $sql = "SELECT * FROM toukou LEFT outer join user on toukou.login_id = user.login_id";
                 $sql_res = $dbh->query( $sql );
-                $sql = "INSERT INTO toukou VALUE (null, '{$date}', '{$title}', '{$content}', '{$login_id}','{$uname}')";
+                $sql = "INSERT INTO toukou VALUE (null, '{$date}', '{$title}', '{$content}', '{$login_id}')";
                 $sql_res = $dbh->query( $sql );
                 
                 echo "<h2>記事を追加しました。</h2>";
