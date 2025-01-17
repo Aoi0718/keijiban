@@ -44,7 +44,6 @@
 
  while($rec = $sql_res->fetch()){
     if($rec['login_id'] == $id && $rec['passwd'] == $passwd){
-        $_SESSION['login_id'] = $id;
         // セッション
         $_SESSION['id'] = $id;
         $_SESSION['login_id'] = $rec['login_id'];
@@ -56,8 +55,6 @@
 
     }
     echo "<p>IDまたはパスワードに誤りがあります。</p>";
-    echo "<a href='login.php' class='login' style='text-align: center;'>ログイン画面に戻る</a>";
-
     echo "<div>";
     echo "<a href='login.php' class='login'>ログイン画面に戻る</a>";
     echo "</div>";
