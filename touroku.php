@@ -17,6 +17,7 @@
         <div class="border">
             <form method="POST" action="exec_touroku.php">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <p>ログインID:<input type="text" name="id" pattern="^[a-zA-Z0-9]+$"></p>
                 <p>パスワード:<input type="text" name="pass" pattern="^[a-zA-Z0-9]+$"></p>
                 <p>ユーザーネーム:<input type="text" name="uname"></p>
@@ -25,6 +26,11 @@
                 <p>パスワード:<input type="text" name="pass" pattern="^[a-zA-Z0-9]+$" required></p>
                 <p>ユーザーネーム:<input type="text" name="uname" required></p>
 >>>>>>> origin/komatsu
+=======
+                <p>ログインID:<input type="text" name="id" pattern="^[a-zA-Z0-9]+$+@" required></p>
+                <p>パスワード:<input type="text" name="pass" pattern="^[a-zA-Z0-9]+$" required></p>
+                <p>ユーザーネーム:<input type="text" name="uname" required></p>
+>>>>>>> origin/nakayama
                 <input type="submit" value="登録">
             </form>
         </div>
