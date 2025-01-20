@@ -15,13 +15,8 @@ session_start();
 
     echo "<div>";
     echo "<form method='POST' action='login_check.php'>";
-<<<<<<< HEAD
     echo "<p>       ID:<input type='text' name='id'></p>";
     echo "<p>パスワード:<input type='text' name='passwd'></p>";
-=======
-    echo "<p>　　　　ID:<input type='text' name='id' pattern='^[a-zA-Z0-9]+$'></p>";
-    echo "<p>パスワード:<input type='text' name='passwd' pattern='^[a-zA-Z0-9]+$'></p>";
->>>>>>> origin/ishidaaoi
     echo "<a href='touroku.php'>新規登録</a>";
     echo "               ";
     echo "<input type='submit' value='ログイン'>";
