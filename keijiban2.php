@@ -45,10 +45,16 @@
         include "../db_open.php";
         session_start();
         if(empty($_SESSION['login_id'])){
+<<<<<<< HEAD
             header('Location: .login.php');
             exit();
         }else{
 >>>>>>> origin/main
+=======
+            header('Location: login.php');
+            exit();
+        }
+>>>>>>> origin/komatsu
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         
@@ -56,13 +62,12 @@
 
         $html_body = "";
         while( $rec = $sql_res->fetch() ){
-            $content = $rec['content'];
-            $container = wordwrap($content,70,'<br/>',true);
 
             echo <<<___EOF___
             <div class="content">
                 <div class="border">
-                    <p>{$rec['id']} 【{$rec['title']}】 名前：{$rec['user_name']}　({$rec['date']})<br>{$container}
+                    <p>{$rec['id']} 【{$rec['title']}】 名前：{$rec['user_name']}　({$rec['date']})<br>
+                    <div class="wrap" contenteditable="true">{$rec['content']}</div>
                 </div>
             </div>
 
@@ -87,6 +92,10 @@
                 .home {
                     margin-right: 20%;
                     margin-left: 20%;
+                }
+
+                .warp {
+                    text-wrap: balance;
                 }
             </style>
             ___EOF___;

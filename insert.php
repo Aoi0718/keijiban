@@ -15,8 +15,8 @@
     <div class="content">
         <div class="border">
             <form method="POST" action="exec_insert.php">
-                <p>タイトル：<input type="text" name="title"></p>
-                <p>投稿内容：<textarea name="content"></textarea></p>
+                <p>タイトル：<input type="text" name="title" required></p>
+                <p>投稿内容：<textarea name="content" required></textarea></p>
                 <input type="submit" value="投稿">
             </form>
             <a href="keijiban2.php"><input type="submit" value="戻る"></a>
