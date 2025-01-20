@@ -12,6 +12,7 @@
 <?php
 include "../db_open.php";
 session_start();
+session_destroy();
 
     echo "<div>";
     echo "<form method='POST' action='login_check.php'>";
