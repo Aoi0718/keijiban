@@ -21,7 +21,6 @@
             $LoginID = htmlspecialchars($LoginID, ENT_QUOTES, 'UTF-8');
             $pass = htmlspecialchars($pass, ENT_QUOTES, 'UTF-8');
             $uname = htmlspecialchars($uname, ENT_QUOTES, 'UTF-8');
-
             // SQL
             $sql = "SELECT * FROM toukou LEFT outer join user on toukou.login_id = user.login_id";
             $sql_res = $dbh->query( $sql );
