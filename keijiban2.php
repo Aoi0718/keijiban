@@ -9,6 +9,7 @@
     <body>
         <div class="contena">
             <h1>掲示板</h1>
+<<<<<<< HEAD
             <form action="name.php" method="POST">
                 <input type="submit" value="投稿者一覧">
             </form>
@@ -33,6 +34,21 @@
     include "../db_open.php";
     session_start();
 
+=======
+        <form action="name.php" method="POST">
+            <input type="submit" value="投稿者一覧">
+        </form>
+        <form action="insert.php" method="POST">
+            <input type="submit" value="記事を投稿する">
+        </form>
+    <?php
+        include "../db_open.php";
+        session_start();
+        if(empty($_SESSION['login_id'])){
+            header('Location: .login.php');
+            exit();
+        }else{
+>>>>>>> origin/main
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         
@@ -76,6 +92,7 @@
             ___EOF___;
         }
         echo $html_body;
+    }
     ?>
             </div>
         </div>
