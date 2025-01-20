@@ -5,7 +5,6 @@
     <title>登録完了画面</title>
 </head>
 <body>
-    
     <?php
         include "../db_open.php";
         session_start();
