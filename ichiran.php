@@ -20,40 +20,22 @@
     echo "<h2>「{$name}」の投稿一覧</h2>";
     echo "<p><a href='name.php'>戻る</a></p>";
 
-<<<<<<< HEAD
+
 echo "<h2>「{$name}」の投稿一覧</h2>";
 echo "<p><a href='name.php'>戻る</a></p>";
 while( $record = $sql_res->fetch() ){
-<<<<<<< HEAD
     echo "<div>";
     echo "{$record['id']}";
     echo "  {$record['title']}</br>";
     echo "           {$record['date']}</br>";
     echo "{$record['content']}";
-=======
-    $content = $record['content'];
-    $container = wordwrap($content,70,'<br/>',true);
-
-    echo<<<___EOF___
-        <div class='side'>
-            <div class='center'>
-                <p>{$record['id']} 【{$record['title']}】 ({$record['date']})<br>{$container}
-=======
-    while( $record = $sql_res->fetch() ) {
-        echo <<<___EOF___
-            <div class="content">
-                <div class="border">
-                    <p>{$record['id']} 【{$record['title']}】 ({$record['date']})<br>
-                    <div class="wrap" contenteditable="true">{$record['content']}</div>
-                </div>
->>>>>>> origin/komatsu
             </div>
 
-<<<<<<< HEAD
+
     ___EOF___;
->>>>>>> origin/ishidaaoi
+
 }
-=======
+
             <style>
                 .border {
                         text-align: center;
@@ -79,7 +61,6 @@ while( $record = $sql_res->fetch() ){
             </style>
         ___EOF___;
     }
->>>>>>> origin/komatsu
 ?>
     <style>
         body {

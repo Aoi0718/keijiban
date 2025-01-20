@@ -34,7 +34,7 @@
     include "../db_open.php";
     session_start();
 
-=======
+
         <form action="name.php" method="POST">
             <input type="submit" value="投稿者一覧">
         </form>
@@ -46,7 +46,6 @@
         session_start();
         if(empty($_SESSION['login_id'])){
 <<<<<<< HEAD
-<<<<<<< HEAD
             header('Location: .login.php');
             exit();
         }else{
@@ -56,11 +55,6 @@
             exit();
         }
 >>>>>>> origin/komatsu
-=======
-            header('Location: .login.php');
-            exit();
-        }else{
->>>>>>> origin/nakayama
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         
