@@ -9,13 +9,16 @@
     <body>
     <div class="home">
 <?php
-    include "../db_open.php";
-    // 値の取り出し
-    $id = $_GET['id'];
-    $name = $_GET['user_name'];
-    // SQL
-    $sql = "select * from toukou, user where id = '$id' && user_name = '$name'";
-    $sql_res = $dbh->query( $sql );
+include "../db_open.php";
+session_start();
+if(empty($_SESSION['login_id'])){
+    header('Location: login.php');
+    exit();
+}
+$id = $_GET['id'];
+$name = $_GET['user_name'];
+$sql = "select * from toukou, user where id = '$id' && user_name = '$name'";
+$sql_res = $dbh->query( $sql );
 
     echo "<h2>「{$name}」の投稿一覧</h2>";
     echo "<p><a href='name.php'>戻る</a></p>";
