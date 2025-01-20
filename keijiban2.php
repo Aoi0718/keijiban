@@ -68,7 +68,6 @@
             ___EOF___;
         }
         echo $html_body;
-    }
     ?>
             </div>
         </div>
