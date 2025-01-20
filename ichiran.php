@@ -10,6 +10,11 @@
 
 <?php
 include "../db_open.php";
+session_start();
+if(empty($_SESSION['login_id'])){
+    header('Location: login.php');
+    exit();
+}
 $id = $_GET['id'];
 $name = $_GET['user_name'];
 $sql = "select * from toukou, user where id = '$id' && user_name = '$name'";
