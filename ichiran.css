@@ -1,24 +1,13 @@
-h2{
+h2 {
    text-align:center;
 }
-p{
+
+p {
     text-align:center;
 }
-.side{
-    text-align: center;
-    align-items: center;
-}
-.center{
-    border: 1px solid #000;
-    border-radius: 8px;
-    margin: 16px auto;
-    padding-left: 0;;
-    list-style: none;
-    display: inline-block;
-    padding: 10px 100px;
-}
+
 @media screen and (max-width: 600px){
-    div{
+    div {
         text-align:left;
     }
 }
