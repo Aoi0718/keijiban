@@ -21,7 +21,7 @@
         if(empty($_SESSION['login_id'])){
             header('Location: .login.php');
             exit();
-        }else{
+        }
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         
