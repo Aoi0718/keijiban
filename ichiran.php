@@ -60,7 +60,7 @@ while( $record = $sql_res->fetch() ){
                 }
             </style>
         ___EOF___;
-    }
+    
 ?>
     <style>
         body {
