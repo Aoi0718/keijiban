@@ -1,3 +1,7 @@
+<?PHP
+include "../db_open.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +10,6 @@
 </head>
 <body>
     <?php
-        include "../db_open.php";
-        session_start();
-
         if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
             echo "<p>不正なアクセスです。</p>";
         } else {
@@ -21,7 +22,7 @@
             $pass = htmlspecialchars($pass, ENT_QUOTES, 'UTF-8');
             $uname = htmlspecialchars($uname, ENT_QUOTES, 'UTF-8');
             // SQL
-            $sql = "SELECT * FROM toukou LEFT outer join user on toukou.login_id = user.login_id";
+            $sql = "SELECT * FROM user";
             $sql_res = $dbh->query( $sql );
             $ids = [];
            while($rec = $sql_res->fetch()){$ids[] = $rec['login_id'];}

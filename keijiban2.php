@@ -1,3 +1,11 @@
+<?PHP
+include "../db_open.php";
+session_start();
+if(empty($_SESSION['login_id'])){
+    header('Location: .login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,6 +48,7 @@
         <form action="insert.php" method="POST">
             <input type="submit" value="記事を投稿する">
         </form>
+<<<<<<< HEAD
     
         include "../db_open.php";
         session_start();
@@ -54,12 +63,13 @@
             exit();
         }
 
+=======
+        <h2>投稿一覧</h2>;
+    <?php
+>>>>>>> origin/main
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         
-        echo "<h2>投稿一覧</h2>";
-
-        $html_body = "";
         while( $rec = $sql_res->fetch() ){
 
             echo <<<___EOF___
@@ -99,8 +109,11 @@
             </style>
             ___EOF___;
         }
+<<<<<<< HEAD
         echo $html_body;
     }
+=======
+>>>>>>> origin/main
     ?>
             </div>
         </div>

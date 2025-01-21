@@ -1,3 +1,10 @@
+<?PHP
+include "../db_open.php";
+session_start();
+if(empty($_SESSION['login_id'])){
+    header('Location: login.php');
+    exit();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,11 +14,6 @@
     <body>
         
         <?php
-            include "../db_open.php";
-            session_start();
-            if(empty($_SESSION['login_id'])){
-                header('Location: login.php');
-                exit();
             }
             if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
                 echo "<p>不正なアクセスです。</p>";

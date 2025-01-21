@@ -1,3 +1,11 @@
+<?PHP
+include "../db_open.php";
+session_start();
+        if(empty($_SESSION['login_id'])){
+            header('Location: login.php');
+            exit();
+        }
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,12 +16,6 @@
 </head>
 <body>
 <?php
-include "../db_open.php";
-session_start();
-        if(empty($_SESSION['login_id'])){
-            header('Location: login.php');
-            exit();
-        }
 $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
 $sql_res = $dbh->query( $sql );
 
