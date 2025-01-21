@@ -38,20 +38,6 @@ if(empty($_SESSION['login_id'])){
 
     </style>
 <?php
-    include "../db_open.php";
-    session_start();
-
-
-        <form action="name.php" method="POST">
-            <input type="submit" value="投稿者一覧">
-        </form>
-        <form action="insert.php" method="POST">
-            <input type="submit" value="記事を投稿する">
-        </form>
-<<<<<<< HEAD
-    
-        include "../db_open.php";
-        session_start();
         if(empty($_SESSION['login_id'])){
 
             header('Location: .login.php');
@@ -63,10 +49,6 @@ if(empty($_SESSION['login_id'])){
             exit();
         }
 
-=======
-        <h2>投稿一覧</h2>;
-    <?php
->>>>>>> origin/main
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         
@@ -109,11 +91,6 @@ if(empty($_SESSION['login_id'])){
             </style>
             ___EOF___;
         }
-<<<<<<< HEAD
-        echo $html_body;
-    }
-=======
->>>>>>> origin/main
     ?>
             </div>
         </div>
