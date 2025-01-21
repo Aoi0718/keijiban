@@ -21,11 +21,11 @@
             <form method="POST" action="exec_insert.php">
                 <p>タイトル：<input type="text" name="title" required></p>
                 <p>投稿内容：<textarea name="content" required></textarea></p>
-                <input type="submit" value="投稿">　　　　　　<a href="keijiban2.php" value="戻る"></a>
+                <input type="submit" value="投稿">
             </form>
         </div>
     </div>
-
+    <a href="keijiban2.php"><input type="submit" value="戻る"></a>
     <style>
         body {
             background-image: url("okumono_mahjonggara10-1536x864.png");

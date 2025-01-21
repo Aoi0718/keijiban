@@ -18,7 +18,9 @@ h1 {
     text-align: center;
     align-items: center;
 }
-
+textarea{
+    resize: none;
+}
 @media screen and (max-width:600px) {
     h1 {
         font-size:larger;
