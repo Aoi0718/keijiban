@@ -40,7 +40,7 @@
         <form action="insert.php" method="POST">
             <input type="submit" value="記事を投稿する">
         </form>
-    <?php
+    
         include "../db_open.php";
         session_start();
         if(empty($_SESSION['login_id'])){
@@ -100,6 +100,7 @@
             ___EOF___;
         }
         echo $html_body;
+    }
     ?>
             </div>
         </div>
