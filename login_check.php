@@ -1,3 +1,7 @@
+<?PHP
+include "../db_open.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,9 +12,6 @@
 </head>
 <body>
 <?php
-    include "../db_open.php";
-    session_start();
-
     // 値の取り出し
     $id = $_POST['id'];
     $passwd = $_POST['passwd'];
@@ -36,7 +37,9 @@
             $_SESSION['login_id'] = $rec['login_id'];
 
             echo "<p>ログインが完了しました。</p>";
+            echo "<div>";
             echo "<a href='keijiban2.php'>掲示板へ</a>";
+            echo "</div>";
             exit;
         }
 >>>>>>> origin/main
