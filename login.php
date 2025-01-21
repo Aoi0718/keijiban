@@ -1,3 +1,8 @@
+<?PHP
+include "../db_open.php";
+session_start();
+session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,10 +15,6 @@
 <h2>ログイン画面</h2>
 <h6>設定したIDとパスワードを入力してログイン</h6>
 <?php
-include "../db_open.php";
-session_start();
-session_destroy();
-
     echo "<div>";
     echo "<form method='POST' action='login_check.php'>";
     echo "<p>　　　　ID:<input type='text' name='id' pattern='^[a-zA-Z0-9]+$+@' required></p>";
