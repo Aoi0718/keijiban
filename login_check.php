@@ -22,14 +22,6 @@ session_start();
     $sql = "select * from user where login_id = '{$id}'";
     $sql_res = $dbh->query( $sql );
 
-<<<<<<< HEAD
-        echo "<p>ログインが完了しました。</p>";
-        echo "<div>";
-        echo "<a href='keijiban2.php'>掲示板へ</a>";
-        echo "</div>"; 
-        exit;
-    }
-=======
     while($rec = $sql_res->fetch()) {
         if($rec['login_id'] == $id && $rec['passwd'] == $passwd){
             // セッション
@@ -42,7 +34,6 @@ session_start();
             echo "</div>";
             exit;
         }
->>>>>>> origin/main
 
     }
     echo "<p>IDまたはパスワードに誤りがあります。</p>";
