@@ -61,6 +61,7 @@ $sql_res = $dbh->query( $sql );
             margin: 16px auto;
             list-style: none;
             padding: 10px 10px;
+            background-color: white;
         }
 
         .home {
