@@ -3,7 +3,6 @@ include "../db_open.php";
 session_start();
 if(empty($_SESSION['login_id'])){
     header('Location: login.php');
-    header('Location: login.php');
     exit();
 }
 ?>
@@ -24,7 +23,6 @@ if(empty($_SESSION['login_id'])){
         <form action="insert.php" method="POST">
             <input type="submit" value="記事を投稿する">
         </form>
-        <h2>投稿一覧</h2>
         <h2>投稿一覧</h2>
     <?php
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";

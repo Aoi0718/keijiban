@@ -26,9 +26,6 @@
             <p><a href="keijiban2.php">戻る</a></p>
         </div>
     </div>
-    <div class="back">
-    <a href="keijiban2.php"><input type="submit" value="戻る"></a>
-    </div>
     <style>
         body {
             background-image: url("okumono_mahjonggara10-1536x864.png");

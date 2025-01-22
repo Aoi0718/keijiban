@@ -35,10 +35,6 @@ $sql_res = $dbh->query( $sql );
                     <div class="wrap" contenteditable="true">{$record['content']}</div>
                 </div>
             </div>
-
-            <style>
-                
-            </style>
         ___EOF___;
     }
 ?>
