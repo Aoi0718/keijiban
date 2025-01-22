@@ -45,6 +45,7 @@ $sql_res = $dbh->query( $sql );
                     0;;
                     list-style: none;
                     padding: 10px 100px;
+                    background-color:white;
                 }
 
                 .warp {

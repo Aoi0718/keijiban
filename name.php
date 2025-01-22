@@ -16,7 +16,7 @@ session_start();
 </head>
 <body>
 <?php
-$sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
+$sql = "select * from user";
 $sql_res = $dbh->query( $sql );
 
 echo "<h2>投稿者一覧</h2>";
