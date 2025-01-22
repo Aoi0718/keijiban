@@ -23,14 +23,25 @@
                 <p>投稿内容：<textarea name="content" required></textarea></p>
                 <input type="submit" value="投稿">
             </form>
+            <p><a href="keijiban2.php">戻る</a></p>
         </div>
-    </div>
-    <div class="back">
-    <a href="keijiban2.php"><input type="submit" value="戻る"></a>
     </div>
     <style>
         body {
             background-image: url("okumono_mahjonggara10-1536x864.png");
+        }
+
+        a {
+            text-align:center;
+            border: 1px solid #000;
+            border-radius: 8px;
+            text-decoration: none;
+            padding: 2px 7px;
+            color: blue;
+        }
+
+        a:hover {
+            background-color: skyblue;
         }
     </style>
 </body>
