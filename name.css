@@ -1,11 +1,11 @@
-h2{
+h2 {
     text-align:center;
- }
- p{
+}
+
+p {
      text-align:center;
- }
- a{
-     text-align:center;
- }
- @media screen and (max-width: 600px){
- }
+}
+
+@media screen and (max-width: 600px) {
+
+}

@@ -20,7 +20,7 @@ $sql = "select * from toukou left outer join user on toukou.login_id = user.logi
 $sql_res = $dbh->query( $sql );
 
 echo "<h2>投稿者一覧</h2>";
-echo "<p><a href='keijiban2.php'>戻る</a></p>";
+echo "<p><a class='back' href='keijiban2.php'>戻る</a></p>";
 while( $record = $sql_res->fetch() ){
     echo "<p>{$record['id']}.<a href='ichiran.php?id={$record['id']}&user_name={$record['user_name']}'>{$record['user_name']}</a></p>";
 }
@@ -28,6 +28,22 @@ while( $record = $sql_res->fetch() ){
  <style>
         body {
             background-image: url("okumono_mahjonggara10-1536x864.png");
+        }
+        .back {
+            text-align:center;
+            border: 1px solid #000;
+            border-radius: 8px;
+            text-decoration: none;
+            padding: 2px 7px;
+            color: blue;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: skyblue;
         }
     </style>
 </body>
