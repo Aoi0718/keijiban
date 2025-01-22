@@ -19,7 +19,7 @@ if(empty($_SESSION['login_id'])){
 <?php
 $name = $_GET['user_name'];
 $id = $_GET['login_id'];
-$sql = "select * from toukou, user where toukou.login_id = '$id'";
+$sql = "select * from toukou, user where toukou.login_id = '$id' && user_name = '$name'";
 $sql_res = $dbh->query( $sql );
 
     echo "<h2>「{$name}」の投稿一覧</h2>";
