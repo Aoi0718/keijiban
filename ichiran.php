@@ -33,45 +33,10 @@ while( $record = $sql_res->fetch() ){
     echo "  {$record['title']}</br>";
     echo "           {$record['date']}</br>";
     echo "{$record['content']}";
-            </div>
-
-<<<<<<< HEAD
-
-    ___EOF___;
-
+           
 }
 
-=======
->>>>>>> origin/main
-            <style>
-                .border {
-                        text-align: center;
-                }
-
-                .content {
-                    border: 1px solid #000;
-                    border-radius: 8px;
-                    margin: 16px auto;
-                    0;;
-                    list-style: none;
-                    padding: 10px 100px;
-<<<<<<< HEAD
-=======
-                    background-color:white;
->>>>>>> origin/main
-                }
-
-                .warp {
-                    text-wrap: balance;
-                }
-
-                .home {
-                    margin-right: 20%;
-                    margin-left: 20%;
-                }
-            </style>
-        ___EOF___;
-    
+            
 ?>
     <style>
         body {
