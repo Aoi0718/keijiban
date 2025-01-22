@@ -17,7 +17,6 @@ if(empty($_SESSION['login_id'])){
     <body>
         <div class="contena">
             <h1>掲示板</h1>
-<<<<<<< HEAD
             <form action="name.php" method="POST">
                 <input type="submit" value="投稿者一覧">
             </form>
@@ -50,16 +49,6 @@ if(empty($_SESSION['login_id'])){
             exit();
         }
 
-=======
-        <form action="name.php" method="POST">
-            <input type="submit" value="投稿者一覧">
-        </form>
-        <form action="insert.php" method="POST">
-            <input type="submit" value="記事を投稿する">
-        </form>
-        <h2>投稿一覧</h2>
-    <?php
->>>>>>> origin/main
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         
