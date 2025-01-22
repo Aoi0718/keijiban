@@ -42,6 +42,9 @@ if(empty($_SESSION['login_id'])){
                 h2 {
                     text-align: center;
                 }
+                p{
+                    font-family: sans-serif;
+                }
 
                 .border {
                     text-align: center;
