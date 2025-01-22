@@ -33,7 +33,10 @@ if(empty($_SESSION['login_id'])){
             echo <<<___EOF___
             <div class="content">
                 <div class="border">
-                    <p>{$rec['id']} 【{$rec['title']}】 名前：{$rec['user_name']}　({$rec['date']})<br>
+                    <p>{$rec['id']}</p>
+                    <p>【{$rec['title']}】</p>
+                    <p>名前：{$rec['user_name']}</p>
+                    <p>({$rec['date']})</p>
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
                 </div>
             </div>
@@ -48,19 +51,26 @@ if(empty($_SESSION['login_id'])){
                     color: black;
                 }
 
+                p {
+                    display: inline-block;
+                }
+
+                p {
+                    display: inline-block;
+                }
+
                 .content {
                     border: 1px solid #000;
                     border-radius: 8px;
                     margin: 16px auto;
-                    0;;
                     list-style: none;
                     padding: 10px 100px;
                     background-color: white;
                 }
 
                 .home {
-                    margin-right: 20%;
-                    margin-left: 20%;
+                    margin-right: 5%;
+                    margin-left: 5%;
                 }
 
                 .warp {
