@@ -21,6 +21,9 @@ h1 {
 textarea{
     resize: none;
 }
+.back{
+    text-align: center;
+}
 @media screen and (max-width:600px) {
     h1 {
         font-size:larger;

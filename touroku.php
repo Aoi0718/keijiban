@@ -21,7 +21,7 @@
                 <p>ユーザーネーム:<input type="text" name="uname"></p>
 
                 <p>ログインID:<input type="text" name="id" pattern="^[a-zA-Z0-9]+$+@" required></p>
-                <p>パスワード:<input type="text" name="pass" pattern="^[a-zA-Z0-9]+$" required></p>
+                <p>パスワード:<input type="password" name="pass" pattern="^[a-zA-Z0-9]+$" required></p>
                 <p>ユーザーネーム:<input type="text" name="uname" required></p>
 
                 <p>ログインID:<input type="text" name="id" pattern="^[a-zA-Z0-9]+$+@" required></p>
@@ -40,6 +40,9 @@
     <style>
         body {
             background-image: url("okumono_mahjonggara10-1536x864.png");
+        }
+        .border{
+            background-color: white;
         }
     </style>
 </body>
