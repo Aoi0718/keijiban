@@ -35,11 +35,14 @@ while( $record = $sql_res->fetch() ){
     echo "{$record['content']}";
             </div>
 
+<<<<<<< HEAD
 
     ___EOF___;
 
 }
 
+=======
+>>>>>>> origin/main
             <style>
                 .border {
                         text-align: center;
@@ -52,6 +55,10 @@ while( $record = $sql_res->fetch() ){
                     0;;
                     list-style: none;
                     padding: 10px 100px;
+<<<<<<< HEAD
+=======
+                    background-color:white;
+>>>>>>> origin/main
                 }
 
                 .warp {
