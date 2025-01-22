@@ -28,6 +28,9 @@
         body {
             background-image: url("okumono_mahjonggara10-1536x864.png");
         }
+        .border{
+            background-color: white;
+        }
     </style>
 </body>
 </html>
