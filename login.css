@@ -15,7 +15,7 @@ div a{
     text-decoration: none;
     color: mediumseagreen;
 }
-@media screen and (max-width: 450px){
+@media screen and (max-width: 600px){
     div{
         text-align: center;
     }
