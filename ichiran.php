@@ -107,6 +107,7 @@ $sql_res = $dbh->query( $sql );
             text-decoration: none;
             padding: 2px 7px;
             color: blue;
+            background-color: white;
         }
 
         a:hover {
