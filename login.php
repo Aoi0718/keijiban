@@ -17,8 +17,8 @@ session_destroy();
 <?php
     echo "<div>";
     echo "<form method='POST' action='login_check.php'>";
-    echo "<p>　　　　ID:<input type='text' name='id' pattern='^[a-zA-Z0-9]+$+@' pattern='.*\S+.*' required required placeholder='30文字以内'></p>";
-    echo "<p>パスワード:<input type='password' name='passwd' pattern='^[a-zA-Z0-9]+$' pattern='.*\S+.*' required required placeholder='30文字以内'></p>";
+    echo "<p>　　　　ID:<input type='text' name='id' pattern='^[a-zA-Z0-9]+$+@+.*\S+.*' required placeholder='30文字以内'></p>";
+    echo "<p>パスワード:<input type='password' name='passwd' pattern='^[a-zA-Z0-9]+$+.*\S+.*'  required placeholder='30文字以内'></p>";
     echo "<a href='touroku.php'>新規登録</a>";
     echo "　　　　　　　　";
     echo "<input type='submit' value='ログイン'>";
