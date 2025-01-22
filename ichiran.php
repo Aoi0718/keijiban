@@ -17,6 +17,7 @@ if(empty($_SESSION['login_id'])){
     <body>
     <div class="home">
 <?php
+$name = $_GET['user_name'];
 $id = $_GET['login_id'];
 $sql = "select * from toukou, user where toukou.login_id = '$id'";
 $sql_res = $dbh->query( $sql );
