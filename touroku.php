@@ -22,6 +22,7 @@
                 <input type="submit" value="登録">
             </form>
         </div>
+        <p><a class='back' href='login.php'>戻る</a></p>
     </div>
 
     <style>
@@ -30,6 +31,10 @@
         }
         .border{
             background-color: white;
+        }
+        a{
+            text-decoration: none;
+            color:black;
         }
     </style>
 </body>
