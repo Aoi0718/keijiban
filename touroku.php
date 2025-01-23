@@ -21,8 +21,8 @@
                 <p>ユーザーネーム:<input type="text" name="uname" pattern=".*\S+.*" required placeholder="30文字以内"></p>
                 <input type="submit" value="登録">
             </form>
+            <p><a class='back' href='login.php'>戻る</a></p>
         </div>
-        <p><a class='back' href='login.php'>戻る</a></p>
     </div>
 
     <style>
