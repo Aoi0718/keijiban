@@ -81,8 +81,7 @@ while( $record = $sql_res->fetch() ){
             border-radius: 8px;
             text-decoration: none;
             padding: 2px 7px;
-            color: blue;
-            background-color: white;
+            color: red;
         }
 
         a:hover {
