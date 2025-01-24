@@ -35,6 +35,31 @@ $sql_res = $dbh->query( $sql );
                     <div class="wrap" contenteditable="true">{$record['content']}</div>
                 </div>
             </div>
+
+            <style>
+                .border {
+                        text-align: center;
+                }
+
+                .content {
+                    border: 1px solid #000;
+                    border-radius: 8px;
+                    margin: 16px auto;
+                    0;;
+                    list-style: none;
+                    padding: 10px 100px;
+                    background-color:white;
+                }
+
+                .warp {
+                    text-wrap: balance;
+                }
+
+                .home {
+                    margin-right: 20%;
+                    margin-left: 20%;
+                }
+            </style>
         ___EOF___;
     }
 ?>
