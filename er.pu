@@ -7,6 +7,7 @@ entity "toukou"{
     title char(30)
     content varchar(200)
     login_id char(30)
+    picture varchar(100)
 }
 
 entity "user"{
@@ -14,6 +15,25 @@ entity "user"{
     --
     passwd char(30)
     user_name char(30)
+    icon varchar (200)
 }
-toukou - user
+
+entity "good"{
+    id int
+    --
+    login_id char(30)
+    toukou_id char(30)
+}
+
+entity "comment"{
+    login_id char(30)
+    --
+    comment varchar(200)
+
+}
+user --|{ toukou
+good -- user
+good -- toukou
+user --|{ comment
+toukou --|{ comment
 @enduml

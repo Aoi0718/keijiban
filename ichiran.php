@@ -17,8 +17,9 @@ if(empty($_SESSION['login_id'])){
     <body>
     <div class="home">
 <?php
+$name = $_GET['user_name'];
 $id = $_GET['login_id'];
-$sql = "select * from toukou, user where toukou.login_id = '$id'";
+$sql = "select * from toukou, user where toukou.login_id = '$id' && user_name = '$name'";
 $sql_res = $dbh->query( $sql );
 
     echo "<h2>「{$name}」の投稿一覧</h2>";
@@ -105,7 +106,7 @@ $sql_res = $dbh->query( $sql );
             border-radius: 8px;
             text-decoration: none;
             padding: 2px 7px;
-            color: blue;
+            color: red;
         }
 
         a:hover {

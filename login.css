@@ -13,7 +13,7 @@ h2{
 }
 div a{
     text-decoration: none;
-    color: mediumseagreen;
+    color: black;
 }
 @media screen and (max-width: 600px){
     div{
