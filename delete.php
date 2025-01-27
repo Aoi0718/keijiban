@@ -26,17 +26,20 @@ if(empty($_SESSION['login_id'])){
         <p>以下の記事を削除しますか？</p>
         <div class="auto">
         <div class="in">
-        <h3>{$rec['title']}</h3>
+        <h2>{$rec['title']}</h2>
         <p>投稿者: {$rec['user_name']}</p>
         <p>{$rec['content']}</p>
         <p>投稿日時: {$rec['date']}</p>
         <form action="delete2.php" method="POST">
             <p>パスワード:<input type="password" name="passwd">
-            <input type="submit" value="削除"></p>
+            <input type="submit" value="削除" class="sub"></p>
             <input type="hidden" name="login_id" value='{$rec['login_id']}'>
             <input type="hidden" name="id" value='{$rec['id']}'>
         </form>
         </div>
+        </div>
+        <div class="container">
+        <a href="keijiban2.php" class="btn-border">戻る</a>
         </div>
         ___EOF___;
     } else {
