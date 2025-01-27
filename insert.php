@@ -14,18 +14,29 @@
     <title>新規登録</title>
     <link rel="stylesheet" href="insert.css">
 </head>
-<body>
+<>
     <h1>新規投稿画面</h1>
     <div class="content">
         <div class="border">
-            <form method="POST" action="exec_insert.php">
+            <form method="POST" enctype="multipart/form-data" action="exec_insert.php">
                 <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
                 <p>投稿内容：<textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea></p>
-                <input type="submit" value="投稿">
+                <input type="file" name="image"><br>
+                <input type="submit" name="upload" value="投稿">
             </form>
             <p><a href="keijiban2.php">戻る</a></p>
         </div>
     </div>
+
+    <?php
+        if(isset($_POST['upload'])){
+            $image = uniqid(mt_rand(), true);
+            $image .= '.' . substr(strrchr($_FILES['image']['name'],'.'),1);
+            $file = "images/$image";
+            
+        }
+    ?>
+
     <style>
         body {
             background-image: url("okumono_mahjonggara10-1536x864.png");
