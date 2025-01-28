@@ -6,6 +6,7 @@ if(empty($_SESSION['login_id'])){
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -26,7 +27,8 @@ if(empty($_SESSION['login_id'])){
         </div>
     </div>
 <?php
-
+//何したらいいか分かんないから自分なりにやってみてる(合ってるかはしらん)
+//googleで検索されないのなんで?URLは合ってるはずなのに...はぁ、やっぱ向いてないのかな...
     if (isset($_POST['id'])) {
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by edit desc";
         $sql_res = $dbh->query($sql);

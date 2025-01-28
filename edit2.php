@@ -16,7 +16,7 @@ if(empty($_SESSION['login_id'])){
     <body>
         <h2>記事の編集</h2>
 <?php
-
+//分かんないから丸パクリの書き換え
 if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
     echo "<p>不正なアクセスです。</p>";
 } else {
