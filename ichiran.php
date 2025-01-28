@@ -26,7 +26,6 @@ $sql_res = $dbh->query( $sql );
     echo "<div class='back'><p><a href='name.php'>戻る</a></p></div>";
 
 
-<<<<<<< HEAD
 echo "<h2>「{$name}」の投稿一覧</h2>";
 echo "<p><a href='name.php'>戻る</a></p>";
 while( $record = $sql_res->fetch() ){
@@ -39,10 +38,6 @@ while( $record = $sql_res->fetch() ){
 }
 
             
-=======
-        ___EOF___;
-    }
->>>>>>> origin/ishidaaoi
 ?>
     </div>
     </body>
