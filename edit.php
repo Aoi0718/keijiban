@@ -1,5 +1,5 @@
 <?php
-$pdo = new PDO('mysql:host=localhost;dbname=掲示板DB;charset=utf8', 'ユーザー名', 'パスワード');
+
 
 include "../db_open.php";
 session_start();
