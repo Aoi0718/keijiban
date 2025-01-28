@@ -4,17 +4,20 @@ session_start();
 if(empty($_SESSION['login_id'])){
     header('Location: login.php');
     exit();
+}
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>掲示板</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="exec_insert.css">
     </head>
     <body>
         
         <?php
-            }
+            
             if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
                 echo "<p>不正なアクセスです。</p>";
             } else {
@@ -51,18 +54,5 @@ if(empty($_SESSION['login_id'])){
                 }
             }
         ?>
-        <style>
-            h2 {
-                text-align: center;
-            }
-
-            p {
-                text-align: center;
-            }
-            
-            body {
-                background-image: url("okumono_mahjonggara10-1536x864.png");
-            }
-        </style>
     </body>
 </html>
