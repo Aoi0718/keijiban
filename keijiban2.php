@@ -15,16 +15,40 @@ if(empty($_SESSION['login_id'])){
         <link rel="stylesheet" href="keijiban2.css">
     </head>
     <body>
-        <div class="home">
+        <div class="contena">
             <h1>掲示板</h1>
-        <form action="name.php" method="POST">
-            <input type="submit" value="投稿者一覧">
-        </form>
-        <form action="insert.php" method="POST">
-            <input type="submit" value="記事を投稿する">
-        </form>
-        <h2>投稿一覧</h2>
-    <?php
+            <form action="name.php" method="POST">
+                <input type="submit" value="投稿者一覧">
+            </form>
+            <form action="insert.php" method="POST">
+                <input type="submit" value="記事を投稿する">
+            </form>
+        </div>
+    <style>
+        body {
+            background-image: url("okumono_mahjonggara10-1536x864.png");
+        }
+
+        .contena {
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 450px){
+        }
+
+    </style>
+<?php
+        if(empty($_SESSION['login_id'])){
+
+            header('Location: .login.php');
+            exit();
+        }else{
+
+
+            header('Location: .login.php');
+            exit();
+        }
+
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         
