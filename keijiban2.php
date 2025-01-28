@@ -38,12 +38,18 @@ if(empty($_SESSION['login_id'])){
                     <p>名前：{$rec['user_name']}</p>
                     <p>({$rec['date']})</p>
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
+                    <form action='delete.php' method='POST'>
+                        <input type='hidden' name='id' value='{$rec['login_id']}'>
+                    <input type='submit' value='削除'></form>
                 </div>
             </div>
 
             <style>
                 h2 {
                     text-align: center;
+                }
+                p{
+                    font-family: sans-serif;
                 }
 
                 .border {
