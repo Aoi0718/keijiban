@@ -15,7 +15,6 @@ if(empty($_SESSION['login_id'])){
         <link rel="stylesheet" href="exec_insert.css">
     </head>
     <body>
-        
         <?php
             
             if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
@@ -40,17 +39,13 @@ if(empty($_SESSION['login_id'])){
                 }elseif(mb_strlen( $content, "UTF-8") > 200){
                     echo "<p>投稿内容は200文字以内で入力してください。<p>";
                     echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
-                }else{
-                // SQL
-                $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}')";
-
-                $sql = "SELECT * FROM toukou LEFT outer join user on toukou.login_id = user.login_id";
-                $sql_res = $dbh->query( $sql );
-                $sql = "INSERT INTO toukou VALUE (null, '{$date}', '{$title}', '{$content}', '{$login_id}')";
-                $sql_res = $dbh->query( $sql );
-                
-                echo "<h2>記事を追加しました。</h2>";
-                echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
+                } else {
+                    // SQL
+                    $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}', '')";
+                    $sql_res = $dbh->query( $sql );
+                    
+                    echo "<h2>記事を追加しました。</h2>";
+                    echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
                 }
             }
         ?>

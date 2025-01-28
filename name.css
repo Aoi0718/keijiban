@@ -1,0 +1,31 @@
+h2 {
+    text-align:center;
+}
+
+p {
+     text-align:center;
+}
+
+body {
+    background-image: url("okumono_mahjonggara10-1536x864.png");
+}
+
+.back {
+    text-align:center;
+    border: 1px solid #000;
+    border-radius: 8px;
+    text-decoration: none;
+    padding: 2px 7px;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: skyblue;
+}
+@media screen and (max-width: 600px) {
+
+}
