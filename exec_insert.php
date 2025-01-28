@@ -16,10 +16,7 @@ if(empty($_SESSION['login_id'])){
     </head>
     <body>
         <?php
-<<<<<<< HEAD
-=======
             
->>>>>>> main
             if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
                 echo "<p>不正なアクセスです。</p>";
             } else {
