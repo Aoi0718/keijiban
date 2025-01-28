@@ -26,8 +26,10 @@ entity "good"{
 }
 
 entity "comment"{
-    login_id char(30)
+    id int
     --
+    toukou_id int
+    login_id char(30)
     comment varchar(200)
 
 }

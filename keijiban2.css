@@ -6,10 +6,6 @@ h1 {
     text-align: center;
 }
 
-form {
-    text-align: center;
-}
-
 h2 {
     text-align: center;
 }
@@ -18,12 +14,38 @@ h3 {
     text-align: center;    
 }
 
+form {
+    text-align: center;
+}
+
 p{
     text-align: center;
+    font-family: sans-serif;
+    display: inline-block;
 }
 
 .wrap {
     padding: 0px 15px 10px 15px;
+    text-wrap: balance;
+}
+
+.border {
+    text-align: center;
+    color: black;
+}
+
+.content {
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 16px auto;
+    list-style: none;
+    padding: 10px 100px;
+    background-color: white;
+}
+
+.home {
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
 @media screen and (max-width: 600px){

@@ -43,46 +43,6 @@ if(empty($_SESSION['login_id'])){
                     <input type='submit' value='削除'></form>
                 </div>
             </div>
-
-            <style>
-                h2 {
-                    text-align: center;
-                }
-                p{
-                    font-family: sans-serif;
-                }
-
-                .border {
-                    text-align: center;
-                    color: black;
-                }
-
-                p {
-                    display: inline-block;
-                }
-
-                p {
-                    display: inline-block;
-                }
-
-                .content {
-                    border: 1px solid #000;
-                    border-radius: 8px;
-                    margin: 16px auto;
-                    list-style: none;
-                    padding: 10px 100px;
-                    background-color: white;
-                }
-
-                .home {
-                    margin-right: 5%;
-                    margin-left: 5%;
-                }
-
-                .warp {
-                    text-wrap: balance;
-                }
-            </style>
             ___EOF___;
         }
     ?>
