@@ -1,38 +1,50 @@
-<?php
-
-
+<?PHP
 include "../db_open.php";
 session_start();
 if(empty($_SESSION['login_id'])){
     header('Location: login.php');
     exit();
 }
-
-$id = intval($_GET['id']);
-$sql = "SELECT * FROM posts WHERE id = ?";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$id]);
-$post = $stmt->fetch();
-
-if (!$post) {
-    die("投稿が見つかりません");
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>投稿編集</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="edit.css">
+    <title>記事の編集</title>
 </head>
 <body>
-    <h1>投稿編集</h1>
-    <form action="update.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
-        <label>タイトル: <input type="text" name="title" value="<?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?>"></label><br>
-        <label>内容: <textarea name="content"><?php echo htmlspecialchars($post['content'], ENT_QUOTES, 'UTF-8'); ?></textarea></label><br>
-        <button type="submit">更新</button>
-    </form>
-    <a href="keijiban2.php">戻る</a>
+<?php
+
+    if (isset($_POST['id'])) {
+        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
+        $sql_res = $dbh->query($sql);
+        $rec = $sql_res->fetch();
+        echo <<<___EOF___
+
+        <p>以下の記事を編集しますか？</p>
+        <div class="auto">
+        <div class="in">
+        <h2>{$rec['title']}</h2>
+        <p>投稿者: {$rec['user_name']}</p>
+        <p>{$rec['content']}</p>
+        <p>投稿日時: {$rec['date']}</p>
+        <form action="delete2.php" method="POST">
+            <p>パスワード:<input type="password" name="passwd">
+            <input type="submit" value="削除" class="sub"></p>
+            <input type="hidden" name="login_id" value='{$rec['login_id']}'>
+            <input type="hidden" name="id" value='{$rec['id']}'>
+        </form>
+        </div>
+        </div>
+        <div class="container">
+        <a href="keijiban2.php" class="btn-border">戻る</a>
+        </div>
+        ___EOF___;
+    } else {
+        echo "<p>不正なアクセスです。</p>";
+    }
+    ?>
 </body>
 </html>

@@ -53,6 +53,7 @@ if(empty($_SESSION['login_id'])){
                     <form action='delete.php' method='POST'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
                     <input type='submit' value='削除'></form>
+                    <input type='submit' value='編集'></form>
                 </div>
             </div>
             ___EOF___;
@@ -60,7 +61,6 @@ if(empty($_SESSION['login_id'])){
     ?>
             </div>
         </div>
-<<<<<<< HEAD
         <?php
 
 $sql = "SELECT * FROM posts ORDER BY created_at DESC";
@@ -88,8 +88,5 @@ $sql = "SELECT * FROM posts ORDER BY created_at DESC";
 </body>
 </html>
 
-=======
-    <script src="good.js" type="text/javascript"></script>
->>>>>>> origin/komatsu
     </body>
 </html>
