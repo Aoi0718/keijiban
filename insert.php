@@ -21,21 +21,13 @@
             <form method="POST" enctype="multipart/form-data" action="exec_insert.php">
                 <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
                 <p>投稿内容：<textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea></p>
-                <input type="file" name="image"><br>
                 <input type="submit" name="upload" value="投稿">
             </form>
             <p><a href="keijiban2.php">戻る</a></p>
         </div>
     </div>
 
-    <?php
-        if(isset($_POST['upload'])){
-            $image = uniqid(mt_rand(), true);
-            $image .= '.' . substr(strrchr($_FILES['image']['name'],'.'),1);
-            $file = "images/$image";
-            
-        }
-    ?>
+    
 
     <style>
         body {
