@@ -15,6 +15,16 @@ if(empty($_SESSION['login_id'])){
     <title>記事の編集</title>
 </head>
 <body>
+<div class="content">
+        <div class="border">
+            <form method="POST" action="edit2.php">
+                <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
+                <p>投稿内容：<textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea></p>
+                <input type="submit" value="投稿">
+            </form>
+            <p><a href="keijiban2.php">戻る</a></p>
+        </div>
+    </div>
 <?php
 
     if (isset($_POST['id'])) {
