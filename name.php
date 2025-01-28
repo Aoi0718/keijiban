@@ -7,7 +7,7 @@ session_start();
         }
 ?>
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,26 +25,5 @@ while( $record = $sql_res->fetch() ){
     echo "<p><a href='ichiran.php?login_id={$record['login_id']}&user_name={$record['user_name']}'>{$record['user_name']}</a></p>";
 }
 ?>
- <style>
-        body {
-            background-image: url("okumono_mahjonggara10-1536x864.png");
-        }
-        .back {
-            text-align:center;
-            border: 1px solid #000;
-            border-radius: 8px;
-            text-decoration: none;
-            padding: 2px 7px;
-            color: black;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        a:hover {
-            background-color: skyblue;
-        }
-    </style>
 </body>
 </html>

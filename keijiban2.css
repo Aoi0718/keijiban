@@ -6,26 +6,118 @@ h1 {
     text-align: center;
 }
 
-form {
-    text-align: center;
-}
-
 h2 {
     text-align: center;
+    color: blue;
 }
 
 h3 {
     text-align: center;    
 }
 
+form {
+    text-align: center;
+}
+
 p{
     text-align: center;
+    font-family: sans-serif;
+    display: inline-block;
 }
 
 .wrap {
     padding: 0px 15px 10px 15px;
+    text-wrap: balance;
 }
 
+.border {
+    text-align: center;
+    color: black;
+}
+
+.content {
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 16px auto;
+    list-style: none;
+    padding: 10px 100px;
+    background-color: white;
+}
+
+.home {
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.head{
+    color: blue;/*文字の色*/
+    display: flex;/*掲示板とaタグを横並びにする*/
+    justify-content: center;/*掲示板とaタグの間をあけるやつ*/
+}
+.li{
+    list-style: none;/*・をなくす*/
+    padding-left: 15px;/*ホームページとクイズの間*/
+}
+.ul{
+    display: flex;
+}
+.aa{
+    text-decoration: none;
+}
+.gg{
+    align-items: center;
+    margin: auto/*上下*/ 0px/*縦*/;
+}
+
+.likeButton {
+    color: #888;
+    font-size: 10px;
+    background-color: transparent;
+    border: 0.1em solid;
+    border-radius: 1em;
+    padding: 0.333em 1em 0.25em;
+    line-height: 1.2em;
+    box-shadow: 0 0.25em 1em -0.25em;
+    cursor: pointer;
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out;
+    outline: 0;
+    }
+    .likeButton__icon {
+    display: inline-block;
+    fill: currentColor;
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.2em;
+    }
+
+    .likeButton {
+        color: #888;
+        font-size: 10px;
+        background-color: transparent;
+        border: 0.1em solid;
+        border-radius: 1em;
+        padding: 0.333em 1em 0.25em;
+        line-height: 1.2em;
+        box-shadow: 0 0.25em 1em -0.25em;
+        cursor: pointer;
+        transition: color 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out;
+        outline: 0;
+        }
+        .likeButton__icon {
+        display: inline-block;
+        fill: currentColor;
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 0.2em;
+        }
+        .likeButton:hover {
+        color: #e5348c;
+        }
+        .likeButton.liked {
+        color: #ffffff;
+        background-color: #e5348c;
+        border-color: #e5348c;
+        }
+        
 @media screen and (max-width: 600px){
     p {
         font-size:larger;
