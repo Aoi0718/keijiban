@@ -34,8 +34,8 @@ entity "comment"{
 
 }
 user --|{ toukou
-good -- user
-good -- toukou
+good }|-- user
+good }|-- toukou
 user --|{ comment
 toukou --|{ comment
 @enduml
