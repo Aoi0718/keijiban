@@ -15,15 +15,21 @@ if(empty($_SESSION['login_id'])){
         <link rel="stylesheet" href="keijiban2.css">
     </head>
     <body>
-        <div class="home">
-            <h1>掲示板</h1>
-        <form action="name.php" method="POST">
-            <input type="submit" value="投稿者一覧">
-        </form>
-        <form action="insert.php" method="POST">
-            <input type="submit" value="記事を投稿する">
-        </form>
-        <h2>投稿一覧</h2>
+            <header class="head">
+                <h1>掲示板</h1>
+                <div class="gg">
+                    <div class="ul">
+                        <form action="name.php" method="POST" class="li">
+                            <input type="submit" value="投稿者一覧">
+                        </form>
+                        <form action="insert.php" method="POST" class="li">
+                            <input type="submit" value="記事を投稿する">
+                        </form>
+                    </div>
+                </div>
+            </header>
+            <h2>投稿一覧</h2>
+        <div class="home">  
     <?php
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );

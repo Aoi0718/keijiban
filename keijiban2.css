@@ -8,6 +8,7 @@ h1 {
 
 h2 {
     text-align: center;
+    color: blue;
 }
 
 h3 {
@@ -47,7 +48,25 @@ p{
     margin-right: 5%;
     margin-left: 5%;
 }
-
+.head{
+    color: blue;/*文字の色*/
+    display: flex;/*掲示板とaタグを横並びにする*/
+    justify-content: center;/*掲示板とaタグの間をあけるやつ*/
+}
+.li{
+    list-style: none;/*・をなくす*/
+    padding-left: 15px;/*ホームページとクイズの間*/
+}
+.ul{
+    display: flex;
+}
+.aa{
+    text-decoration: none;
+}
+.gg{
+    align-items: center;
+    margin: auto/*上下*/ 0px/*縦*/;
+}
 @media screen and (max-width: 600px){
     p {
         font-size:larger;
