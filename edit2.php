@@ -11,7 +11,7 @@ if(empty($_SESSION['login_id'])){
     <head>
         <title>掲示板</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="delete.css">
+        <link rel="stylesheet" href="edit.css">
     </head>
     <body>
         <h2>記事の編集</h2>
