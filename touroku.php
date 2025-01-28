@@ -24,18 +24,5 @@
             <p><a class='back' href='login.php'>戻る</a></p>
         </div>
     </div>
-
-    <style>
-        body {
-            background-image: url("okumono_mahjonggara10-1536x864.png");
-        }
-        .border{
-            background-color: white;
-        }
-        a{
-            text-decoration: none;
-            color:black;
-        }
-    </style>
 </body>
 </html>

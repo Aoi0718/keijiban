@@ -3,9 +3,11 @@ include "../db_open.php";
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="exec_toukou.css" rel="stylesheet">
     <title>登録完了画面</title>
 </head>
 <body>
@@ -49,8 +51,10 @@ session_start();
                     exit;
             }
         }
+        //パスワードのハッシュ化
+        $pass = 
         // SQL
-        $sql = "INSERT INTO user VALUE ('{$LoginID}','{$pass}','{$uname}')";
+        $sql = "INSERT INTO user VALUE ('{$LoginID}','{$pass}','{$uname}','')";
         $sql_res = $dbh->query( $sql );
 
         echo "<p>ユーザーの登録が完了しました。</p>";
@@ -58,13 +62,6 @@ session_start();
         }
     }
     ?>
-    <style>
-        body {
-            background-image: url("okumono_mahjonggara10-1536x864.png");
-        }
-        p {
-            text-align: center;
-        }
-    </style>
+
 </body>
 </html>

@@ -19,3 +19,16 @@
 	display: inline-block;
     padding: 10px 50px;
 }
+
+body {
+    background-image: url("okumono_mahjonggara10-1536x864.png");
+}
+
+.border{
+    background-color: white;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
