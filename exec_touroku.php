@@ -11,7 +11,6 @@ session_start();
     <title>登録完了画面</title>
 </head>
 <body>
-    
     <?php
         if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
             echo "<p>不正なアクセスです。</p>";
