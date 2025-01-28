@@ -16,6 +16,10 @@ if(empty($_SESSION['login_id'])){
     </head>
     <body>
         <?php
+<<<<<<< HEAD
+=======
+            
+>>>>>>> main
             if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
                 echo "<p>不正なアクセスです。</p>";
             } else {
@@ -40,7 +44,7 @@ if(empty($_SESSION['login_id'])){
                     echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                 } else {
                     // SQL
-                    $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}')";
+                    $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}', '')";
                     $sql_res = $dbh->query( $sql );
                     echo "<h2>記事を追加しました。</h2>";
                     echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
