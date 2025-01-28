@@ -33,8 +33,7 @@ if(empty($_SESSION['login_id'])){
         }else{
             echo "<p>パスワードが違います。</p>";
         }
-
-    }
+            }
 ?>
     <div class="container">
         <a href="keijiban2.php" class="btn-border">戻る</a>

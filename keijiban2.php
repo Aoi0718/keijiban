@@ -55,9 +55,9 @@ if(empty($_SESSION['login_id'])){
             </div>
         </div>
         <?php
-$pdo = new PDO('mysql:host=localhost;dbname=掲示板DB;charset=utf8', 'ユーザー名', 'パスワード');
+
 $sql = "SELECT * FROM posts ORDER BY created_at DESC";
-$posts = $pdo->query($sql);
+
 ?>
 
 <!DOCTYPE html>
