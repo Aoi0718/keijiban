@@ -21,9 +21,12 @@ $name = $_GET['user_name'];
 $id = $_GET['login_id'];
 $sql = "select * from toukou, user where toukou.login_id = '$id' && user_name = '$name'";
 $sql_res = $dbh->query( $sql );
-
-echo "<h2>「{$name}」の投稿一覧</h2>";
-echo "<div class='back'><p><a href='name.php'>戻る</a></p></div>";
+echo <<<___EOF___
+<h2>「{$name}」の投稿一覧</h2>
+<div class="container">
+        <a href="keijiban2.php" class="btn-border">戻る</a>
+</div>
+___EOF___;
 while( $record = $sql_res->fetch() ) {
     echo <<<___EOF___
         <div class="content">
@@ -36,27 +39,9 @@ while( $record = $sql_res->fetch() ) {
             </div>
         </div>
 
-            <style>
-                .border {
-                        text-align: center;
-                }
 
-                .content {
-                    border: 1px solid #000;
-                    border-radius: 8px;
-                    margin: 16px auto;
-                    0;;
-                    list-style: none;
-                    padding: 10px 100px;
-                    background-color:white;
-                }
-
-                .warp {
-                    text-wrap: balance;
-                }
-            </style>
-        ___EOF___;
-    }
+    ___EOF___;
+}
 ?>
     </div>
     </body>
