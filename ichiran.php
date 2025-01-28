@@ -36,8 +36,27 @@ while( $record = $sql_res->fetch() ) {
             </div>
         </div>
 
-    ___EOF___;
-}
+            <style>
+                .border {
+                        text-align: center;
+                }
+
+                .content {
+                    border: 1px solid #000;
+                    border-radius: 8px;
+                    margin: 16px auto;
+                    0;;
+                    list-style: none;
+                    padding: 10px 100px;
+                    background-color:white;
+                }
+
+                .warp {
+                    text-wrap: balance;
+                }
+            </style>
+        ___EOF___;
+    }
 ?>
     </div>
     </body>
