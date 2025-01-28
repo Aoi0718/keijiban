@@ -24,7 +24,7 @@ $sql_res = $dbh->query( $sql );
 echo <<<___EOF___
 <h2>「{$name}」の投稿一覧</h2>
 <div class="container">
-        <a href="keijiban2.php" class="btn-border">戻る</a>
+        <a href="name.php" class="btn-border">戻る</a>
 </div>
 ___EOF___;
 while( $record = $sql_res->fetch() ) {
