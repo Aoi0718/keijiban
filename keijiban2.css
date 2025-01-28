@@ -67,6 +67,57 @@ p{
     align-items: center;
     margin: auto/*上下*/ 0px/*縦*/;
 }
+
+.likeButton {
+    color: #888;
+    font-size: 10px;
+    background-color: transparent;
+    border: 0.1em solid;
+    border-radius: 1em;
+    padding: 0.333em 1em 0.25em;
+    line-height: 1.2em;
+    box-shadow: 0 0.25em 1em -0.25em;
+    cursor: pointer;
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out;
+    outline: 0;
+    }
+    .likeButton__icon {
+    display: inline-block;
+    fill: currentColor;
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.2em;
+    }
+
+    .likeButton {
+        color: #888;
+        font-size: 10px;
+        background-color: transparent;
+        border: 0.1em solid;
+        border-radius: 1em;
+        padding: 0.333em 1em 0.25em;
+        line-height: 1.2em;
+        box-shadow: 0 0.25em 1em -0.25em;
+        cursor: pointer;
+        transition: color 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out;
+        outline: 0;
+        }
+        .likeButton__icon {
+        display: inline-block;
+        fill: currentColor;
+        width: 0.8em;
+        height: 0.8em;
+        margin-right: 0.2em;
+        }
+        .likeButton:hover {
+        color: #e5348c;
+        }
+        .likeButton.liked {
+        color: #ffffff;
+        background-color: #e5348c;
+        border-color: #e5348c;
+        }
+        
 @media screen and (max-width: 600px){
     p {
         font-size:larger;
