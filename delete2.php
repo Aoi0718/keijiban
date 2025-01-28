@@ -35,6 +35,8 @@ if(empty($_SESSION['login_id'])){
         }
     }
 ?>
-    <p><a href="keijiban2.php">戻る</a><p>
+    <div class="container">
+        <a href="keijiban2.php" class="btn-border">戻る</a>
+    </div>
     </body>
 </html>
