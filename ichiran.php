@@ -55,11 +55,6 @@ $sql_res = $dbh->query( $sql );
                 .warp {
                     text-wrap: balance;
                 }
-
-                .home {
-                    margin-right: 20%;
-                    margin-left: 20%;
-                }
             </style>
         ___EOF___;
     }

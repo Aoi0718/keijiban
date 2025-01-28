@@ -36,7 +36,8 @@ if(empty($_SESSION['login_id'])){
                     <p>{$rec['id']}</p>
                     <p>【{$rec['title']}】</p>
                     <p>名前：{$rec['user_name']}</p>
-                    <p>({$rec['date']})</p>
+                    <p>({$rec['date']})</p><br>
+                    <img src="images/{$rec['picture']}" width="300" height="400">
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
                     <form action='delete.php' method='POST'>
                         <input type='hidden' name='id' value='{$rec['login_id']}'>
