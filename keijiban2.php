@@ -54,5 +54,32 @@ if(empty($_SESSION['login_id'])){
     ?>
             </div>
         </div>
+        <?php
+$pdo = new PDO('mysql:host=localhost;dbname=掲示板DB;charset=utf8', 'ユーザー名', 'パスワード');
+$sql = "SELECT * FROM posts ORDER BY created_at DESC";
+$posts = $pdo->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>掲示板</title>
+</head>
+<body>
+    <h1>掲示板</h1>
+    <a href="new.php">新規投稿</a>
+    <ul>
+        <?php foreach ($posts as $post): ?>
+            <li>
+                <strong><?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?></strong><br>
+                <?php echo nl2br(htmlspecialchars($post['content'], ENT_QUOTES, 'UTF-8')); ?><br>
+                <a href="edit.php?id=<?php echo $post['id']; ?>">編集</a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+</html>
+
     </body>
 </html>

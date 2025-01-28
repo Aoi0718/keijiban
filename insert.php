@@ -30,5 +30,6 @@
             <p><a href="keijiban2.php">戻る</a></p>
         </div>
     </div>
+    
 </body>
 </html>
