@@ -12,7 +12,6 @@ if(empty($_SESSION['login_id'])){
         <meta charset="UTF-8">
     </head>
     <body>
-        
         <?php
             }
             if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
