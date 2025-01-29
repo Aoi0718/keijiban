@@ -65,15 +65,15 @@ if(empty($_SESSION['login_id'])){
                                     }
                                 }
                             } else {
-                                echo "ファイルサイズが大きすぎます。";
+                                echo "<h2>ファイルサイズが大きすぎます。</h2>";
                                 echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                             }
                         } else {
-                            echo "許可されている拡張子ではありません。";
+                            echo "<h2>許可されている拡張子ではありません。</h2>";
                             echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                         }
                     } else {
-                        echo "ファイルが選択されていません。";
+                        echo "<h2>ファイルが選択されていません。</h2>";
                         echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                     }
                 }
