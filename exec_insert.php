@@ -44,18 +44,37 @@ if(empty($_SESSION['login_id'])){
                     $image = uniqid(mt_rand(), true);
                     $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
                     $file = "images/$image";
-                    // SQL
-                    $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}', '{$image}')";
-                    $sql_res = $dbh->query( $sql );
-                    
-                    if( !empty($_FILES['image']['name'])){
-                        move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);
-                        if(exif_imagetype($file)) {
-                            echo "<h2>記事を追加しました。</h2>";
-                            echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
+                    $fileExt = $_FILES['image']['name'];     // ファイル名を取得
+                    $tmpfile = $_FILES['image']['tmp_name'];
+                    $Ext = pathinfo($fileExt, PATHINFO_EXTENSION);
+                    $array = array("jpg", "jpeg" , "png", "gif");
+                    $size = $_FILES["image"]["size"];
+                    if(is_uploaded_file($tmpfile)) {
+                        if(in_array($Ext, $array)) {
+                            if($size < 2097152) {
+                                if( !empty($_FILES['image']['name'])){
+                                    move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);
+                                    if(exif_imagetype($file)) {
+                                        // SQL
+                                        $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}', '{$image}')";
+                                        $sql_res = $dbh->query( $sql );
+                                        echo "<h2>記事を追加しました。</h2>";
+                                        echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
+                                    } else {
+                                        $message = '画像ファイルではありません。';
+                                    }
+                                }
+                            } else {
+                                echo "ファイルサイズが大きすぎます。";
+                                echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                            }
                         } else {
-                            $message = '画像ファイルではありません。';
+                            echo "許可されている拡張子ではありません。";
+                            echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                         }
+                    } else {
+                        echo "ファイルが選択されていません。";
+                        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                     }
                 }
             }
