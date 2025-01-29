@@ -14,7 +14,7 @@ if(empty($_SESSION['login_id'])){
         <link rel="stylesheet" href="edit.css">
     </head>
     <body>
-        
+    <form method="POST" enctype="multipart/form-data" action="update.php">
 <?php
  if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
     echo "<p>不正なアクセスです。</p>";

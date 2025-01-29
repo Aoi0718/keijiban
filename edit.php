@@ -30,34 +30,7 @@ if(empty($_SESSION['login_id'])){
             <p><a href="keijiban2.php">戻る</a></p>
         </div>
     </div>
-<?php
 
-    if (isset($_POST['id'])) {
-        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
-        $sql_res = $dbh->query($sql);
-        $rec = $sql_res->fetch();
-        echo <<<___EOF___
 
-        <p>以下の記事を編集しますか？</p>
-        <div class="auto">
-        <div class="in">
-        <h2>{$rec['title']}</h2>
-        <p>投稿者: {$rec['user_name']}</p>
-        <p>{$rec['content']}</p>
-        <p>投稿日時: {$rec['date']}</p>
-        <form action="edit2.php" method="POST">
-            <p>パスワード:<input type="password" name="passwd">
-            <input type="submit" value="編集" class="sub"></p>
-            <input type="hidden" name="login_id" value='{$rec['login_id']}'>
-            <input type="hidden" name="id" value='{$rec['id']}'>
-        </form>
-        </div>
-        </div>
-        <div class="container">
-        <a href="keijiban2.php" class="btn-border">戻る</a>
-        </div>
-        ___EOF___;
-    }
-    ?>
 </body>
 </html>
