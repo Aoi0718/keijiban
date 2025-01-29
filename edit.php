@@ -11,8 +11,8 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="edit.css">
-    <title>記事の編集</title>
+    <link rel="stylesheet" href="delete.css">
+    <title>記事の削除</title>
 </head>
 <body>
 <?php
@@ -23,7 +23,7 @@ if(empty($_SESSION['login_id'])){
         $rec = $sql_res->fetch();
         echo <<<___EOF___
 
-        <p>以下の記事を編集しますか？</p>
+        <p>以下の記事を削除しますか？</p>
         <div class="auto">
         <div class="in">
         <h2>{$rec['title']}</h2>

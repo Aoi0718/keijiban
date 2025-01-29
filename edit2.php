@@ -11,10 +11,10 @@ if(empty($_SESSION['login_id'])){
     <head>
         <title>掲示板</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="edit.css">
+        <link rel="stylesheet" href="delete.css">
     </head>
     <body>
-        <h2>記事の編集</h2>
+        <h2>記事の削除</h2>
 <?php
 
     if( $_SERVER["REQUEST_METHOD"] != "POST" ){
