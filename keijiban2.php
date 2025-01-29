@@ -53,7 +53,7 @@ if(empty($_SESSION['login_id'])){
                     <form action='delete.php' method='POST'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
                     <input type='submit' value='削除'></form>
-                    <input type='submit' value='編集'></form>
+                    <input type='submit' onclick="location.href='edit.php'" value='編集'></form>
                 </div>
             </div>
             ___EOF___;
