@@ -14,9 +14,11 @@ if(empty($_SESSION['login_id'])){
     <link rel="stylesheet" href="edit.css">   
     <title>記事の編集</title>
 </head>
-<div class="content">
+<body>
+<h1>新規投稿画面</h1>
+    <div class="content">
         <div class="border">
-            <form method="POST" enctype="multipart/form-data" action="edit2.php">
+            <form method="POST" enctype="multipart/form-data" action="exec_insert.php">
                 <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
                 <div class='content'>
                 <p class="toukou">投稿内容：</p>
@@ -28,7 +30,6 @@ if(empty($_SESSION['login_id'])){
             <p><a href="keijiban2.php">戻る</a></p>
         </div>
     </div>
-<body>
 <?php
 
     if (isset($_POST['id'])) {
@@ -44,7 +45,7 @@ if(empty($_SESSION['login_id'])){
         <p>投稿者: {$rec['user_name']}</p>
         <p>{$rec['content']}</p>
         <p>投稿日時: {$rec['date']}</p>
-        <form action="delete2.php" method="POST">
+        <form action="edit2.php" method="POST">
             <p>パスワード:<input type="password" name="passwd">
             <input type="submit" value="編集" class="sub"></p>
             <input type="hidden" name="login_id" value='{$rec['login_id']}'>

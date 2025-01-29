@@ -32,26 +32,26 @@ if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
 
     if(trim(str_replace('　','',$content)) === ''){
     echo "スペースまたは空欄での投稿はできません";
-    echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+    echo "<p><a href='edit.php'>投稿画面に戻る</a></p>";
     }elseif(mb_strlen( $title, "UTF-8") > 30){
         echo "<p>タイトルは30文字以内で入力してください。<p>";
-        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+        echo "<p><a href='edit.php'>投稿画面に戻る</a></p>";
     }elseif(mb_strlen( $content, "UTF-8") > 200){
         echo "<p>投稿内容は200文字以内で入力してください。<p>";
-        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+        echo "<p><a href='edit.php'>投稿画面に戻る</a></p>";
     } else {
         $image = uniqid(mt_rand(), true);
         $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
         $file = "images/$image";
         // SQL
-        $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}', '{$image}')";
+        $sql = "INSERT INTO edit VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}', '{$image}')";
         $sql_res = $dbh->query( $sql );
         
         if( !empty($_FILES['image']['name'])){
             move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);
             if(exif_imagetype($file)) {
-                echo "<h2>記事を追加しました。</h2>";
-                echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
+                echo "<h2>記事を編集しました。</h2>";
+                echo "<p><a href='edit.php'>投稿一覧に戻る</a></p>";
             } else {
                 $message = '画像ファイルではありません。';
             }
@@ -61,7 +61,7 @@ if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
 ?>
     
     <div class="container">
-        <a href="keijiban2.php" class="btn-border">戻る</a>
+        <a href=".php" class="btn-border">戻る</a>
     </div>
     </body>
 </html>
