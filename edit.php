@@ -56,8 +56,6 @@ if(empty($_SESSION['login_id'])){
         <a href="keijiban2.php" class="btn-border">戻る</a>
         </div>
         ___EOF___;
-    } else {
-        echo "<p>不正なアクセスです。</p>";
     }
     ?>
 </body>
