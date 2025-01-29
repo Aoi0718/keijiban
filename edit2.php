@@ -11,10 +11,10 @@ if(empty($_SESSION['login_id'])){
     <head>
         <title>掲示板</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="delete.css">
+        <link rel="stylesheet" href="edit.css">
     </head>
     <body>
-        <h2>記事の削除</h2>
+        <h2>記事の編集</h2>
 <?php
 
     if( $_SERVER["REQUEST_METHOD"] != "POST" ){
@@ -29,7 +29,7 @@ if(empty($_SESSION['login_id'])){
         if( $rec && $rec['passwd'] === $pass ){
             $sql = "DELETE FROM toukou where id = '$id'";
             $sql_res = $dbh->query( $sql );
-            echo "<p>記事を削除しました。</p>";
+            echo "<p>記事を編集しました。</p>";
         }else{
             echo "<p>パスワードが違います。</p>";
         }

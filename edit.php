@@ -11,9 +11,23 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="delete.css">
-    <title>記事の削除</title>
+    <link rel="stylesheet" href="edit.css">   
+    <title>記事の編集</title>
 </head>
+<div class="content">
+        <div class="border">
+            <form method="POST" enctype="multipart/form-data" action="exec_insert.php">
+                <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
+                <div class='content'>
+                <p class="toukou">投稿内容：</p>
+                <textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea>
+                </div>
+                <input type="file" name="image">
+                <input type="submit" name="upload" value="投稿">
+            </form>
+            <p><a href="keijiban2.php">戻る</a></p>
+        </div>
+    </div>
 <body>
 <?php
 
@@ -23,7 +37,7 @@ if(empty($_SESSION['login_id'])){
         $rec = $sql_res->fetch();
         echo <<<___EOF___
 
-        <p>以下の記事を削除しますか？</p>
+        <p>以下の記事を編集しますか？</p>
         <div class="auto">
         <div class="in">
         <h2>{$rec['title']}</h2>
@@ -32,7 +46,7 @@ if(empty($_SESSION['login_id'])){
         <p>投稿日時: {$rec['date']}</p>
         <form action="delete2.php" method="POST">
             <p>パスワード:<input type="password" name="passwd">
-            <input type="submit" value="削除" class="sub"></p>
+            <input type="submit" value="編集" class="sub"></p>
             <input type="hidden" name="login_id" value='{$rec['login_id']}'>
             <input type="hidden" name="id" value='{$rec['id']}'>
         </form>
