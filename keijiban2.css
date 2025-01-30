@@ -15,6 +15,11 @@ h3 {
     text-align: center;    
 }
 
+h4 {
+    margin-top: 11px;
+    margin-right: 8px;
+}
+
 form {
     text-align: center;
 }
@@ -66,6 +71,9 @@ p{
 .gg{
     align-items: center;
     margin: auto/*上下*/ 0px/*縦*/;
+}
+.flex {
+    display: flex;
 }
 
 .likeButton {

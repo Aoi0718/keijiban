@@ -16,6 +16,14 @@ if(empty($_SESSION['login_id'])){
     </head>
     <body>
     <header class="head">
+    <div class="gg">
+        <div class="ul">
+            <form action="user_set.php" method="POST" class="li">
+                <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
+                <input type="submit" value="ユーザー設定">
+            </form>
+        </div>
+    </div>
         <h1>掲示板</h1>
         <div class="gg">
             <div class="ul">
@@ -43,11 +51,13 @@ if(empty($_SESSION['login_id'])){
             echo <<<___EOF___
             <div class="content">
                 <div class="border">
-                    <p>{$rec['id']}</p>
-                    <p>【{$rec['title']}】</p>
-                    <img src="images/{$_SESSION['icon']}" width="30" height="30" style="border-radius: 50%;">
-                    <p>名前：{$rec['user_name']}</p>
-                    <p>({$rec['date']})</p><br>
+                    <div class="flex">
+                        <p>{$rec['id']}</p>
+                        <p>【{$rec['title']}】</p>
+                        <h4><img src="images/{$_SESSION['icon']}" width="30" height="30" style="border-radius: 50%;"></h4>
+                        <p>名前：{$rec['user_name']}</p>
+                        <p>({$rec['date']})</p><br>
+                    </div>
                     <img src="images/{$rec['picture']}" width="300" height="400">
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
                     <button type="button" class="likeButton">
