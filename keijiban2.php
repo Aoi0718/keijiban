@@ -41,6 +41,7 @@ if(empty($_SESSION['login_id'])){
                 <div class="border">
                     <p>{$rec['id']}</p>
                     <p>【{$rec['title']}】</p>
+                    <img src="images/{$_SESSION['icon']}" width="30" height="30" style="border-radius: 50%;">
                     <p>名前：{$rec['user_name']}</p>
                     <p>({$rec['date']})</p><br>
                     <img src="images/{$rec['picture']}" width="300" height="400">
