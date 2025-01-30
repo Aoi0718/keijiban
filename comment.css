@@ -1,0 +1,25 @@
+body{
+    background-image: url("okumono_mahjonggara10-1536x864.png");
+}
+.content {
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 16px auto;
+    list-style: none;
+    padding: 10px 100px;
+    background-color: white;
+    margin-left: 5%;
+    margin-right: 5%;   
+}
+.border{
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+textarea{
+    resize: none;
+}
+.msb{
+    text-align: center;
+}
