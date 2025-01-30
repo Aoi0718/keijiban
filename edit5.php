@@ -1,78 +1,100 @@
-<?php
+<?PHP
 include "../db_open.php";
 session_start();
-
-if (empty($_SESSION['login_id'])) {
+if(empty($_SESSION['login_id'])){
     header('Location: login.php');
     exit();
 }
-
-echo "<!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset='UTF-8'>
-    <title>データ管理</title>
-    <link rel='stylesheet' href='edit.css'>
+    <title>掲示板</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="edit.css">
 </head>
-<body>";
+<body>
+<form method="POST" enctype="multipart/form-data" action="update.php">
+<?php
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    echo "<p>不正なアクセスです。</p>";
+} else {
+    // 値の取得
+    $id = $_POST['id'] ?? null; // 編集時はIDが送信される
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    date_default_timezone_set('Asia/Tokyo');
+    $date = date("Y/m/d H:i:s");
+    $login_id = $_SESSION['login_id'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['title']) && isset($_POST['content'])) {
-        $title = trim($_POST['title']);
-        $content = trim($_POST['content']);
-        date_default_timezone_set('Asia/Tokyo');
-        $date = date("Y/m/d H:i:s");
-        $login_id = $_SESSION['login_id'];
-        $post_id = isset($_POST['id']) ? intval($_POST['id']) : null;
+    // XSS対策
+    $title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+    $content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
 
-        if ($content === '' || preg_replace('/\s+/u', '', $content) === '') {
-            echo "<p>スペースまたは空欄での投稿はできません</p><a href='insert.php'>投稿画面に戻る</a>";
-        } elseif (mb_strlen($title, "UTF-8") > 30) {
-            echo "<p>タイトルは30文字以内で入力してください。</p><a href='insert.php'>投稿画面に戻る</a>";
-        } elseif (mb_strlen($content, "UTF-8") > 200) {
-            echo "<p>投稿内容は200文字以内で入力してください。</p><a href='insert.php'>投稿画面に戻る</a>";
-        } else {
-            $image = null;
-
-            if (!empty($_FILES['image']['name'])) {
-                $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
-                $allowed_exts = ["jpg", "jpeg", "png", "gif"];
-                
-                if (in_array($ext, $allowed_exts) && $_FILES["image"]["size"] < 2097152) {
-                    $image = uniqid(mt_rand(), true) . '.' . $ext;
-                    $file = "images/$image";
-
-                    if (is_uploaded_file($_FILES['image']['tmp_name']) && move_uploaded_file($_FILES['image']['tmp_name'], $file)) {
-                        if (!exif_imagetype($file)) {
-                            unlink($file);
-                            echo "<p>画像ファイルが無効です。</p><a href='insert.php'>投稿画面に戻る</a>";
-                            exit();
+    // 入力チェック
+    if(trim(str_replace('  ','',$content)) === ''){
+        echo "スペースまたは空欄での投稿はできません";
+        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+    } elseif(mb_strlen($title, "UTF-8") > 30) {
+        echo "<p>タイトルは30文字以内で入力してください。<p>";
+        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+    } elseif(mb_strlen($content, "UTF-8") > 200) {
+        echo "<p>投稿内容は200文字以内で入力してください。<p>";
+        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+    } {
+        $image = uniqid(mt_rand(), true);
+        $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
+        $file = "images/$image";
+        $fileExt = $_FILES['image']['name'];     // ファイル名を取得
+        $tmpfile = $_FILES['image']['tmp_name'];
+        $Ext = pathinfo($fileExt, PATHINFO_EXTENSION);
+        $array = array("jpg", "jpeg" , "png", "gif");
+        $size = $_FILES["image"]["size"];
+        if(is_uploaded_file($tmpfile)) {
+            if(in_array($Ext, $array)) {
+                if($size < 2097152) {
+                    if( !empty($_FILES['image']['name'])){
+                        move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);
+                        if(exif_imagetype($file)) {
+                            // SQL
+                            $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}', '{$image}')";
+                            $sql_res = $dbh->query( $sql );
+                            echo "<h2>記事を編集しました。</h2>";
                         }
                     } else {
-                        echo "<p>画像のアップロードに失敗しました。</p><a href='insert.php'>投稿画面に戻る</a>";
+                        echo "ファイルサイズが大きすぎます。";
+                        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                         exit();
                     }
                 } else {
-                    echo "<p>許可されていない拡張子、またはサイズオーバーです。</p><a href='insert.php'>投稿画面に戻る</a>";
+                    echo "許可されている拡張子ではありません。";
+                    echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                     exit();
                 }
             }
-
-            if ($post_id) {
-                // 投稿の更新処理
-                if ($image) {
-                    $stmt = $dbh->prepare("UPDATE toukou SET date = ?, title = ?, content = ?, image = ? WHERE id = ? AND login_id = ?" );
-                    $stmt->execute([$date, $title, $content, $image, $post_id, $login_id]);
-                } else {
-                    $stmt = $dbh->prepare("UPDATE toukou SET date = ?, title = ?, content = ? WHERE id = ? AND login_id = ?");
-                    $stmt->execute([$date, $title, $content, $post_id, $login_id]);
-                }
-                echo "<h2>記事を更新しました。</h2>";
-            }
         }
+
+        if ($id) {
+            // **更新処理 (UPDATE)**
+            if ($image) {
+                // 画像を新しくした場合、更新
+                $sql = "UPDATE toukou SET date = ?, title = ?, content = ?, login_id = ?, image = ? WHERE id = ?";
+                $stmt = $dbh->prepare($sql);
+                $stmt->execute([$date, $title, $content, $login_id, $image, $id]);
+            } else {
+                // 画像を変更しない場合
+                $sql = "UPDATE toukou SET date = ?, title = ?, content = ?, login_id = ? WHERE id = ?";
+                $stmt = $dbh->prepare($sql);
+                $stmt->execute([$date, $title, $content, $login_id, $id]);
+            }
+            echo "<h2>記事を編集しました。</h2>";
+        } 
     }
 }
+?>
 
-echo "<div class='container'><a href='keijiban2.php' class='btn-border'>戻る</a></div>
+<div class="container">
+    <a href="keijiban2.php" class="btn-border">戻る</a>
+</div>
 </body>
-</html>";
+</html>
