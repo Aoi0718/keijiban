@@ -33,7 +33,6 @@ if(empty($_SESSION['login_id'])){
             <h2>投稿一覧</h2>
         <div class="home">  
     <?PHP         
-<<<<<<< HEAD
         // いいねボタンがクリックされたときの処理
     if (isset($_POST['like'])) {
     $sql = "UPDATE good SET count = count + 1 WHERE id = 1"; // idが1のレコードのいいね数を増加
@@ -45,8 +44,6 @@ if(empty($_SESSION['login_id'])){
     //$row = $result->fetch_assoc();
     //$likeCount = $row['count'];
     //$dbh->close();
-=======
->>>>>>> origin/nakayama
 
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
@@ -69,17 +66,8 @@ if(empty($_SESSION['login_id'])){
 
                     <form action='delete.php' method='POST'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
-<<<<<<< HEAD
                     <input type='submit' value='削除'></form>
                     <input type='submit' onclick="location.href='edit.php'" value='編集'></form>
-=======
-                    <input type='submit' value='削除'>
-                    </form>
-                    <form action='comment.php' method='GET'>
-                    <input type='hidden' name='id' value='{$rec['login_id']}'>
-                    <input type='submit' value='コメント'>
-                    </form>
->>>>>>> origin/nakayama
                 </div>
             </div>
             ___EOF___;
