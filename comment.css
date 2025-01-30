@@ -8,8 +8,8 @@ body{
     list-style: none;
     padding: 10px 100px;
     background-color: white;
-    margin-left: 5%;
-    margin-right: 5%;   
+    margin-left: 33%;
+    margin-right: 33%;   
 }
 .border{
     text-align: center;
@@ -19,7 +19,19 @@ h1{
 }
 textarea{
     resize: none;
+    width:300px;
+    height:200px;
 }
 .msb{
     text-align: center;
+}
+.hth {
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 16px auto;
+    padding-left: 0;;
+	list-style: none;
+	display: inline-block;
+    padding: 10px 100px;
+    background-color: white;
 }

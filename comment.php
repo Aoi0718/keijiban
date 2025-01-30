@@ -23,23 +23,20 @@
                     <p>({$rec['date']})</p><br>
                     <img src="images/{$rec['picture']}" width="300" height="400">
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
-                    <form action='delete.php' method='POST'>
-                    <input type='hidden' name='id' value='{$rec['login_id']}'>
-                    <input type='submit' value='削除'></form>
                 </div>
             </div>
-
+            <br>
             ___EOF___;
             echo<<<___EOF___
                 <div class="msb">
                     <div class="hth">
-                        <h3>コメント</h3>
+                        <h2>返信</h2>
                         <form method="POST" enctype="multipart/form-data" action="exec_comment.php">
                         <textarea name="comment" pattern=".*\S+.*" required placeholder="8192文字以内"></textarea><br>
                         <input type="submit" value="投稿">
                         </form>
                     </div>
-                </div>
+                </div><br>
 
             ___EOF___;
         
