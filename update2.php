@@ -65,7 +65,7 @@ if(empty($_SESSION['login_id'])){
                                     $editpass=$_POST["editpass"];
                                     $editnum=$_POST["editnum"];
                                     
-                                    $sql="SELECT * FROM tb WHERE id=:id";
+                                    $sql="SELECT * FROM toukou WHERE id=:id";
                                     $edit=$pdo->prepare($sql);
                                     $edit->bindParam(":id", $editnum, PDO::PARAM_INT);
                                     $edit->execute();
