@@ -28,7 +28,10 @@
                 <input type="file" name="image">
                 <input type="submit" name="upload" value="投稿">
             </form>
-            <p><a href="keijiban2.php">戻る</a></p>
+            <div class="container">
+                <a href="keijiban2.php" class="btn-border">戻る</a>
+            </div>
+
         </div>
     </div>
 
