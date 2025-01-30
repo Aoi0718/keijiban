@@ -55,10 +55,6 @@ if(empty($_SESSION['login_id'])){
                         <input type='hidden' name='id' value='{$rec['login_id']}'>
                         <input type='submit' value='削除'>
                     </form>
-                    <form action='update.php' method='POST'>
-                        <input type='hidden' name='id' value='{$rec['login_id']}'>
-                        <input type='submit' value='編集'>
-                    </form>
                 </div>
             </div>
             ___EOF___;
