@@ -68,11 +68,6 @@ p{
     margin: auto/*上下*/ 0px/*縦*/;
 }
 
-.icon {
-    margin-top: 25px;
-    margin-right: 7px;
-}
-
 .likeButton {
     color: #888;
     font-size: 10px;
