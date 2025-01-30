@@ -9,8 +9,12 @@ if(empty($_SESSION['login_id'])){
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
+    $date = $_POST['date'];   
     $title = $_POST['title'];
     $content = $_POST['content'];
+    $login_id = $_POST['login_id'];
+    $picture = $_POST['picture'];
+    
 
     $stmt = $pdo->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
     $stmt->execute([$title, $content, $id]);

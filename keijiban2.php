@@ -37,11 +37,11 @@ if(empty($_SESSION['login_id'])){
     $dbh->query($sql);
     }
     // 現在のいいね数を取得
-    $sql = "SELECT count FROM good WHERE id = 1";
-    $result = $dbh->query($sql);
-    $row = $result->fetch_assoc();
-    $likeCount = $row['count'];
-    $dbh->close();
+    //$sql = "SELECT count FROM good WHERE id = 1";
+    //$result = $dbh->query($sql);
+    //$row = $result->fetch_assoc();
+    //$likeCount = $row['count'];
+    //$dbh->close();
 
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
@@ -67,13 +67,7 @@ if(empty($_SESSION['login_id'])){
                     <form action='delete.php' method='POST'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
                     <input type='submit' value='削除'></form>
-<<<<<<< HEAD
                     <input type='submit' onclick="location.href='edit.php'" value='編集'></form>
-=======
-                    <form action='comment.php' method='GET'>
-                    <input type='hidden' name='id' value='{$rec['login_id']}'>
-                    <input type='submit' value='コメント'></form>
->>>>>>> origin/main
                 </div>
             </div>
             ___EOF___;
@@ -81,7 +75,6 @@ if(empty($_SESSION['login_id'])){
     ?>
             </div>
         </div>
-<<<<<<< HEAD
         <?php
 
 $sql = "SELECT * FROM posts ORDER BY created_at DESC";
@@ -109,9 +102,5 @@ $sql = "SELECT * FROM posts ORDER BY created_at DESC";
 </body>
 </html>
 
-=======
-  
-    <script src="good.js" type="text/javascript"></script>
->>>>>>> origin/main
     </body>
 </html>
