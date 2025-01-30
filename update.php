@@ -17,7 +17,7 @@ if(empty($_SESSION['login_id'])){
 <body>
 <div class="content">
         <div class="border">
-            <form method="POST" enctype="multipart/form-data" action="exec_insert.php">
+            <form method="POST" enctype="multipart/form-data" action="update2.php">
                 <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
                 <div class='content'>
                 <p class="toukou">投稿内容：</p>
