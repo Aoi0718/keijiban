@@ -1,6 +1,7 @@
 <?PHP
 include "../db_open.php";
 session_start();
+
 if(empty($_SESSION['login_id'])){
     header('Location: login.php');
     exit();
@@ -13,6 +14,7 @@ if(empty($_SESSION['login_id'])){
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="keijiban2.css">
+        
     </head>
     <body>
             <header class="head">
@@ -31,22 +33,12 @@ if(empty($_SESSION['login_id'])){
             <h2>投稿一覧</h2>
         <div class="home">  
     <?PHP         
-        // いいねボタンがクリックされたときの処理
-    if (isset($_POST['like'])) {
-    $sql = "UPDATE good SET count = count + 1 WHERE id = 1"; // idが1のレコードのいいね数を増加
-    $dbh->query($sql);
-    }
-    // 現在のいいね数を取得
-    $sql = "SELECT count FROM good WHERE id = 1";
-    $result = $dbh->query($sql);
-    $row = $result->fetch_assoc();
-    $likeCount = $row['count'];
-    $dbh->close();
 
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
-        
         while( $rec = $sql_res->fetch() ){
+
+        $_SESSION['toukou_id'] = $rec['id'];
 
         echo <<<___EOF___
             <div class="content">
@@ -57,19 +49,18 @@ if(empty($_SESSION['login_id'])){
                     <p>({$rec['date']})</p><br>
                     <img src="images/{$rec['picture']}" width="300" height="400">
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
-                    <button type="submit" name="like">
-                   <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
-                    </button>
                     
-                        
-                    <div id = "number" id="number">0</div>
+                    <button id="like-button" data-toukou-id="{$_SESSION['id']}" class="likeButton">👍 いいね</button>
+                    <span id="like-status"></span>
 
                     <form action='delete.php' method='POST'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
-                    <input type='submit' value='削除'></form>
+                    <input type='submit' value='削除'>
+                    </form>
                     <form action='comment.php' method='GET'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
-                    <input type='submit' value='コメント'></form>
+                    <input type='submit' value='コメント'>
+                    </form>
                 </div>
             </div>
             ___EOF___;
