@@ -74,6 +74,7 @@ p{
 }
 .flex {
     display: flex;
+    justify-content: center;
 }
 
 .likeButton {
