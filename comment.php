@@ -1,3 +1,12 @@
+<?PHP
+include "../db_open.php";
+session_start();
+
+if(empty($_SESSION['login_id'])){
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,7 +19,6 @@
 <body>
     <h1>コメント</h1>
     <?php
-        include "../db_open.php";
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         $rec = $sql_res->fetch();
@@ -27,12 +35,25 @@
             </div>
             <br>
             ___EOF___;
+                $sql = "select * from comment";
+                $sql_res = $dbh->query( $sql );
+             while( $rec = $sql_res->fetch() ){
+            echo<<<___EOF___
+            
+                <div class="co">
+                    <div class="do">
+                        <h2>コメント</h2>
+                        <p>{$rec['comment']}</p>
+                    </div>
+                </div>
+            ___EOF___;
+            }
             echo<<<___EOF___
                 <div class="msb">
                     <div class="hth">
                         <h2>返信</h2>
                         <form method="POST" enctype="multipart/form-data" action="exec_comment.php">
-                        <textarea name="comment" pattern=".*\S+.*" required placeholder="8192文字以内"></textarea><br>
+                        <textarea name="comment" pattern=".*\S+.*" required placeholder="空白だけで投稿しないでください"></textarea><br>
                         <input type="submit" value="投稿">
                         </form>
                     </div>

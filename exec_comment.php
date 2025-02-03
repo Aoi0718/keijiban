@@ -17,10 +17,6 @@ if(empty($_SESSION['login_id'])){
 </head>
 <body>
     <?php
-    if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
-        echo "<p>不正なアクセスです。</p>";
-    } else {
-
     $id = $_SESSION['id'];
     $toukou_id = $_SESSION['toukou_id'];
     $comment = $_POST['comment'];
@@ -37,19 +33,7 @@ if(empty($_SESSION['login_id'])){
             </div>
         </div>
     </div>
-
-
-
     ___EOF___;
-        while($rec = $sql_res->fetch())
-        if( $_SERVER["REQUEST_METHOD"] != "POST" ){
-            echo "<p>不正なアクセスです。</p>";
-        }elseif($comment == null){
-            echo "<p>入力されていません</p>";
-            echo "<p><a href='comment.php'>戻る</a></p>";
-        }
-    }
-
 
     ?>
 </body>
