@@ -8,11 +8,7 @@ if(empty($_SESSION['login_id'])){
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>掲示板</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="delete.css">
-    </head>
+   
     <body>
         <h2>記事の編集</h2>
     <!DOCTYPE html>
@@ -21,7 +17,7 @@ if(empty($_SESSION['login_id'])){
             <title>掲示板</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="exec_insert.css">
+            <link rel="stylesheet" href="edit.css">
         </head>
         <body>
                 <?php
