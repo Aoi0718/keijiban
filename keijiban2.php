@@ -17,7 +17,6 @@ if(empty($_SESSION['login_id'])){
         
     </head>
     <body>
-<<<<<<< HEAD
             <header class="head">
                 <h1>掲示板</h1>
                 <div class="gg">
@@ -46,36 +45,6 @@ if(empty($_SESSION['login_id'])){
     //$likeCount = $row['count'];
     //$dbh->close();
 
-=======
-    <header class="head">
-    <div class="gg">
-        <div class="ul">
-            <form action="user_set.php" method="POST" class="li">
-                <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
-                <input type="submit" value="ユーザー設定">
-            </form>
-        </div>
-    </div>
-        <h1>掲示板</h1>
-        <div class="gg">
-            <div class="ul">
-                <form action="name.php" method="POST" class="li">
-                    <input type="submit" value="投稿者一覧">
-                </form>
-                <form action="insert.php" method="POST" class="li">
-                    <input type="submit" value="記事を投稿する">
-                </form>
-                <form action="logout.php" method="POST" class="li">
-                    <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
-                    <input type="submit" value="ログアウト">
-                </form>
-            </div>
-        </div>
-    </header>
-    <h2>投稿一覧</h2>
-    <div class="home">  
-    <?php
->>>>>>> origin/komatsu
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         while( $rec = $sql_res->fetch() ){
@@ -99,17 +68,12 @@ if(empty($_SESSION['login_id'])){
                     <span id="like-status"></span>
 
                     <form action='delete.php' method='POST'>
-<<<<<<< HEAD
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
                     <input type='submit' value='削除'>
                     </form>
                     <form action='edit.php' method='POST'>
                         <input type='hidden' name='id' value='{$rec['login_id']}'>
                         <input type='submit' value='編集'>
-=======
-                        <input type='hidden' name='id' value='{$rec['login_id']}'>
-                        <input type='submit' value='削除'>
->>>>>>> origin/komatsu
                     </form>
                 </div>
             </div>
