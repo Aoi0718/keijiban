@@ -42,7 +42,10 @@ if(empty($_SESSION['login_id'])){
                                 $sql = "SELECT * FROM user WHERE login_id = '{$loginID}'";
                                 $sql_res = $dbh->query( $sql );
                                 $rec = $sql_res->fetch();
-                                $sql = "UPDATE user SET login_id = '{$loginID}', user_name = '{$userName}', icon = '{$icon}'";
+                                $sql = "UPDATE user SET login_id = '{$loginID}', user_name = '{$userName}', icon = '{$icon}' ";
+                                $sql_res = $dbh->query( $sql );
+                                $rec = $sql_res->fetch();
+                                $sql = "UPDATE toukou SET login_id = '{$loginID}'";
                                 $sql_res = $dbh->query( $sql );
                                 $rec = $sql_res->fetch();
 
@@ -50,20 +53,20 @@ if(empty($_SESSION['login_id'])){
                                 echo "<a href='keijiban2.php'>掲示板に戻る</a>";
                             } else {
                                 $message = '画像ファイルではありません。';
-                                echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                                echo "<p><a href='user_update.php'>編集画面に戻る</a></p>";
                             }
                         }
                     } else {
                         echo "<h2>ファイルサイズが大きすぎます。</h2>";
-                        echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                        echo "<p><a href='user_update.php'>編集画面に戻る</a></p>";
                     }
                 } else {
                     echo "<h2>許可されている拡張子ではありません。</h2>";
-                    echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                    echo "<p><a href='user_update.php'>編集画面に戻る</a></p>";
                 }
             } else {
                 echo "<h2>ファイルが選択されていません。</h2>";
-                echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                echo "<p><a href='user_update.php'>編集画面に戻る</a></p>";
             }
         }
     ?>
