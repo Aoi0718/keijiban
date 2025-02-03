@@ -25,7 +25,7 @@ while( $record = $sql_res->fetch() ){
 }
 ?>
 <div class="container">
-        <a href="keijiban2.php" class="btn-border">戻る</a>
+    <a href="keijiban2.php" class="btn-border">戻る</a>
 </div>
 </body>
 </html>

@@ -17,6 +17,7 @@ if(empty($_SESSION['login_id'])){
             echo "<p>不正なアクセスです。</p>";
         } else {
             session_destroy();
+            echo "<p>ログアウトしました。</p>";
             echo "<a href='login.php'>戻る</a>";
         }
     ?>
