@@ -1,19 +1,21 @@
 <?PHP
-include "../db_open.php";
-session_start();
-if(empty($_SESSION['login_id'])){
+ include "../db_open.php";
+ session_start();
+ if(empty($_SESSION['login_id'])){
     header('Location: login.php');
     exit();
-}
-?>
-<!DOCTYPE html>
-<head>
+ }
+ ?>
+ <!DOCTYPE html>
+ <html lang="ja">
+ <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="edit.css">
     <title>ユーザー設定：編集チェック</title>
-</head>
-<body>
+ </head>
+ <body>
     <?php
-if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
+ if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
                 echo "<p>不正なアクセスです。</p>";
             } else {
                 // 値の取り出し
