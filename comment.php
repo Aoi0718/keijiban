@@ -42,7 +42,7 @@ if(empty($_SESSION['login_id'])){
             
                 <div class="co">
                     <div class="do">
-                        <h2>コメント</h2>
+                        <h3>コメント</h3>
                         <p>{$rec['comment']}</p>
                     </div>
                 </div>
@@ -51,13 +51,16 @@ if(empty($_SESSION['login_id'])){
             echo<<<___EOF___
                 <div class="msb">
                     <div class="hth">
-                        <h2>返信</h2>
+                        <h3>返信</h3>
                         <form method="POST" enctype="multipart/form-data" action="exec_comment.php">
                         <textarea name="comment" pattern=".*\S+.*" required placeholder="空白だけで投稿しないでください"></textarea><br>
                         <input type="submit" value="投稿">
                         </form>
                     </div>
                 </div><br>
+                <div class="container">
+                    <a href="keijiban2.php" class="btn-border">戻る</a>
+                </div>
 
             ___EOF___;
         
