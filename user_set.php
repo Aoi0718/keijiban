@@ -25,7 +25,7 @@ if(empty($_SESSION['login_id'])){
     </form>
     <form method="POST" action="user_passwd.php">
         <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
-        <input type="submit" value="ユーザーの変更">
+        <input type="submit" value="パスワードの変更">
     </form>
 </body>
 </html>
