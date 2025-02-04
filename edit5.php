@@ -7,94 +7,90 @@ if(empty($_SESSION['login_id'])){
 }
 ?>
 <!DOCTYPE html>
-<html>
 <head>
-    <title>掲示板</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="edit.css">
+    <title>ユーザー設定：編集チェック</title>
 </head>
 <body>
-<form method="POST" enctype="multipart/form-data" action="update.php">
-<?php
-if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    echo "<p>不正なアクセスです。</p>";
-} else {
-    // 値の取得
-    $id = $_POST['id'] ?? null; // 編集時はIDが送信される
-    $title = $_POST['title'];
-    $content = $_POST['content'];
-    date_default_timezone_set('Asia/Tokyo');
-    $date = date("Y/m/d H:i:s");
-    $login_id = $_SESSION['login_id'];
+    <?php
+if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
+                echo "<p>不正なアクセスです。</p>";
+            } else {
+                // 値の取り出し
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                date_default_timezone_set('Asia/Tokyo');
+                $date = date("Y/m/d H:i:s");
+                // セッション
+                $login_id = $_SESSION['login_id'];
+                // XSS対策
+                $title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+                $content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
 
-    // XSS対策
-    $title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
-    $content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
-
-    // 入力チェック
-    if(trim(str_replace('  ','',$content)) === ''){
-        echo "スペースまたは空欄での投稿はできません";
-        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
-    } elseif(mb_strlen($title, "UTF-8") > 30) {
-        echo "<p>タイトルは30文字以内で入力してください。<p>";
-        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
-    } elseif(mb_strlen($content, "UTF-8") > 200) {
-        echo "<p>投稿内容は200文字以内で入力してください。<p>";
-        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
-    } {
-        $image = uniqid(mt_rand(), true);
-        $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
-        $file = "images/$image";
-        $fileExt = $_FILES['image']['name'];     // ファイル名を取得
-        $tmpfile = $_FILES['image']['tmp_name'];
-        $Ext = pathinfo($fileExt, PATHINFO_EXTENSION);
-        $array = array("jpg", "jpeg" , "png", "gif");
-        $size = $_FILES["image"]["size"];
-        if(is_uploaded_file($tmpfile)) {
-            if(in_array($Ext, $array)) {
-                if($size < 2097152) {
-                    if( !empty($_FILES['image']['name'])){
-                        move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);
-                        if(exif_imagetype($file)) {
-                            // SQL
-                            $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}', '{$image}')";
-                            $sql_res = $dbh->query( $sql );
-                            echo "<h2>記事を編集しました。</h2>";
+                if(trim(str_replace('　','',$content)) === ''){
+                echo "スペースまたは空欄での投稿はできません";
+                echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                }elseif(mb_strlen( $title, "UTF-8") > 30){
+                    echo "<p>タイトルは30文字以内で入力してください。<p>";
+                    echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                }elseif(mb_strlen( $content, "UTF-8") > 200){
+                    echo "<p>投稿内容は200文字以内で入力してください。<p>";
+                    echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                } else {
+                    $image = uniqid(mt_rand(), true);
+                    $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
+                    $file = "images/$image";
+                    $fileExt = $_FILES['image']['name'];     // ファイル名を取得
+                    $tmpfile = $_FILES['image']['tmp_name'];
+                    $Ext = pathinfo($fileExt, PATHINFO_EXTENSION);
+                    $array = array("jpg", "jpeg" , "png", "gif");
+                    $size = $_FILES["image"]["size"];
+                    if(is_uploaded_file($tmpfile)) {
+                        if(in_array($Ext, $array)) {
+                            if($size < 2097152) {
+                                if( !empty($_FILES['image']['name'])){
+                                    move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);
+                                    if(exif_imagetype($file)) {
+                                        // SQL
+                                        $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}', '{$image}')";
+                                        $sql_res = $dbh->query( $sql );
+                                        echo "<h2>記事を編集しました。</h2>";
+                                        echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
+                                    } else {
+                                        $message = '画像ファイルではありません。';
+                                    }
+                                }
+                            } else {
+                                echo "<h2>ファイルサイズが大きすぎます。</h2>";
+                                echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                            }
+                        } else {
+                            echo "<h2>許可されている拡張子ではありません。</h2>";
+                            echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                         }
                     } else {
-                        echo "ファイルサイズが大きすぎます。";
+                        echo "<h2>ファイルが選択されていません。</h2>";
                         echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
-                        exit();
                     }
-                } else {
-                    echo "許可されている拡張子ではありません。";
-                    echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
-                    exit();
                 }
             }
-        }
+        ?>
+        <script>
+        const fileInput = document.getElementById('file');
+        const profileImg =document.getElementById('img');
+        
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
 
-        if ($id) {
-            // **更新処理 (UPDATE)**
-            if ($image) {
-                // 画像を新しくした場合、更新
-                $sql = "UPDATE toukou SET date = ?, title = ?, content = ?, login_id = ?, image = ? WHERE id = ?";
-                $stmt = $dbh->prepare($sql);
-                $stmt->execute([$date, $title, $content, $login_id, $image, $id]);
-            } else {
-                // 画像を変更しない場合
-                $sql = "UPDATE toukou SET date = ?, title = ?, content = ?, login_id = ? WHERE id = ?";
-                $stmt = $dbh->prepare($sql);
-                $stmt->execute([$date, $title, $content, $login_id, $id]);
+            if(file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    profileImg.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
             }
-            echo "<h2>記事を編集しました。</h2>";
-        } 
-    }
-}
-?>
-
-<div class="container">
-    <a href="keijiban2.php" class="btn-border">戻る</a>
-</div>
-</body>
+        });
+    </script>
+ </body>
 </html>
