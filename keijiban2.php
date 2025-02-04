@@ -54,7 +54,7 @@ if(empty($_SESSION['login_id'])){
                     <div class="flex">
                         <p>{$rec['id']}</p>
                         <p>【{$rec['title']}】</p>
-                        <h4><img src="images/{$_SESSION['icon']}" width="30" height="30" style="border-radius: 50%;"></h4>
+                        <h4><img src="images/{$rec['icon']}" width="30" height="30" style="border-radius: 50%;"></h4>
                         <p>名前：{$rec['user_name']}</p>
                         <p>({$rec['date']})</p><br>
                     </div>

@@ -45,6 +45,9 @@ if(empty($_SESSION['login_id'])){
                                 $sql = "UPDATE user SET login_id = '{$loginID}', user_name = '{$userName}', icon = '{$icon}' ";
                                 $sql_res = $dbh->query( $sql );
                                 $rec = $sql_res->fetch();
+                                $sql = "SELECT * FROM toukou WHERE login_id = '{$loginID}'";
+                                $sql_res = $dbh->query( $sql );
+                                $rec = $sql_res->fetch();
                                 $sql = "UPDATE toukou SET login_id = '{$loginID}'";
                                 $sql_res = $dbh->query( $sql );
                                 $rec = $sql_res->fetch();
