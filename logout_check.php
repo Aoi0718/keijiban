@@ -10,6 +10,7 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ログアウトチェック</title>
+    <link rel="stylesheet" href="logout_check.css">
 </head>
 <body>
     <?php
@@ -18,7 +19,7 @@ if(empty($_SESSION['login_id'])){
         } else {
             session_destroy();
             echo "<p>ログアウトしました。</p>";
-            echo "<a href='login.php'>戻る</a>";
+            echo "<div class='container'><a href='login.php' class='btn-border'>ログイン画面へ</a></div>";
         }
     ?>
 </body>
