@@ -58,7 +58,7 @@ if(empty($_SESSION['login_id'])){
                         <p>名前：{$rec['user_name']}</p>
                         <p>({$rec['date']})</p><br>
                     </div>
-                    <img src="images/{$rec['picture']}" width="300" height="400">
+                    <img src="images/{$rec['picture']}" width="400" height="200">
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
                     <button type="button" class="likeButton">
                     <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
