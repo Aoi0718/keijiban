@@ -52,9 +52,6 @@ foreach($goods as $good){}
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         while( $rec = $sql_res->fetch() ){
-<<<<<<< HEAD
-            echo <<<___EOF___
-=======
             $sql2 = "select count(*) as total from good where toukou_id = {$rec['id']} and login_id = '$login_id'";
             $sql_res2 = $dbh->query( $sql2 );
             $record = $sql_res2->fetch();
@@ -62,7 +59,6 @@ foreach($goods as $good){}
         $_SESSION['toukou_id'] = $rec['id'];
 
         echo <<<___EOF___
->>>>>>> origin/main
             <div class="content">
                 <div class="border">
                     <div class="flex">
@@ -74,13 +70,6 @@ foreach($goods as $good){}
                     </div>
                     <img src="images/{$rec['picture']}" width="300" height="400">
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
-<<<<<<< HEAD
-                    <button type="button" class="likeButton">
-                    <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
-                    いいね
-                    </button>
-                    <p class = number><p>
-=======
                     
                     <button id="like-button" data-toukou-id="{$rec['id']}" class="likeButton">
                     <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
@@ -88,7 +77,6 @@ foreach($goods as $good){}
                     <span id="like-status"></span>
                     <p class='count' data-toukou-id="{$rec['id']}">{$_SESSION['total']}</p>
 
->>>>>>> origin/main
                     <form action='delete.php' method='POST'>
                         <input type='hidden' name='id' value='{$rec['login_id']}'>
                         <input type='submit' value='削除'>
@@ -106,10 +94,6 @@ foreach($goods as $good){}
     ?>
             </div>
         </div>
-<<<<<<< HEAD
-    <script src="good.js" type="text/javascript"></script>
-    </body>
-=======
     <script>
     document.addEventListener('DOMContentLoaded', function () {
     const login_id = "<?= $_SESSION['login_id'] ?>";
@@ -192,5 +176,4 @@ foreach($goods as $good){}
 
 </script>
 </body>
->>>>>>> origin/main
 </html>
