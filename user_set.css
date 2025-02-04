@@ -1,13 +1,23 @@
-body {
+body{
     background-image: url("okumono_mahjonggara10-1536x864.png");
-}
-p {
     text-align: center;
 }
 a {
     text-decoration: none;
     color: mediumseagreen;
+}.sa{
+    display: flex;
 }
+.ys{
+    margin-left: 30%;
+}
+.nz{
+    margin-left: 9%;
+}
+.ct{
+    margin-left: 9%;
+}
+/*ボタン*/
 .btn-border {
     display: inline-block;
     max-width: 180px;
