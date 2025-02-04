@@ -26,6 +26,7 @@ session_start();
             // セッション
             $_SESSION['id'] = $id;
             $_SESSION['login_id'] = $rec['login_id'];
+            $_SESSION['icon']  = $rec['icon'];
             echo "<p>ログインが完了しました。</p>";
             echo "<div>";
             echo "<a href='keijiban2.php'>掲示板へ</a>";

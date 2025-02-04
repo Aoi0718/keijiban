@@ -15,21 +15,33 @@ if(empty($_SESSION['login_id'])){
         <link rel="stylesheet" href="keijiban2.css">
     </head>
     <body>
-            <header class="head">
-                <h1>掲示板</h1>
-                <div class="gg">
-                    <div class="ul">
-                        <form action="name.php" method="POST" class="li">
-                            <input type="submit" value="投稿者一覧">
-                        </form>
-                        <form action="insert.php" method="POST" class="li">
-                            <input type="submit" value="記事を投稿する">
-                        </form>
-                    </div>
-                </div>
-            </header>
-            <h2>投稿一覧</h2>
-        <div class="home">  
+    <header class="head">
+    <div class="gg">
+        <div class="ul">
+            <form action="user_set.php" method="POST" class="li">
+                <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
+                <input type="submit" value="ユーザー設定">
+            </form>
+        </div>
+    </div>
+        <h1>掲示板</h1>
+        <div class="gg">
+            <div class="ul">
+                <form action="name.php" method="POST" class="li">
+                    <input type="submit" value="投稿者一覧">
+                </form>
+                <form action="insert.php" method="POST" class="li">
+                    <input type="submit" value="記事を投稿する">
+                </form>
+                <form action="logout.php" method="POST" class="li">
+                    <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
+                    <input type="submit" value="ログアウト">
+                </form>
+            </div>
+        </div>
+    </header>
+    <h2>投稿一覧</h2>
+    <div class="home">  
     <?php
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
@@ -39,10 +51,13 @@ if(empty($_SESSION['login_id'])){
             echo <<<___EOF___
             <div class="content">
                 <div class="border">
-                    <p>{$rec['id']}</p>
-                    <p>【{$rec['title']}】</p>
-                    <p>名前：{$rec['user_name']}</p>
-                    <p>({$rec['date']})</p><br>
+                    <div class="flex">
+                        <p>{$rec['id']}</p>
+                        <p>【{$rec['title']}】</p>
+                        <h4><img src="images/{$rec['icon']}" width="30" height="30" style="border-radius: 50%;"></h4>
+                        <p>名前：{$rec['user_name']}</p>
+                        <p>({$rec['date']})</p><br>
+                    </div>
                     <img src="images/{$rec['picture']}" width="300" height="400">
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
                     <button type="button" class="likeButton">
@@ -51,13 +66,15 @@ if(empty($_SESSION['login_id'])){
                     </button>
                     <p class = number><p>
                     <form action='delete.php' method='POST'>
-                    <input type='hidden' name='id' value='{$rec['login_id']}'>
-                    <input type='submit' value='削除'></form>
+                        <input type='hidden' name='id' value='{$rec['login_id']}'>
+                        <input type='submit' value='削除'>
+                    </form>
                 </div>
             </div>
             ___EOF___;
         }
     ?>
+    
             </div>
         </div>
     <script src="good.js" type="text/javascript"></script>
