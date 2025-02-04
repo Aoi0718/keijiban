@@ -74,6 +74,7 @@ if(empty($_SESSION['login_id'])){
             ___EOF___;
         }
     ?>
+    
             </div>
         </div>
     <script src="good.js" type="text/javascript"></script>
