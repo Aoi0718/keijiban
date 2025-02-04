@@ -1,0 +1,41 @@
+@startuml er
+
+entity "toukou"{
+    id int
+    --
+    date char(20)
+    title char(30)
+    content varchar(200)
+    login_id char(30)
+    picture varchar(100)
+}
+
+entity "user"{
+    login_id char(30)
+    --
+    passwd char(30)
+    user_name char(30)
+    icon varchar (200)
+}
+
+entity "good"{
+    id int
+    --
+    login_id char(30)
+    toukou_id char(30)
+}
+
+entity "comment"{
+    id int
+    --
+    toukou_id int
+    login_id char(30)
+    comment varchar(200)
+
+}
+user --|{ toukou
+good }|-- user
+good }|-- toukou
+user --|{ comment
+toukou --|{ comment
+@enduml
