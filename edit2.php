@@ -83,7 +83,7 @@ if(empty($_SESSION['login_id'])){
                     }
                 }
             
-?>
+ ?>
     <div class="container">
         <a href="keijiban2.php" class="btn-border">戻る</a>
     </div>
