@@ -12,12 +12,15 @@ if(empty($_SESSION['login_id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>コメント</title>
+    <link rel="stylesheet" href="exec_comment.css">
+
 </head>
 <body>
     <?php
     $id = $_SESSION['id'];
     $toukou_id = $_SESSION['toukou_id'];
     $comment = $_POST['comment'];
+    $comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
     $sql = "insert into comment  values (null, '$toukou_id', '$id', '$comment')";
     $sql_res = $dbh->query( $sql );
     $rec = $sql_res->fetch();
@@ -28,17 +31,9 @@ if(empty($_SESSION['login_id'])){
             <div class="container">
                 <a href="keijiban2.php" class="btn-border">戻る</a>
             </div>
-
-
         </div>
     </div>
-
-
-
-
     ___EOF___;
-
-
 
     ?>
 </body>
