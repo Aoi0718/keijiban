@@ -26,16 +26,17 @@ session_start();
             // セッション
             $_SESSION['id'] = $id;
             $_SESSION['login_id'] = $rec['login_id'];
+            $_SESSION['icon']  = $rec['icon'];
             echo "<p>ログインが完了しました。</p>";
-            echo "<div>";
-            echo "<a href='keijiban2.php'>掲示板へ</a>";
+            echo "<div class='container'>";
+            echo "<a href='keijiban2.php' class='btn-border'>掲示板へ</a>";
             echo "</div>";
             exit;
         }
     }
     echo "<p>IDまたはパスワードに誤りがあります。</p>";
     echo "<div>";
-    echo "<a href='login.php' class='login'>ログイン画面に戻る</a>";
+    echo "<div class='container'><a href='login.php' class='btn-border'>ログイン画面へ</a>";
     echo "</div>";
 ?>
 </body>
