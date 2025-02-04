@@ -1,46 +1,9 @@
-@charset "UTF-8";
-
-h1 {
-    text-align: center;
-}
-
-.border {
-    border: 1px solid #000;
-    border-radius: 8px;
-    margin: 16px auto;
-    padding-left: 0;;
-	list-style: none;
-	display: inline-block;
-    padding: 10px 100px;
-}
-
-.content {
-    text-align: center;
-    align-items: center;
-}
-
-textarea{
-    resize: none;
-    width:300px;
-    height:200px;
-}
-
-.toukou{
-    margin-bottom: 200px;
-}
-
-.content{
-    display: flex;
-}
-
-.back{
-    text-align: center;
-}
-
-body {
+body{
     background-image: url("okumono_mahjonggara10-1536x864.png");
 }
-
+.msb{
+    text-align: center;
+}
 a {
     text-decoration: none;
     color: mediumseagreen;
@@ -72,9 +35,4 @@ a {
   }                 
 a:hover {
     background-color: skyblue;
-}
-@media screen and (max-width:600px) {
-    h1 {
-        font-size:larger;
-    }
 }
