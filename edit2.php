@@ -10,7 +10,6 @@ if(empty($_SESSION['login_id'])){
 <html>
    
     <body>
-        <h2>記事の編集</h2>
     <!DOCTYPE html>
     <html>
         <head>
