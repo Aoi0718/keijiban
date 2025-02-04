@@ -25,16 +25,19 @@ if(empty($_SESSION['login_id'])){
             $sql_res = $dbh->query( $sql );
             $rec = $sql_res->fetch();
             echo <<<___EOF____
-            <div class="content">
+    <div class="content">
         <div class="border">
             <form method="POST" enctype="multipart/form-data" action="edit5.php">
                 <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
-                <div class='content'>
-                <p class="toukou">編集内容：</p>
-                <textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea>
-                </div>
-                <input type="file" name="image">
-                <input type="submit" name="upload" value="投稿">
+            <div class='content'>
+              <p class="toukou">編集内容：</p>
+             <textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea>
+            </div>
+              <input type="file" name="image">
+              <p>パスワード:<input type="password" name="passwd">
+              <input type="submit" value="編集して投稿する" class="sub"></p>
+              <input type="hidden" name="login_id" value='{$rec['login_id']}'>
+              <input type="hidden" name="id" value='{$rec['id']}'>
             </form>
             <div class="container">
                 <a href="keijiban2.php" class="btn-border">戻る</a>

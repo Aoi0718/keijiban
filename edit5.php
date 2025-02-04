@@ -10,7 +10,6 @@
  <html lang="ja">
  <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="edit.css">
     <title>ユーザー設定：編集チェック</title>
  </head>
  <body>
