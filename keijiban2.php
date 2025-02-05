@@ -1,7 +1,6 @@
 <?PHP
 include "../db_open.php";
 session_start();
-
 if(empty($_SESSION['login_id'])){
     header('Location: login.php');
     exit();
@@ -20,7 +19,6 @@ foreach($goods as $good){}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="keijiban2.css">
-        
     </head>
     <body>
     <header class="head">
@@ -100,21 +98,26 @@ foreach($goods as $good){}
                     <p class='count' data-toukou-id="{$rec['id']}">{$rec['good_count']}</p>
 
                     <form action='delete.php' method='POST'>
-                    <input type='hidden' name='id' value='{$rec['login_id']}'>
-                    <input type='submit' value='削除'>
+                        <input type='hidden' name='id' value='{$rec['login_id']}'>
+                        <input type='submit' value='削除'>
                     </form>
-                    <form action='comment.php??id={$rec['id']}&login_id={$rec['login_id']}' method='GET'>
+
+                    <form action='update.php' method='POST'>
+                        <input type='hidden' name='id' value='{$rec['login_id']}'>
+                        <input type='submit' value='編集'>
+                    </form>
+
+                    <form action='comment.php' method='GET'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
-                    <input type='hidden' name='toukou_id' value='{$rec['id']}'>
                     <input type='submit' value='コメント'>
                     </form>
+
                 </div>
             </div>
             ___EOF___;
         }
         
     ?>
-    
             </div>
         </div>
     <script>
