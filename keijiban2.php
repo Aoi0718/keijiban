@@ -1,6 +1,7 @@
 <?PHP
 include "../db_open.php";
 session_start();
+
 if(empty($_SESSION['login_id'])){
     header('Location: login.php');
     exit();
@@ -13,6 +14,7 @@ if(empty($_SESSION['login_id'])){
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="keijiban2.css">
+        
     </head>
     <body>
     <header class="head">
@@ -45,10 +47,11 @@ if(empty($_SESSION['login_id'])){
     <?php
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
-        
         while( $rec = $sql_res->fetch() ){
 
-            echo <<<___EOF___
+        $_SESSION['toukou_id'] = $rec['id'];
+
+        echo <<<___EOF___
             <div class="content">
                 <div class="border">
                     <div class="flex">
@@ -60,14 +63,17 @@ if(empty($_SESSION['login_id'])){
                     </div>
                     <img src="images/{$rec['picture']}" width="400" height="200">
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
-                    <button type="button" class="likeButton">
-                    <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
-                    いいね
-                    </button>
-                    <p class = number><p>
+                    
+                    <button id="like-button" data-toukou-id="{$_SESSION['id']}" class="likeButton">👍 いいね</button>
+                    <span id="like-status"></span>
+
                     <form action='delete.php' method='POST'>
-                        <input type='hidden' name='id' value='{$rec['login_id']}'>
-                        <input type='submit' value='削除'>
+                    <input type='hidden' name='id' value='{$rec['login_id']}'>
+                    <input type='submit' value='削除'>
+                    </form>
+                    <form action='comment.php' method='GET'>
+                    <input type='hidden' name='id' value='{$rec['login_id']}'>
+                    <input type='submit' value='コメント'>
                     </form>
                 </div>
             </div>
@@ -77,6 +83,7 @@ if(empty($_SESSION['login_id'])){
     
             </div>
         </div>
+  
     <script src="good.js" type="text/javascript"></script>
     </body>
 </html>
