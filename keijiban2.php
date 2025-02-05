@@ -24,6 +24,7 @@ foreach($goods as $good){}
     </head>
     <body>
     <header class="head">
+    <h1>掲示板</h1>
     <div class="gg">
         <div class="ul">
             <form action="user_set.php" method="POST" class="li">
@@ -32,7 +33,6 @@ foreach($goods as $good){}
             </form>
         </div>
     </div>
-        <h1>掲示板</h1>
         <div class="gg">
             <div class="ul">
                 <form action="name.php" method="POST" class="li">
@@ -49,10 +49,30 @@ foreach($goods as $good){}
         </div>
     </header>
     <h2>投稿一覧</h2>
+    <form method="GET" action="">
+    <label for="sort">並び替え：</label>
+    <select name="sort" id="sort" onchange="this.form.submit()">
+    <option value="date_desc" <?= ($_GET['sort'] ?? '') === 'date_desc' ? 'selected' : '' ?>>新着順</option>
+        <option value="good_desc" <?= ($_GET['sort'] ?? '') === 'good_desc' ? 'selected' : '' ?>>いいねが多い順</option>
+        </select>
+</form>
     <div class="home">  
     <?php
-        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
-        $sql_res = $dbh->query( $sql );
+        $sort = $_GET['sort'] ?? 'date_desc';
+
+        $orderBy = match ($sort) {
+            'date_desc' => 'toukou.date DESC',
+            'good_desc' => 'good_count DESC, toukou.date DESC',
+            default     => 'toukou.date DESC',
+        };
+        
+        $sql = "SELECT toukou.*, user.user_name, user.icon, 
+                (SELECT COUNT(*) FROM good WHERE good.toukou_id = toukou.id) AS good_count 
+                FROM toukou 
+                LEFT JOIN user ON toukou.login_id = user.login_id 
+                ORDER BY $orderBy";
+        
+        $sql_res = $dbh->query($sql);
         while( $rec = $sql_res->fetch() ){
             $sql2 = "select count(*) as total from good where toukou_id = {$rec['id']} and login_id = '$login_id'";
             $sql_res2 = $dbh->query( $sql2 );
@@ -77,14 +97,15 @@ foreach($goods as $good){}
                     <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
                     </button>
                     <span id="like-status"></span>
-                    <p class='count' data-toukou-id="{$rec['id']}">{$_SESSION['total']}</p>
+                    <p class='count' data-toukou-id="{$rec['id']}">{$rec['good_count']}</p>
 
                     <form action='delete.php' method='POST'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
                     <input type='submit' value='削除'>
                     </form>
-                    <form action='comment.php' method='GET'>
+                    <form action='comment.php??id={$rec['id']}&login_id={$rec['login_id']}' method='GET'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
+                    <input type='hidden' name='toukou_id' value='{$rec['id']}'>
                     <input type='submit' value='コメント'>
                     </form>
                 </div>
