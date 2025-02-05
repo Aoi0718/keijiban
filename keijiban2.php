@@ -47,9 +47,6 @@ foreach($goods as $good){}
         </div>
     </header>
     <h2>投稿一覧</h2>
-<<<<<<< HEAD
-    <div class="home">
-=======
     <form method="GET" action="">
     <label for="sort">並び替え：</label>
     <select name="sort" id="sort" onchange="this.form.submit()">
@@ -58,7 +55,6 @@ foreach($goods as $good){}
         </select>
 </form>
     <div class="home">  
->>>>>>> origin/main
     <?php
         $sort = $_GET['sort'] ?? 'date_desc';
 
@@ -105,16 +101,14 @@ foreach($goods as $good){}
                         <input type='hidden' name='id' value='{$rec['login_id']}'>
                         <input type='submit' value='削除'>
                     </form>
-<<<<<<< HEAD
                     <form action='update.php' method='POST'>
                         <input type='hidden' name='id' value='{$rec['login_id']}'>
                         <input type='submit' value='編集'>
-=======
+                    </form>
                     <form action='comment.php??id={$rec['id']}&login_id={$rec['login_id']}' method='GET'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
                     <input type='hidden' name='toukou_id' value='{$rec['id']}'>
                     <input type='submit' value='コメント'>
->>>>>>> origin/main
                     </form>
 
                 </div>
