@@ -90,7 +90,7 @@ foreach($goods as $good){}
                         <p>名前：{$rec['user_name']}</p>
                         <p>({$rec['date']})</p><br>
                     </div>
-                    <img src="images/{$rec['picture']}" width="300" height="400">
+                    <img src="images/{$rec['picture']}" width="400" height="200">
                     <div class="wrap" contenteditable="true">{$rec['content']}</div>
                     
                     <button id="like-button" data-toukou-id="{$rec['id']}" class="likeButton">
