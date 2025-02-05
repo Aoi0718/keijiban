@@ -39,18 +39,16 @@ if(empty($_SESSION['login_id'])){
                             move_uploaded_file($_FILES['icon']['tmp_name'], './images/' . $icon);
                             if(exif_imagetype($file)) {
                                 // SQL
-                                // $sql = "SELECT * FROM user WHERE login_id = '{$loginID}'";
-                                // $sql_res = $dbh->query( $sql );
-                                // $rec = $sql_res->fetch();
+                                $sql = "SELECT * FROM user WHERE login_id = '{$loginID}'";
+                                $sql_res = $dbh->query( $sql );
+                                $rec = $sql_res->fetch();
                                 $sql = "UPDATE user SET login_id = '{$loginID}', user_name = '{$userName}', icon = '{$icon}' WHERE login_id = '{$loginID}'";
                                 $sql_res = $dbh->query( $sql );
-                                $rec = $sql_res->fetch();
-                                // $sql = "SELECT * FROM toukou WHERE login_id = '{$loginID}'";
-                                // $sql_res = $dbh->query( $sql );
-                                // $rec = $sql_res->fetch();
-                                $sql = "UPDATE toukou SET login_id = '{$loginID}' WHERE login_id = '{$loginID}'";
+                                $sql = "SELECT * FROM toukou WHERE login_id = '{$loginID}'";
                                 $sql_res = $dbh->query( $sql );
                                 $rec = $sql_res->fetch();
+                                $sql = "UPDATE toukou SET login_id = '{$loginID}' WHERE login_id = '{$loginID}'";
+                                $sql_res = $dbh->query( $sql );
 
                                 echo "<h2>ユーザーの再登録が完了しました。</h2>";
                                 echo "<a href='keijiban2.php'>掲示板に戻る</a>";
