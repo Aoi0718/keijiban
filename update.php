@@ -7,24 +7,37 @@ if(empty($_SESSION['login_id'])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー設定：編集</title>
     <link rel="stylesheet" href="edit.css">
-    <title>記事の編集</title>
 </head>
 <body>
-<div class="content">
+    <h1>    投稿の編集</h1>
+    <?php
+        include "../db_open.php";
+
+        if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
+            echo "<p>不正なアクセスです。</p>";
+        } else {
+            // SQL
+            $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
+            $sql_res = $dbh->query( $sql );
+            $rec = $sql_res->fetch();
+            echo <<<___EOF____
+    <div class="content">
         <div class="border">
-            <form method="POST" enctype="multipart/form-data" action="update2.php">
+            <form method="POST" enctype="multipart/form-data" action="update_check.php">
                 <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
-                <div class='content'>
-                <p class="toukou">投稿内容：</p>
-                <textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea>
-                </div>
-                <input type="file" name="image">
-                <input type="submit" name="upload" value="投稿">
+            <div class='content'>
+              <p class="toukou">編集内容：</p>
+             <textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea>
+            </div>
+              <input type="file" name="image">
+              
+              <input type="submit" value="編集して投稿する" class="sub"></p>
+              <input type="hidden" name="login_id" value='{$rec['login_id']}'>
+              <input type="hidden" name="id" value='{$rec['id']}'>
             </form>
             <div class="container">
                 <a href="keijiban2.php" class="btn-border">戻る</a>
@@ -32,5 +45,27 @@ if(empty($_SESSION['login_id'])){
 
         </div>
     </div>
+    ___EOF____;
+            
+        }
+    ?>
+    <script>
+        const fileInput = document.getElementById('file');
+        const profileImg =document.getElementById('img');
+        
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+
+            if(file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    profileImg.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
 </body>
 </html>
