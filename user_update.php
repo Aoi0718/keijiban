@@ -10,6 +10,7 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集</title>
+    <link rel='stylesheet' href='user_update.css'>
 </head>
 <body>
     <h1>ユーザー情報の編集</h1>
@@ -25,6 +26,7 @@ if(empty($_SESSION['login_id'])){
             $rec = $sql_res->fetch();
 
             echo <<<___EOF___
+            <div class="as">
                 <form method="POST" action="user_update_check.php" enctype="multipart/form-data">
                     <p>ログインID：<input type="text" name="login_id"></p>
                     <p>ユーザーネーム：<input type="text" name="uname"</p>
@@ -34,6 +36,7 @@ if(empty($_SESSION['login_id'])){
                     </div>
                     <input type="submit" value="登録する">
                 </form>
+            </div>
             ___EOF___;
         }
     ?>
@@ -54,6 +57,5 @@ if(empty($_SESSION['login_id'])){
             }
         });
     </script>
-
 </body>
 </html>
