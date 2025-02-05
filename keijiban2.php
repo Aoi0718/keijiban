@@ -102,6 +102,11 @@ foreach($goods as $good){}
                         <input type='submit' value='削除'>
                     </form>
 
+                    <form action='update.php' method='POST'>
+                        <input type='hidden' name='id' value='{$rec['login_id']}'>
+                        <input type='submit' value='編集'>
+                    </form>
+
                     <form action='comment.php' method='GET'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
                     <input type='submit' value='コメント'>
