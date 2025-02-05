@@ -18,7 +18,7 @@ if(empty($_SESSION['login_id'])){
 <?php
 
     if (isset($_POST['id'])) {
-        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
+        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
         $sql_res = $dbh->query($sql);
         $rec = $sql_res->fetch();
         echo <<<___EOF___
