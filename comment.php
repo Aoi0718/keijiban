@@ -19,8 +19,8 @@ if(empty($_SESSION['login_id'])){
 <body>
     <h1>コメント</h1>
     <?php
-        $toukou_id = $_GET['toukou_id'];
-        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
+        $toukou_id = $_POST['toukou_id'];
+        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id where id = $toukou_id";
         $sql_res = $dbh->query( $sql );
         $rec = $sql_res->fetch();
             echo<<<___EOF___

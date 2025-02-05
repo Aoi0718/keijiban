@@ -10,7 +10,6 @@ $sql = "select * from good";
 $sql_res = $dbh->query( $sql );
 $goods = [];
 while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
-foreach($goods as $good){}
 ?>
 <!DOCTYPE html>
 <html>
@@ -107,8 +106,9 @@ foreach($goods as $good){}
                         <input type='submit' value='編集'>
                     </form>
 
-                    <form action='comment.php' method='GET'>
+                    <form action='comment.php' method='POST'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
+                    <input type='hidden' name='toukou_id' value='{$rec['id']}'>
                     <input type='submit' value='コメント'>
                     </form>
 
