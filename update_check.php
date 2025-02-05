@@ -1,19 +1,19 @@
 <?PHP
-include "../db_open.php";
-session_start();
-if(empty($_SESSION['login_id'])){
+ include "../db_open.php";
+ session_start();
+ if(empty($_SESSION['login_id'])){
     header('Location: login.php');
     exit();
-}
-?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
+ }
+ ?>
+ <!DOCTYPE html>
+ <html lang="ja">
+ <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集チェック</title>
     <link rel="stylesheet" href="edit.css">
-</head>
-<body>
+ </head>
+ <body>
     <?php
     if ($_SERVER["REQUEST_METHOD"] != "POST") {
         echo "<p>不正なアクセスです。</p>";
@@ -84,16 +84,14 @@ if(empty($_SESSION['login_id'])){
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute([$date, $title, $content, $id, $login_id]);
             }
-
             if ($stmt->rowCount() > 0) {
                 echo "<h2>記事を更新しました。</h2>";
             } else {
                 echo "<h2>更新に失敗しました。</h2>";
             }
-
             echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
         }
     }
     ?>
-</body>
+ </body>
 </html>
