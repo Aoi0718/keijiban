@@ -85,6 +85,7 @@ foreach($goods as $good){}
                     </form>
                     <form action='comment.php' method='GET'>
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
+                    <input type='hidden' name='toukou_id' value='{$rec['id']}'>
                     <input type='submit' value='コメント'>
                     </form>
                 </div>
