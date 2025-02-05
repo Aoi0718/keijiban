@@ -18,7 +18,7 @@ if(empty($_SESSION['login_id'])){
 <body>
     <?php
     $id = $_SESSION['id'];
-    $toukou_id = $_SESSION['toukou_id'];
+    $toukou_id = $_POST['toukou_id'];
     $comment = $_POST['comment'];
     $comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
     $sql = "insert into comment  values (null, '$toukou_id', '$id', '$comment')";
