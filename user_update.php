@@ -37,6 +37,9 @@ if(empty($_SESSION['login_id'])){
                     <input type="submit" value="登録する">
                 </form>
             </div>
+            <div class="container">
+                <a href="user_set.php" class="btn-border">戻る</a>
+            </div>
             ___EOF___;
         }
     ?>
