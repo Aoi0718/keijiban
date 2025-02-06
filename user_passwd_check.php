@@ -29,7 +29,7 @@ if(empty($_SESSION['login_id'])){
             if($rec && $rec['passwd'] === $ExPass) {
                 if($NewPass === $NewPassCon) {
                     // SQL
-                    $sql ="UPDATE user SET passwd = '{$NewPass}'";
+                    $sql ="UPDATE user SET passwd = '{$NewPass}' WHERE login_id = '{$loginID}'";
                     $sql_res = $dbh->query( $sql );
                     $rec = $sql_res->fetch();
 
