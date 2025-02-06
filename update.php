@@ -10,7 +10,7 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集</title>
-    <link rel="stylesheet" href="edit.css">
+    <link rel="stylesheet" href="user_update_check.css">
 </head>
 <body>
     <h1>    投稿の編集</h1>
