@@ -5,11 +5,9 @@ body{
     border: 1px solid #000;
     border-radius: 8px;
     margin: 16px auto;
-    list-style: none;
     padding: 10px 100px;
     background-color: white;
-    margin-left: 33%;
-    margin-right: 33%;   
+    width: 34%;
 }
 .border{
     text-align: center;
@@ -29,7 +27,7 @@ textarea{
     border: 1px solid #000;
     border-radius: 8px;
     margin: 16px auto;
-    padding-left: 0;;
+    padding-left: 0;
 	list-style: none;
 	display: inline-block;
     padding: 10px 100px;
@@ -39,7 +37,7 @@ textarea{
     border: 1px solid #000;
     border-radius: 8px;
     margin: 16px auto;
-    padding-left: 0;;
+    padding-left: 0;
 	list-style: none;
 	display: inline-block;
     padding: 10px 100px;
@@ -101,5 +99,14 @@ a:hover {
         border-radius: 8px;
         margin: 16px auto;
         list-style: none;
+        display: inline-block;
+    }
+    img{
+        max-width: 100%;;
+    }
+    textarea{
+        resize: none;
+        width: 150px;
+        height: 80;
     }
 }

@@ -10,12 +10,11 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：パスワード変更チェック</title>
+    <link rel="stylesheet" href="user_update_check.css">
 </head>
 <body>
     <?php
-        if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
-            echo "<p>不正なアクセスです。</p>";
-        } else {
+        if (isset($_POST['login_id'])) {
             $loginID = $_POST["login_id"];
             $ExPass = $_POST["ExPass"];         // 既存パスワード
             $NewPass = $_POST["NewPass"];       // 新規パスワード 
@@ -28,21 +27,23 @@ if(empty($_SESSION['login_id'])){
             if($rec && $rec['passwd'] === $ExPass) {
                 if($NewPass === $NewPassCon) {
                     // SQL
-                    $sql ="UPDATE user SET passwd = '{$NewPass}'";
+                    $sql ="UPDATE user SET passwd = '{$NewPass}' WHERE login_id = '{$loginID}'";
                     $sql_res = $dbh->query( $sql );
                     $rec = $sql_res->fetch();
 
                     echo "<h2>パスワードが変更されました。</h2>";
-                    echo "<p><a href='keijiban2.php'>掲示板戻る</a></p>";
+                    echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板戻る</a></div>";
 
                 } else {
                     echo "<p>新規パスワードに誤りがあります。</p>";
-                    echo "<p><a href='user_passwd.php'>戻る</a></p>";
+                    echo "<div class='container'><a href='user_set.php'>戻る</a></div>";
                 }
             } else {
                 echo "<p>既存パスワードが間違っています。</p>";
-                echo "<p><a href='user_passwd.php'>戻る</a></p>";
+                echo "<div class='container'><a href='user_set.php' class='btn-border'>戻る</a></div>";
             }
+        } else {
+            echo "<p>不正なアクセスです。</p>";
         }
     ?>
 </body>

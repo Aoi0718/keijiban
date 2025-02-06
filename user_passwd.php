@@ -10,12 +10,11 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：パスワード変更</title>
+    <link rel='stylesheet' href='user_passwd.css'>
 </head>
 <body>
     <?php
-        if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
-            echo "<p>不正なアクセスです。</p>";
-        } else {
+        if (isset($_POST['id'])) {
             // SQL
             $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
             $sql_res = $dbh->query( $sql );
@@ -30,8 +29,12 @@ if(empty($_SESSION['login_id'])){
                     <input type="hidden" name="login_id" value="{$rec['login_id']}">
                     <input type="submit" value="パスワードを変更">
                 </form>
-                <p><a href="user_set.php">戻る</a></p>
-            ___EOF___;   
+                <div class="container">
+                <a href="user_set.php" class="btn-border">戻る</a>
+                </div>
+            ___EOF___;
+        } else {
+            echo "<p>不正なアクセスです。</p>";
         }
     ?>
 </body>

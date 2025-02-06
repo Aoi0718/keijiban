@@ -17,9 +17,7 @@ if(empty($_SESSION['login_id'])){
     <?php
         include "../db_open.php";
 
-        if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
-            echo "<p>不正なアクセスです。</p>";
-        } else {
+        if (isset($_POST['id'])) {
             // SQL
             $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
             $sql_res = $dbh->query( $sql );
@@ -28,12 +26,13 @@ if(empty($_SESSION['login_id'])){
             echo <<<___EOF___
             <div class="as">
                 <form method="POST" action="user_update_check.php" enctype="multipart/form-data">
-                    <p>ログインID：<input type="text" name="login_id"></p>
-                    <p>ユーザーネーム：<input type="text" name="uname"</p>
+                    <p>ログインID：<input type="text" name="login_id" autocomplete="off"></p>
+                    <p>ユーザーネーム：<input type="text" name="uname" autocomplete="off"></p>
                     <div>
                         <img src="images/icon.jpg" id="img" width="100" height="100"><br>
                         <input type="file" name="icon" id="file">
                     </div>
+                    <input type="hidden" name="id" value="{$rec['login_id']}">
                     <input type="submit" value="登録する">
                 </form>
             </div>
@@ -41,6 +40,8 @@ if(empty($_SESSION['login_id'])){
                 <a href="user_set.php" class="btn-border">戻る</a>
             </div>
             ___EOF___;
+        } else {
+            echo "<p>不正なアクセスです。</p>";
         }
     ?>
     <script>
