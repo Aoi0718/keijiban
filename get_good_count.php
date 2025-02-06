@@ -6,10 +6,7 @@ if (!isset($_GET['toukou_id'])) {
     echo json_encode(['success' => false, 'message' => '投稿IDが指定されていません']);
     exit();
 }
-if(empty($_SESSION['login_id'])){
-    header('Location: login.php');
-    exit();
-}
+
 $toukou_id = intval($_GET['toukou_id']);
 $sql = "SELECT COUNT(*) as count FROM good WHERE toukou_id = ?";
 $stmt = $dbh->prepare($sql);
