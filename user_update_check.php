@@ -39,13 +39,13 @@ if(empty($_SESSION['login_id'])){
                             move_uploaded_file($_FILES['icon']['tmp_name'], './images/' . $icon);
                             if(exif_imagetype($file)) {
                                 // SQL
-                                $sql = "SELECT * FROM user WHERE login_id = '{$id}'";
-                                $sql_res = $dbh->query( $sql );
+                                //$sql = "SELECT * FROM user WHERE login_id = '{$id}'";
+                                //$sql_res = $dbh->query( $sql );
                                 $sql = "UPDATE user SET login_id = '{$loginID}', user_name = '{$userName}', icon = '{$icon}' WHERE login_id = '{$id}'";
                                 $sql_res = $dbh->query( $sql );
                                 $rec = $sql_res->fetch();
-                                $sql = "SELECT * FROM toukou WHERE login_id = '{$id}'";
-                                $sql_res = $dbh->query( $sql );
+                                //$sql = "SELECT * FROM toukou WHERE login_id = '{$id}'";
+                                //$sql_res = $dbh->query( $sql );
                                 $sql = "UPDATE toukou SET login_id = '{$loginID}' WHERE login_id = '{$id}'";
                                 $sql_res = $dbh->query( $sql );
                                 $rec = $sql_res->fetch();
