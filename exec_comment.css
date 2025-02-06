@@ -1,6 +1,9 @@
 body{
     background-image: url("okumono_mahjonggara10-1536x864.png");
 }
+p{
+  text-align: center;
+}
 .msb{
     text-align: center;
 }

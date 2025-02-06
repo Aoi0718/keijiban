@@ -19,8 +19,9 @@ if(empty($_SESSION['login_id'])){
 <body>
     <h1>コメント</h1>
     <?php
-        $toukou_id = $_GET['toukou_id'];
-        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
+        $_SESSION['toukou_id'] = $_POST['toukou_id'];
+        $toukou_id = $_SESSION['toukou_id'];
+        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id where id = $toukou_id";
         $sql_res = $dbh->query( $sql );
         $rec = $sql_res->fetch();
             echo<<<___EOF___
@@ -54,7 +55,6 @@ if(empty($_SESSION['login_id'])){
                     <div class="hth">
                         <h3>返信</h3>
                         <form method="POST" enctype="multipart/form-data" action="exec_comment.php">
-                        <input type=hidden name='toukou_id' value=$toukou_id>
                         <textarea name="comment" pattern=".*\S+.*" required placeholder="空白だけで投稿しないでください"></textarea><br>
                         <input type="submit" value="投稿">
                         </form>
