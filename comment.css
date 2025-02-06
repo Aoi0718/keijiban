@@ -9,6 +9,9 @@ body{
     background-color: white;
     width: 34%;
 }
+img{
+    object-fit: cover;
+}
 .border{
     text-align: center;
 }
