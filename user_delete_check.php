@@ -15,9 +15,7 @@ if(empty($_SESSION['login_id'])){
 <body>
     <?php
         include "../db_open.php";
-        if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
-            echo "<p>不正なアクセスです。</p>";
-        } else {
+        if (isset($_POST['login_id'])) {
             $loginID = $_POST['login_id'];
             $pass = $_POST['passwd'];
             $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
@@ -34,8 +32,10 @@ if(empty($_SESSION['login_id'])){
                 echo "<div='container'><a href='login.php' class='btn-border'>ログイン画面に戻る</a></div>";
             }else{
                 echo "<p>パスワードが違います。</p>";
-                echo "<div='container'><a href='user_delete.php' class='btn-border'>戻る</a></div>";
+                echo "<div='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>";
             }
+        } else {
+            echo "<p>不正なアクセスです。</p>";
         }
     ?>
 </body>

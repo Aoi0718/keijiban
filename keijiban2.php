@@ -25,7 +25,7 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
     <div class="gg">
         <div class="ul">
             <form action="user_set.php" method="POST" class="li">
-                <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
+                <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">
                 <input type="submit" value="ユーザー設定">
             </form>
         </div>
@@ -98,6 +98,7 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
 
                     <form action='delete.php' method='POST'>
                         <input type='hidden' name='id' value='{$rec['login_id']}'>
+                        <input type='hidden' name='toukou_id' value="{$rec['id']}">
                         <input type='submit' value='削除'>
                     </form>
 

@@ -16,9 +16,7 @@ if(empty($_SESSION['login_id'])){
     <?php
         include "../db_open.php";
 
-        if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
-            echo "<p>不正なアクセスです。</p>";
-        } else {
+        if (isset($_POST['id'])) {
             // 値の取り出し
             $loginID = $_POST['login_id'];
             $userName = $_POST['uname'];
@@ -56,21 +54,23 @@ if(empty($_SESSION['login_id'])){
                                 echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>";
                             } else {
                                 $message = '画像ファイルではありません。';
-                                echo "<div class='container'><a href='user_update.php' class='btn-border'>編集画面に戻る</a></div>";
+                                echo "<div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>";
                             }
                         }
                     } else {
                         echo "<h2>ファイルサイズが大きすぎます。</h2>";
-                        echo "<div class='container'><a href='user_update.php' class='btn-border'>編集画面に戻る</a></div>";
+                        echo "<div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>";
                     }
                 } else {
                     echo "<h2>許可されている拡張子ではありません。</h2>";
-                    echo "<div class='container'><a href='user_update.php' class='btn-border'>編集画面に戻る</a></div>";
+                    echo "<div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>";
                 }
             } else {
                 echo "<h2>ファイルが選択されていません。</h2>";
-                echo "<div class='container'><a href='user_update.php' class='btn-border'>編集画面に戻る</a></div>";
+                echo "<div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>";
             }
+        } else {
+            echo "<p>不正なアクセスです。</p>";
         }
     ?>
 </body>
