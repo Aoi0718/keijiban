@@ -5,11 +5,12 @@ body{
     border: 1px solid #000;
     border-radius: 8px;
     margin: 16px auto;
-    list-style: none;
     padding: 10px 100px;
     background-color: white;
-    margin-left: 33%;
-    margin-right: 33%;   
+    width: 34%;
+}
+img{
+    object-fit: cover;
 }
 .border{
     text-align: center;
