@@ -22,6 +22,7 @@ if(empty($_SESSION['login_id'])){
             // 値の取り出し
             $loginID = $_POST['login_id'];
             $userName = $_POST['uname'];
+            $id = $_POST['id'];
             // XSS対策
             $loginID = htmlspecialchars($loginID, ENT_QUOTES, 'UTF-8');
             $userName = htmlspecialchars($userName, ENT_QUOTES, 'UTF-8');
@@ -40,16 +41,14 @@ if(empty($_SESSION['login_id'])){
                             move_uploaded_file($_FILES['icon']['tmp_name'], './images/' . $icon);
                             if(exif_imagetype($file)) {
                                 // SQL
-                                $sql = "SELECT * FROM user WHERE login_id = '{$loginID}'";
+                                $sql = "SELECT * FROM user WHERE login_id = '{$id}'";
+                                $sql_res = $dbh->query( $sql );
+                                $sql = "UPDATE user SET login_id = '{$loginID}', user_name = '{$userName}', icon = '{$icon}' WHERE login_id = '{$id}'";
                                 $sql_res = $dbh->query( $sql );
                                 $rec = $sql_res->fetch();
-                                $sql = "UPDATE user SET login_id = '{$loginID}', user_name = '{$userName}', icon = '{$icon}' ";
+                                $sql = "SELECT * FROM toukou WHERE login_id = '{$id}'";
                                 $sql_res = $dbh->query( $sql );
-                                $rec = $sql_res->fetch();
-                                $sql = "SELECT * FROM toukou WHERE login_id = '{$loginID}'";
-                                $sql_res = $dbh->query( $sql );
-                                $rec = $sql_res->fetch();
-                                $sql = "UPDATE toukou SET login_id = '{$loginID}'";
+                                $sql = "UPDATE toukou SET login_id = '{$loginID}' WHERE login_id = '{$id}'";
                                 $sql_res = $dbh->query( $sql );
                                 $rec = $sql_res->fetch();
 

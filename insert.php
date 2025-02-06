@@ -23,7 +23,7 @@
                 <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
                 <div class='content'>
                 <p class="toukou">投稿内容：</p>
-                <textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea>
+                <textarea name="content" pattern=".*\S+.*" required placeholder="8192文字以内"></textarea>
                 </div>
                 <input type="file" name="image">
                 <input type="submit" name="upload" value="投稿">
@@ -34,5 +34,6 @@
 
         </div>
     </div>
+
 </body>
 </html>

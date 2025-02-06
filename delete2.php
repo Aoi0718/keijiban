@@ -16,7 +16,6 @@ if(empty($_SESSION['login_id'])){
     <body>
         <h2>記事の削除</h2>
 <?php
-
     if( $_SERVER["REQUEST_METHOD"] != "POST" ){
         echo "<p>不正なアクセスです。</p>";
     }else{
@@ -35,7 +34,7 @@ if(empty($_SESSION['login_id'])){
         }else{
             echo "<p>パスワードが違います。</p>";
         }
-    }
+            }
 ?>
     <div class="container">
         <a href="keijiban2.php" class="btn-border">戻る</a>
