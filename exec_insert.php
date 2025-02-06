@@ -33,10 +33,10 @@ if(empty($_SESSION['login_id'])){
 
                 if(trim(str_replace('　','',$content)) === ''){
                 echo "スペースまたは空欄での投稿はできません";
-                echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
                 }elseif(mb_strlen( $title, "UTF-8") > 30){
                     echo "<p>タイトルは30文字以内で入力してください。<p>";
-                    echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                    echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
                 }elseif(mb_strlen( $content, "UTF-8") > 8192){
                     echo "<p>投稿内容は8192文字以内で入力してください。<p>";
                     echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
