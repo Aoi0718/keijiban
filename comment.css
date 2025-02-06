@@ -101,5 +101,14 @@ a:hover {
         border-radius: 8px;
         margin: 16px auto;
         list-style: none;
+        display: inline-block;
+    }
+    img{
+        max-width: 100%;;
+    }
+    textarea{
+        resize: none;
+        width: 150px;
+        height: 80;
     }
 }

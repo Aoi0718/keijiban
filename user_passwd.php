@@ -10,6 +10,7 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：パスワード変更</title>
+    <link rel='stylesheet' href='user_passwd.css'>
 </head>
 <body>
     <?php
@@ -22,6 +23,7 @@ if(empty($_SESSION['login_id'])){
             $rec = $sql_res->fetch();
 
             echo <<<___EOF___
+
                 <h2>パスワード変更</h2>
                 <form method="POST" action="user_passwd_check.php">
                     <p>既存パスワード：<input type="password" name="ExPass"></p>
@@ -30,7 +32,9 @@ if(empty($_SESSION['login_id'])){
                     <input type="hidden" name="login_id" value="{$rec['login_id']}">
                     <input type="submit" value="パスワードを変更">
                 </form>
-                <p><a href="user_set.php">戻る</a></p>
+                <div class="container">
+                <a href="user_set.php" class="btn-border">戻る</a>
+                </div>
             ___EOF___;   
         }
     ?>
