@@ -10,6 +10,7 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：削除チェック</title>
+    <link rel="stylesheet" href="user_update_check.css">
 </head>
 <body>
     <?php
@@ -30,10 +31,10 @@ if(empty($_SESSION['login_id'])){
                 $sql_res = $dbh->query( $sql );
                 
                 echo "<p>ユーザーが削除されました。</p>";
-                echo "<a href='login.php'>ログイン画面に戻る</a>";
+                echo "<div='container'><a href='login.php' class='btn-border'>ログイン画面に戻る</a></div>";
             }else{
                 echo "<p>パスワードが違います。</p>";
-                echo "<a href='user_delete.php'>戻る</a>";
+                echo "<div='container'><a href='user_delete.php' class='btn-border'>戻る</a></div>";
             }
         }
     ?>
