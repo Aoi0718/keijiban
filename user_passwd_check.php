@@ -15,7 +15,7 @@ if(empty($_SESSION['login_id'])){
 <body>
     <?php
         if (isset($_POST['login_id'])) {
-            $loginID = $_POST["login_id"];
+            $loginID = $_SESSION['login_id'];
             $ExPass = $_POST["ExPass"];         // 既存パスワード
             $NewPass = $_POST["NewPass"];       // 新規パスワード 
             $NewPassCon = $_POST["NewPassCon"]; // 新規パスワード(確認)
@@ -24,7 +24,7 @@ if(empty($_SESSION['login_id'])){
             $sql_res = $dbh->query( $sql );
             $rec = $sql_res->fetch();
 
-            if($rec && $rec['passwd'] === $ExPass) {
+            if($rec['passwd'] === $ExPass) {
                 if($NewPass === $NewPassCon) {
                     // SQL
                     $sql ="UPDATE user SET passwd = '{$NewPass}' WHERE login_id = '{$loginID}'";
