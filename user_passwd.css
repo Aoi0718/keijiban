@@ -1,17 +1,12 @@
 body{
     background-image: url("okumono_mahjonggara10-1536x864.png");
-}
-p{
-  text-align: center;
-}
-.msb{
     text-align: center;
 }
 a {
     text-decoration: none;
     color: mediumseagreen;
- }
- .btn-border {
+}
+.btn-border {
     display: inline-block;
     max-width: 180px;
     text-align: left;
@@ -24,18 +19,18 @@ a {
     border-radius: 4px;
     transition: .4s;
     background-color: #9ec34b;
-  }
-  
-  .btn-border:hover {
+} 
+.btn-border:hover {
     background-color: #5e33b3;
     border-color: #3c5b7a;
     color: #FFF;
-  }
- .container {
+}
+.container {
     font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
     padding-top: 20px;
-  }                 
+    padding-bottom: 50px;
+}                 
 a:hover {
     background-color: skyblue;
 }
