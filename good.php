@@ -2,10 +2,8 @@
 // good.php
 include "../db_open.php";
 session_start();
-
-// ログインチェック
-if (empty($_SESSION['login_id'])) {
-    echo json_encode(["success" => false, "message" => "ログインが必要です"]);
+if(empty($_SESSION['login_id'])){
+    header('Location: login.php');
     exit();
 }
 

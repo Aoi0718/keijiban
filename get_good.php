@@ -1,16 +1,12 @@
 <?php
-// get_good.php
 include "../db_open.php";
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-// ログインチェック
-if (empty($_SESSION['login_id'])) {
-    echo json_encode(["success" => false, "message" => "ログインが必要です"]);
+if(empty($_SESSION['login_id'])){
+    header('Location: login.php');
     exit();
 }
-
 $login_id = $_SESSION['login_id'];
 
 // ユーザーが「いいね」した投稿のIDを取得
