@@ -10,6 +10,7 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集チェック</title>
+    <link rel="stylesheet" href="user_update_check.css">
 </head>
 <body>
     <?php
@@ -53,23 +54,23 @@ if(empty($_SESSION['login_id'])){
                                 $rec = $sql_res->fetch();
 
                                 echo "<h2>ユーザーの再登録が完了しました。</h2>";
-                                echo "<a href='keijiban2.php'>掲示板に戻る</a>";
+                                echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>";
                             } else {
                                 $message = '画像ファイルではありません。';
-                                echo "<p><a href='user_update.php'>編集画面に戻る</a></p>";
+                                echo "<div class='container'><a href='user_update.php' class='btn-border'>編集画面に戻る</a></div>";
                             }
                         }
                     } else {
                         echo "<h2>ファイルサイズが大きすぎます。</h2>";
-                        echo "<p><a href='user_update.php'>編集画面に戻る</a></p>";
+                        echo "<div class='container'><a href='user_update.php' class='btn-border'>編集画面に戻る</a></div>";
                     }
                 } else {
                     echo "<h2>許可されている拡張子ではありません。</h2>";
-                    echo "<p><a href='user_update.php'>編集画面に戻る</a></p>";
+                    echo "<div class='container'><a href='user_update.php' class='btn-border'>編集画面に戻る</a></div>";
                 }
             } else {
                 echo "<h2>ファイルが選択されていません。</h2>";
-                echo "<p><a href='user_update.php'>編集画面に戻る</a></p>";
+                echo "<div class='container'><a href='user_update.php' class='btn-border'>編集画面に戻る</a></div>";
             }
         }
     ?>
