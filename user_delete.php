@@ -15,8 +15,9 @@ if(empty($_SESSION['login_id'])){
 <body>
     <?php
         if (isset($_POST['id'])) {
+            $Lid = $_SESSION['login_id'];
             // SQL
-            $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
+            $sql = "SELECT * from user where login_id = '{$Lid}'";
             $sql_res = $dbh->query($sql);
             $rec = $sql_res->fetch();
 
