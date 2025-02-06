@@ -20,7 +20,7 @@ if(empty($_SESSION['login_id'])){
     if (isset($_POST['id'])) {
         $toukou_id = $_POST['toukou_id'];
 
-        $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
+        $sql = "SELECT * from toukou left outer join user on toukou.login_id = user.login_id where id = '{$toukou_id}'";
         $sql_res = $dbh->query($sql);
         $rec = $sql_res->fetch();
         echo <<<___EOF___
