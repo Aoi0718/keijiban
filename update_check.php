@@ -34,13 +34,13 @@ if(empty($_SESSION['login_id'])){
 
         if (trim(str_replace('　','',$content)) === '') {
             echo "スペースまたは空欄での投稿はできません";
-            echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+            echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
         } elseif (mb_strlen($title, "UTF-8") > 30) {
             echo "<p>タイトルは30文字以内で入力してください。</p>";
-            echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
-        } elseif (mb_strlen($content, "UTF-8") > 200) {
-            echo "<p>投稿内容は200文字以内で入力してください。</p>";
-            echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+            echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
+        } elseif (mb_strlen($content, "UTF-8") > 8192) {
+            echo "<p>投稿内容は8192文字以内で入力してください。</p>";
+            echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
         } else {
             // 画像処理
             $image = null;
@@ -58,17 +58,17 @@ if(empty($_SESSION['login_id'])){
                             move_uploaded_file($tmpfile, './images/' . $image);
                             if (!exif_imagetype($file)) {
                                 echo "<h2>画像ファイルではありません。</h2>";
-                                echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                                echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
                                 exit();
                             }
                         } else {
                             echo "<h2>ファイルサイズが大きすぎます。</h2>";
-                            echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                            echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
                             exit();
                         }
                     } else {
                         echo "<h2>許可されている拡張子ではありません。</h2>";
-                        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                        echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
                         exit();
                     }
                 }
