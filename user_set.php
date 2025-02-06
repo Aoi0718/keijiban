@@ -17,19 +17,19 @@ if(empty($_SESSION['login_id'])){
     <div class="sa">
         <div class="ys">
             <form method="POST" action="user_update.php">
-                <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
+                <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">
                 <input type="submit" value="ユーザーの編集">
             </form>
         </div>
         <div class="nz">
             <form method="POST" action="user_delete.php">
-                <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
+                <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">
                 <input type="submit" value="ユーザーの削除">
             </form>
         </div>
         <div class="ct">
             <form method="POST" action="user_passwd.php">
-                <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
+                <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">
                 <input type="submit" value="パスワードの変更">
             </form>
         </div>

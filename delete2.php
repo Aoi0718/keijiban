@@ -22,13 +22,14 @@ if(empty($_SESSION['login_id'])){
         $id = $_POST['id'];
         $id2 = $_POST['login_id'];
         $pass = $_POST['passwd'];
+        $toukou_id = $_POST['toukou_id'];
         // SQL
         $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
         $sql_res = $dbh->query( $sql );
         $rec = $sql_res->fetch();
         // パスワード認証
         if( $rec && $rec['passwd'] === $pass ) {
-            $sql = "DELETE FROM toukou where id = '$id'";
+            $sql = "DELETE FROM toukou where id = '{$toukou_id}'";
             $sql_res = $dbh->query( $sql );
             echo "<p>記事を削除しました。</p>";
         }else{
