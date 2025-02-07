@@ -69,11 +69,12 @@ if(empty($_SESSION['login_id'])){
                     } else {
                         echo "<h2>許可されている拡張子ではありません。</h2>";
                         echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
-                        exit();
                     }
+                } else {
+                    echo "<h2>ファイルが選択されていません。</h2>";
+                    echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                 }
             }
-
             // SQL (UPDATE文)
             if ($image) {
                 $sql = "UPDATE toukou SET date = ?, title = ?, content = ?, picture = ? WHERE id = ? AND login_id = ?";
