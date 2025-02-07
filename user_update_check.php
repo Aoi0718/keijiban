@@ -49,6 +49,7 @@ if(empty($_SESSION['login_id'])){
                                 $sql = "UPDATE toukou SET login_id = '{$loginID}' WHERE login_id = '{$id}'";
                                 $sql_res = $dbh->query( $sql );
                                 $rec = $sql_res->fetch();
+                                $_SESSION['login_id'] = $loginID;
 
                                 echo "<h2>ユーザーの再登録が完了しました。</h2>";
                                 echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>";
