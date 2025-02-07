@@ -101,20 +101,12 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
                         <input type='hidden' name='toukou_id' value="{$rec['id']}">
                         <input type='submit' value='削除'>
                     </form>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/main
                     <form action='update.php' method='POST'>
                         <input type='hidden' name='id' value='{$rec['login_id']}'>
                         <input type='submit' value='編集'>
                     </form>
-<<<<<<< HEAD
-                    <form action='comment.php??id={$rec['id']}&login_id={$rec['login_id']}' method='GET'>
-=======
 
                     <form action='comment.php' method='POST'>
->>>>>>> origin/main
                     <input type='hidden' name='id' value='{$rec['login_id']}'>
                     <input type='hidden' name='toukou_id' value='{$rec['id']}'>
                     <input type='submit' value='コメント'>

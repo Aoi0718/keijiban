@@ -11,7 +11,7 @@
  <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集チェック</title>
-    <link rel="stylesheet" href="edit.css">
+    <link rel="stylesheet" href="update_check.css">
  </head>
  <body>
     <?php

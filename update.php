@@ -10,7 +10,7 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集</title>
-    <link rel="stylesheet" href="user_update_check.css">
+    <link rel="stylesheet" href="insert.css">
 </head>
 <body>
     <h1>    投稿の編集</h1>
@@ -64,8 +64,11 @@ if(empty($_SESSION['login_id'])){
                 };
                 reader.readAsDataURL(file);
             }
+            
         });
     </script>
+
+
 
 </body>
 </html>
