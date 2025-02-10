@@ -57,42 +57,26 @@ if(empty($_SESSION['login_id'])){
                         if ($size < 2097152) {
                             move_uploaded_file($tmpfile, './images/' . $image);
                             if (!exif_imagetype($file)) {
+                                // SQL (UPDATE文)
+                                
+                                echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
+                            } else {
                                 echo "<h2>画像ファイルではありません。</h2>";
-                                echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
-                                exit();
+                                echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
                             }
                         } else {
                             echo "<h2>ファイルサイズが大きすぎます。</h2>";
-                            echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
-                            exit();
+                            echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
                         }
                     } else {
                         echo "<h2>許可されている拡張子ではありません。</h2>";
-                        echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
+                        echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
                     }
                 } else {
                     echo "<h2>ファイルが選択されていません。</h2>";
-                    echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                    echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
                 }
             }
-            // SQL (UPDATE文)
-            if ($image) {
-                $sql = "UPDATE toukou SET date = ?, title = ?, content = ?, picture = ? WHERE id = ? AND login_id = ?";
-                $stmt = $dbh->prepare($sql);
-                $stmt->execute([$date, $title, $content, $image, $id, $login_id]);
-            } else {
-                $sql = "UPDATE toukou SET date = ?, title = ?, content = ? WHERE id = ? AND user_id = ?";
-                $stmt = $dbh->prepare($sql);
-                $stmt->execute([$date, $title, $content, $id, $login_id]);
-            }
-
-            if ($stmt->rowCount() > 0) {
-                echo "<h2>記事を更新しました。</h2>";
-            } else {
-                echo "<h2>更新に失敗しました。</h2>";
-            }
-
-            echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
         }
     }
     ?>
