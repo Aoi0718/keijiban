@@ -21,6 +21,8 @@ $name = $_GET['user_name'];
 $id = $_GET['login_id'];
 $sql = "select * from toukou, user where toukou.login_id = '$id' && user_name = '$name'";
 $sql_res = $dbh->query( $sql );
+$rec = $sql_res->fetch();
+$contents = wordwrap($rec['content'], 30, '<br/>', true);
 echo <<<___EOF___
 <h2>「{$name}」の投稿一覧</h2>
 <div class="container">
@@ -35,11 +37,9 @@ while( $record = $sql_res->fetch() ) {
                 <p>【{$record['title']}】</p>
                 <p>名前：{$record['user_name']}</p>
                 <p>({$record['date']})</p>
-                <div class="wrap" contenteditable="true">{$record['content']}</div>
+                <div class="wrap">{$contents}</div>
             </div>
         </div>
-
-
     ___EOF___;
 }
 ?>

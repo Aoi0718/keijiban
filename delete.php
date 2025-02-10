@@ -23,6 +23,7 @@ if(empty($_SESSION['login_id'])){
         $sql = "SELECT * from toukou left outer join user on toukou.login_id = user.login_id where id = '{$toukou_id}'";
         $sql_res = $dbh->query($sql);
         $rec = $sql_res->fetch();
+        $contents = wordwrap($rec['content'], 30, '<br/>', true);
         echo <<<___EOF___
 
         <p>以下の記事を削除しますか？</p>
@@ -30,7 +31,7 @@ if(empty($_SESSION['login_id'])){
         <div class="in">
         <h2>{$rec['title']}</h2>
         <p>投稿者: {$rec['user_name']}</p>
-        <p>{$rec['content']}</p>
+        <p>{$contents}</p>
         <p>投稿日時: {$rec['date']}</p>
         <form action="delete2.php" method="POST">
             <p>パスワード:<input type="password" name="passwd">
