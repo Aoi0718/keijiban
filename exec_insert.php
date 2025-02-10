@@ -74,7 +74,7 @@ if(empty($_SESSION['login_id'])){
                         }
                     } else {
                         echo "<h2>ファイルが選択されていません。</h2>";
-                        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                        echo "<p><a href='insert.php'>投稿画面へ</a></p>";
                     }
                 }
             }
