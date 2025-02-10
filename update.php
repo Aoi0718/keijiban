@@ -20,8 +20,9 @@ if(empty($_SESSION['login_id'])){
         if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
             echo "<p>不正なアクセスです。</p>";
         } else {
+            $toukou_id = $_POST['toukou_id'];
             // SQL
-            $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
+            $sql = "select * from toukou where id = $toukou_id";
             $sql_res = $dbh->query( $sql );
             $rec = $sql_res->fetch();
             echo <<<___EOF____
@@ -37,7 +38,7 @@ if(empty($_SESSION['login_id'])){
               
               <input type="submit" value="編集して投稿する" class="sub"></p>
               <input type="hidden" name="login_id" value='{$rec['login_id']}'>
-              <input type="hidden" name="id" value='{$rec['id']}'>
+              <input type="hidden" name="toukou_id" value='{$toukou_id}'>
             </form>
             <div class="container">
                 <a href="keijiban2.php" class="btn-border">戻る</a>

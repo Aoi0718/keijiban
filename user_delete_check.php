@@ -14,15 +14,13 @@ if(empty($_SESSION['login_id'])){
 </head>
 <body>
     <?php
-        include "../db_open.php";
         if (isset($_POST['login_id'])) {
             $loginID = $_POST['login_id'];
             $pass = $_POST['passwd'];
-            $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id";
+            $sql = "select * from user where login_id = '{$loginID}'";
             $sql_res = $dbh->query( $sql );
             $rec = $sql_res->fetch();
-            if( $rec && $rec['passwd'] === $pass ){
-                // SQL
+            if($rec['passwd'] === $pass ){
                 $sql = "DELETE FROM toukou where login_id = '{$loginID}'";
                 $sql_res = $dbh->query( $sql );
                 $sql = "DELETE FROM user where login_id = '{$loginID}'";

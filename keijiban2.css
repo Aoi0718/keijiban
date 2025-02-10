@@ -104,8 +104,9 @@ p{
     background-color: #e5348c;
     border-color: #e5348c;
     }
-
-    
+img{
+    object-fit: contain;
+}
         
 @media screen and (max-width: 600px){
     img{
