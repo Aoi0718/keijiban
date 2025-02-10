@@ -74,8 +74,9 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
             $sql2 = "select count(*) as total from good where toukou_id = {$rec['id']} and login_id = '$login_id'";
             $sql_res2 = $dbh->query( $sql2 );
             $record = $sql_res2->fetch();
-        $_SESSION['total'] = $record['total'];
-        $_SESSION['toukou_id'] = $rec['id'];
+            $_SESSION['total'] = $record['total'];
+            $_SESSION['toukou_id'] = $rec['id'];
+            $contents = wordwrap($rec['content'], 30, '<br/>', true);
 
         echo <<<___EOF___
             <div class="content">
@@ -88,7 +89,7 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
                         <p>({$rec['date']})</p><br>
                     </div>
                     <img src="images/{$rec['picture']}" width="400" height="200">
-                    <div class="wrap" contenteditable="true">{$rec['content']}</div>
+                    <div class="wrap">{$contents}</div>
                     
                     <button id="like-button" data-toukou-id="{$rec['id']}" class="likeButton">
                     <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
