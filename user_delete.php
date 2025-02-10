@@ -15,8 +15,6 @@ if(empty($_SESSION['login_id'])){
 <body>
     <?php
         if (isset($_POST['id'])) {
-            $Lid = $_SESSION['login_id'];
-            // SQL
             $login_id = $_SESSION['login_id'];
             $sql = "select * from user where login_id = '$login_id'";
             $sql_res = $dbh->query($sql);

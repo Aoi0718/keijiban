@@ -103,7 +103,8 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
                     </form>
 
                     <form action='update.php' method='POST'>
-                        <input type='hidden' name='id' value='{$rec['login_id']}'>
+                        <input type='hidden' name='login_id' value='{$rec['login_id']}'>
+                        <input type='hidden' name='toukou_id' value='{$rec['id']}'>
                         <input type='submit' value='編集'>
                     </form>
 

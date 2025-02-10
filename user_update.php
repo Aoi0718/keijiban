@@ -15,8 +15,6 @@ if(empty($_SESSION['login_id'])){
 <body>
     <h1>ユーザー情報の編集</h1>
     <?php
-        include "../db_open.php";
-
         if (isset($_POST['id'])) {
             // SQL
             $login_id = $_SESSION['login_id'];
