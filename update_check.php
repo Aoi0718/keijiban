@@ -11,7 +11,7 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集チェック</title>
-    <link rel="stylesheet" href="edit.css">
+    <link rel="stylesheet" href="user_delete.css">
 </head>
 <body>
     <?php
@@ -24,45 +24,47 @@ if(empty($_SESSION['login_id'])){
         $content = $_POST['content'];
         date_default_timezone_set('Asia/Tokyo');
         $date = date("Y/m/d H:i:s");
-        
         // セッション
         $login_id = $_SESSION['login_id'];
-
         // XSS対策
         $title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
         $content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
 
         if (trim(str_replace('　','',$content)) === '') {
             echo "スペースまたは空欄での投稿はできません";
-            echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
+            echo "<p><a href='keigiban2.php'>掲示板に戻る</a></p>";
         } elseif (mb_strlen($title, "UTF-8") > 30) {
             echo "<p>タイトルは30文字以内で入力してください。</p>";
-            echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
+            echo "<p><a href='keigiban2.php'>掲示板に戻る</a></p>";
         } elseif (mb_strlen($content, "UTF-8") > 8192) {
             echo "<p>投稿内容は8192文字以内で入力してください。</p>";
-            echo "<p><a href='insert.php'>編集画面に戻る</a></p>";
+            echo "<p><a href='keigiban2.php'>掲示板に戻る</a></p>";
         } else {
             // 画像処理
-            $image = null;
             if (!empty($_FILES['image']['name'])) {
-                $image = uniqid(mt_rand(), true) . '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-                $file = "images/$image";
-                $allowedExts = array("jpg", "jpeg", "png", "gif");
-                $size = $_FILES["image"]["size"];
-                $tmpfile = $_FILES['image']['tmp_name'];
-                $ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-
-                if (is_uploaded_file($tmpfile)) {
-                    if (in_array($ext, $allowedExts)) {
-                        if ($size < 2097152) {
-                            move_uploaded_file($tmpfile, './images/' . $image);
-                            if (!exif_imagetype($file)) {
-                                // SQL (UPDATE文)
-                                
-                                echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
-                            } else {
-                                echo "<h2>画像ファイルではありません。</h2>";
-                                echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
+                $image = uniqid(mt_rand(), true);
+                    $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
+                    $file = "images/$image";
+                    $fileExt = $_FILES['image']['name'];     // ファイル名を取得
+                    $tmpfile = $_FILES['image']['tmp_name'];
+                    $Ext = pathinfo($fileExt, PATHINFO_EXTENSION);
+                    $array = array("jpg", "jpeg" , "png", "gif");
+                    $size = $_FILES["image"]["size"];
+                    if(is_uploaded_file($tmpfile)) {
+                        if(in_array($Ext, $array)) {
+                            if($size < 2097152) {
+                                if( !empty($_FILES['image']['name'])){
+                                    move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);
+                                    if(exif_imagetype($file)) {
+                                    // SQL
+                                    $sql = "UPDATE toukou set date = '{$date}', title = '{$title}', content = '{$content}', picture = '{$image}' where id = '{$id}'";
+                                    $sql_res = $dbh->query( $sql );
+                                    echo "<h2>投稿を編集しました。</h2>";
+                                    echo "<div class='container'><p><a href='keijiban2.php'>掲示板に戻る</a></p></div>";
+                                } else {
+                                    echo "<h2>画像ファイルではありません。</h2>";
+                                    echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
+                                }
                             }
                         } else {
                             echo "<h2>ファイルサイズが大きすぎます。</h2>";
