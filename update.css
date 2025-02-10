@@ -1,0 +1,151 @@
+body {
+    background-image: url("okumono_mahjonggara10-1536x864.png");
+}
+p{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: mediumseagreen;
+}
+a:hover{
+    background-color: skyblue;
+}
+.in{
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 16px auto;
+    padding-left: 0;;
+	list-style: none;
+	display: inline-block;
+    padding: 10px 100px;
+    background-color: white;
+}
+.auto{
+    text-align: center;
+    
+}
+.sub{
+    box-shadow: 0px 0px 3px mediumseagreen;
+}
+.btn-border {
+    display: inline-block;
+    max-width: 180px;
+    text-align: left;
+    border: 2px solid #cbe585;/*囲う線*/
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: .4s;
+    background-color: #9ec34b;
+  }
+  
+  .btn-border:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
+  }
+.container {
+    font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
+    text-align: center;
+    padding-top: 40px;
+  }
+  h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+body {
+    background-image: url("okumono_mahjonggara10-1536x864.png");
+}
+
+h1 {
+    text-align: center;
+}
+
+.border {
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 16px auto;
+    padding-left: 0;;
+	list-style: none;
+	display: inline-block;
+    padding: 10px 100px;
+}
+
+.content {
+    text-align: center;
+    align-items: center;
+}
+
+textarea{
+    resize: none;
+    width:300px;
+    height:200px;
+}
+
+.toukou{
+    margin-bottom: 200px;
+}
+
+.content{
+    display: flex;
+}
+
+.back{
+    text-align: center;
+}
+
+body {
+    background-image: url("okumono_mahjonggara10-1536x864.png");
+}
+
+a {
+    text-decoration: none;
+    color: mediumseagreen;
+ }
+ .btn-border {
+    display: inline-block;
+    max-width: 180px;
+    text-align: left;
+    border: 2px solid #cbe585;/*囲う線*/
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: .4s;
+    background-color: #9ec34b;
+  }
+  
+  .btn-border:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
+  }
+ .container {
+    font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
+    text-align: center;
+    padding-top: 20px;
+  }                 
+a:hover {
+    background-color: skyblue;
+}
+@media screen and (max-width:600px) {
+    h1 {
+        font-size:larger;
+    }
+}

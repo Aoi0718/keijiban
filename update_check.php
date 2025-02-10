@@ -11,15 +11,9 @@
  <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集チェック</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="update_check.css">
- </head>
- <body>
-=======
     <link rel="stylesheet" href="user_delete.css">
 </head>
 <body>
->>>>>>> origin/ishidaaoi
     <?php
     if ($_SERVER["REQUEST_METHOD"] != "POST") {
         echo "<p>不正なアクセスです。</p>";
@@ -84,33 +78,8 @@
                     echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>";
                 }
             }
-<<<<<<< HEAD
-
-            // SQL (UPDATE文)
-            if ($image) {
-                $sql = "UPDATE toukou SET date = ?, title = ?, content = ?, picture = ? WHERE id = ? AND login_id = ?";
-                $stmt = $dbh->prepare($sql);
-                $stmt->execute([$date, $title, $content, $image, $id, $login_id]);
-            } else {
-                $sql = "UPDATE toukou SET date = ?, title = ?, content = ? WHERE id = ? AND user_id = ?";
-                $stmt = $dbh->prepare($sql);
-                $stmt->execute([$date, $title, $content, $id, $login_id]);
-            }
-            if ($stmt->rowCount() > 0) {
-                echo "<h2>記事を更新しました。</h2>";
-            } else {
-                echo "<h2>更新に失敗しました。</h2>";
-            }
-            echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
-        }
-    }
-    ?>
- </body>
-</html>
-=======
         }
     }
     ?>
 </body>
 </html>
->>>>>>> origin/ishidaaoi
