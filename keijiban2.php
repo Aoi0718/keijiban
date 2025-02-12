@@ -74,6 +74,7 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
     
             echo "<div class='content'>";
                 echo "<div class='border'>";
+                echo "<a href='honbun.php?login_id={$rec['login_id']}&id={$rec['id']}' class='honbun'>";
                     echo "<div class='flex'>";
                         echo "<p>{$rec['id']}</p>";
                         echo "<p>【{$rec['title']}】</p>";
@@ -81,9 +82,8 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
                         echo "<p>名前：{$rec['user_name']}</p>";
                         echo "<p>({$rec['date']})</p><br>";
                     echo "</div>";
-                    echo "<img src='images/{$rec['picture']}' width='400' height='200'>";
-                    echo "<div class='wrap'>{$contents}</div>";
-
+                    echo "</a>";
+                    
                     if($_SESSION['login_id'] !== $rec['login_id']){            
                     echo "<button id='like-button' data-toukou-id='{$rec['id']}' class='likeButton'>";
                     echo "<svg class='likeButton__icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z'/></svg>";

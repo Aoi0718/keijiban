@@ -26,6 +26,10 @@ form {
     text-align: center;
 }
 
+.honbun{
+    color: #000;
+    text-decoration: none;
+}
 p{
     text-align: center;
     font-family: sans-serif;
