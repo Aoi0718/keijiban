@@ -75,7 +75,7 @@
                     }
                 } else {
                     echo "<h2>ファイルが選択されていません。</h2>";
-                    echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>";
+                    echo "<p><a href='insert.php'>投稿画面へ</a></p>";
                 }
             }
         }

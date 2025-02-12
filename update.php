@@ -28,7 +28,7 @@ if(empty($_SESSION['login_id'])){
             echo <<<___EOF____
     <div class="content">
         <div class="border">
-            <form method="POST" enctype="multipart/form-data" action="update_check.php">
+            <form method="POST" enctype="multipart/form-data" action="update_check_copy.php">
                 <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
             <div class='content'>
               <p class="toukou">編集内容：</p>
