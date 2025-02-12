@@ -16,7 +16,6 @@ if(empty($_SESSION['login_id'])){
     <h1>投稿の編集</h1>
     <?php
         include "../db_open.php";
-
         if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
             echo "<p>不正なアクセスです。</p>";
         } else {
