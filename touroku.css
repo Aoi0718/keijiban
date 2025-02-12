@@ -74,6 +74,7 @@ img {
     line-height: 1em;
     transition: .3s;
     border: 2px solid #7c0990;
+    margin: 10px;
 }
 .button:hover {
     background-color: #5e33b3;

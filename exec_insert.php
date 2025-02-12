@@ -58,10 +58,17 @@ if(empty($_SESSION['login_id'])){
                                         // SQL
                                         $sql = "INSERT INTO toukou VALUES (null, '{$date}', '{$title}', '{$content}', '{$login_id}', '{$image}')";
                                         $sql_res = $dbh->query( $sql );
-                                        echo "<h2>記事を追加しました。</h2>";
-                                        echo "<p><a href='keijiban2.php'>投稿一覧に戻る</a></p>";
+                                        echo <<< ___EOF___
+                                        <div class="contents">
+                                            <div class="border">
+                                                <h2>記事を追加しました。</h2>
+                                                <p><a href='keijiban2.php' class='btn-border'>投稿一覧に戻る</a></p>
+                                            </div>
+                                        </div>
+                                        ___EOF___;
                                     } else {
-                                        $message = '画像ファイルではありません。';
+                                        echo "<h2>画像ファイルではありません。</h2>";
+                                        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
                                     }
                                 }
                             } else {

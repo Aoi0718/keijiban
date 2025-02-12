@@ -25,25 +25,24 @@ if(empty($_SESSION['login_id'])){
         $rec = $sql_res->fetch();
         $contents = wordwrap($rec['content'], 30, '<br/>', true);
         echo <<<___EOF___
-
-        <p>以下の記事を削除しますか？</p>
+        <h2>以下の記事を削除しますか？</h2>
         <div class="auto">
-        <div class="in">
-        <h2>{$rec['title']}</h2>
-        <p>投稿者: {$rec['user_name']}</p>
-        <p>{$contents}</p>
-        <p>投稿日時: {$rec['date']}</p>
-        <form action="delete2.php" method="POST">
-            <p>パスワード:<input type="password" name="passwd">
-            <input type="hidden" name="login_id" value='{$rec['login_id']}'>
-            <input type="hidden" name="id" value='{$rec['id']}'>
-            <input type="hidden" name="toukou_id" value="{$toukou_id}">
-            <input type="submit" value="削除" class="sub"></p>
-        </form>
-        </div>
+            <div class="in">
+                <h2>{$rec['title']}</h2>
+                <p>投稿者: {$rec['user_name']}</p><br>
+                <p>{$contents}</p><br>
+                <p>投稿日時: {$rec['date']}</p><br>
+                <form action="delete2.php" method="POST">
+                    <p>パスワード:<input type="password" name="passwd"></p><br>
+                    <input type="hidden" name="login_id" value='{$rec['login_id']}'>
+                    <input type="hidden" name="id" value='{$rec['id']}'>
+                    <input type="hidden" name="toukou_id" value="{$toukou_id}">
+                    <input type="submit" value="削除" class="button">
+                </form>
+            </div>
         </div>
         <div class="container">
-        <a href="keijiban2.php" class="btn-border">戻る</a>
+            <a href="keijiban2.php" class="btn-border">戻る</a>
         </div>
         ___EOF___;
     } else {
