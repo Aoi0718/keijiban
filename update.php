@@ -13,7 +13,7 @@ if(empty($_SESSION['login_id'])){
     <link rel="stylesheet" href="insert.css">
 </head>
 <body>
-    <h1>    投稿の編集</h1>
+    <h1>投稿の編集</h1>
     <?php
         include "../db_open.php";
 
