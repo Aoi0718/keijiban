@@ -14,7 +14,7 @@ if(empty($_SESSION['login_id'])){
 </head>
 <body>
     <?php
-        if (isset($_POST['login_id'])) {
+        if ( $_SERVER["REQUEST_METHOD"] == "POST") {
             $loginID = $_SESSION['login_id'];
             $ExPass = $_POST["ExPass"];         // 既存パスワード
             $NewPass = $_POST["NewPass"];       // 新規パスワード 
