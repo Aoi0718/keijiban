@@ -23,10 +23,12 @@
                     <img src="images/icon.jpg" id="img" width="100" height="100"><br>
                     <input type="file" name="icon" id="file">
                 </div>
-                <input type="submit" value="登録">
+                <input type="submit" value="登録" class="button">
             </form>
-            <p><a class='back' href='login.php'>戻る</a></p>
         </div>
+    </div>
+    <div class="center">
+        <a href='login.php' class='btn-border'>戻る</a>
     </div>
 
     <script>
