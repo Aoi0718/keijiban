@@ -41,26 +41,25 @@ if(empty($_SESSION['login_id'])){
             echo "<p><a href='keigiban2.php'>掲示板に戻る</a></p>";
         } else {
             // 画像処理
-            if (!empty($_FILES['image']['name'])) {
                 $image = uniqid(mt_rand(), true);
-                    $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
-                    $file = "images/$image";
-                    $fileExt = $_FILES['image']['name'];     // ファイル名を取得
-                    $tmpfile = $_FILES['image']['tmp_name'];
-                    $Ext = pathinfo($fileExt, PATHINFO_EXTENSION);
-                    $array = array("jpg", "jpeg" , "png", "gif");
-                    $size = $_FILES["image"]["size"];
-                    if(is_uploaded_file($tmpfile)) {
-                        if(in_array($Ext, $array)) {
-                            if($size < 2097152) {
-                                if( !empty($_FILES['image']['name'])){
-                                    move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);
-                                    if(exif_imagetype($file)) {
-                                    // SQL
-                                    $sql = "UPDATE toukou set date = '{$date}', title = '{$title}', content = '{$content}', picture = '{$image}' where id = '{$id}'";
-                                    $sql_res = $dbh->query( $sql );
-                                    echo "<h2>投稿を編集しました。</h2>";
-                                    echo "<div class='container'><p><a href='keijiban2.php'>掲示板に戻る</a></p></div>";
+                $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
+                $file = "images/$image";
+                $fileExt = $_FILES['image']['name'];     // ファイル名を取得
+                $tmpfile = $_FILES['image']['tmp_name'];
+                $Ext = pathinfo($fileExt, PATHINFO_EXTENSION);
+                $array = array("jpg", "jpeg" , "png", "gif");
+                $size = $_FILES["image"]["size"];
+                if(is_uploaded_file($tmpfile)) {
+                    if(in_array($Ext, $array)) {
+                        if($size < 2097152) {
+                            if( !empty($_FILES['image']['name'])){
+                                move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);
+                                if(exif_imagetype($file)) {
+                                // SQL
+                                $sql = "UPDATE toukou set date = '{$date}', title = '{$title}', content = '{$content}', picture = '{$image}' where id = '{$id}'";
+                                $sql_res = $dbh->query( $sql );
+                                echo "<h2>投稿を編集しました。</h2>";
+                                echo "<div class='container'><p><a href='keijiban2.php'>掲示板に戻る</a></p></div>";
                                 } else {
                                     echo "<h2>画像ファイルではありません。</h2>";
                                     echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
@@ -75,9 +74,8 @@ if(empty($_SESSION['login_id'])){
                         echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
                     }
                 } else {
-                    echo "<h2>ファイルが選択されていません。</h2>";
-                    echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
-                }
+                echo "<h2>ファイルが選択されていません。</h2>";
+                echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
             }
         }
     }
