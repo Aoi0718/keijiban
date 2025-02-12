@@ -20,18 +20,14 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
         <link rel="stylesheet" href="keijiban2.css">
     </head>
     <body>
-    <header class="head">
+    <header>
     <h1>掲示板</h1>
-    <div class="gg">
-        <div class="ul">
-            <form action="user_set.php" method="POST" class="li">
-                <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">
-                <input type="submit" value="ユーザー設定">
-            </form>
-        </div>
-    </div>
         <div class="gg">
             <div class="ul">
+                <form action="user_set.php" method="POST" class="li">
+                    <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">
+                    <input type="submit" value="ユーザー設定">
+                </form>
                 <form action="name.php" method="POST" class="li">
                     <input type="submit" value="投稿者一覧">
                 </form>
@@ -45,6 +41,7 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
             </div>
         </div>
     </header>
+    <main>
     <h2>投稿一覧</h2>
     <form method="GET" action="">
     <label for="sort">並び替え：</label>
@@ -123,6 +120,7 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
     ?>
             </div>
         </div>
+    </main>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
     const login_id = "<?= $_SESSION['login_id'] ?>";
