@@ -18,7 +18,7 @@ if(empty($_SESSION['login_id'])){
     <div class="home">
 <?php
 $name = $_GET['user_name'];
-$id = $_GET['login_id'];
+$id = $_SESSION['login_id'];
 $sql = "SELECT * FROM toukou LEFT JOIN user ON toukou.login_id = user.login_id where toukou.login_id = '$id' && user_name = '$name'";
 $sql_res = $dbh->query( $sql );
 #$rec = $sql_res->fetch();
