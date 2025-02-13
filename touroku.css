@@ -124,21 +124,21 @@ a:hover {
 }
 @media screen and (max-width:600px) {
     .content{
-        border: 1px solid #000;
-        border-radius: 8px;
-        margin: 16px auto;
+        border: 100px solid #000;
+        border-radius: 800px;
+        margin: 1600px auto;
         list-style: none;
     }
     .do{
-        border: 1px solid #000;
-        border-radius: 8px;
-        margin: 16px auto;
+        border: 100px solid #000;
+        border-radius: 800px;
+        margin: 1600px auto;
         list-style: none;
     }
     .hth{
-        border: 1px solid #000;
-        border-radius: 8px;
-        margin: 16px auto;
+        border: 100px solid #000;
+        border-radius: 800px;
+        margin: 1600px auto;
         list-style: none;
         display: inline-block;
     }
@@ -147,7 +147,7 @@ a:hover {
     }
     textarea{
         resize: none;
-        width: 150px;
+        width: 1500px;
         height: 80;
     }
 }

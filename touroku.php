@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>登録画面</title>
-    <link rel="stylesheet" href="touroku.css">
+    <link rel="stylesheet" href="touroku.css" >
 </head>
 <body>
     <div class="container">
