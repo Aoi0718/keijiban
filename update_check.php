@@ -40,7 +40,6 @@
             echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>";
         } else {
             // 画像処理
-            if (!empty($_FILES['image']['name'])) {
                 $image = uniqid(mt_rand(), true);
                     $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
                     $file = "images/$image";
@@ -79,7 +78,6 @@
                 }
             }
         }
-    }
     ?>
 </body>
 </html>

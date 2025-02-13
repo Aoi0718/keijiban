@@ -20,18 +20,14 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
         <link rel="stylesheet" href="keijiban2.css">
     </head>
     <body>
-    <header class="head">
+    <header>
     <h1>掲示板</h1>
-    <div class="gg">
-        <div class="ul">
-            <form action="user_set.php" method="POST" class="li">
-                <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">
-                <input type="submit" value="ユーザー設定">
-            </form>
-        </div>
-    </div>
         <div class="gg">
             <div class="ul">
+                <form action="user_set.php" method="POST" class="li">
+                    <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">
+                    <input type="submit" value="ユーザー設定">
+                </form>
                 <form action="name.php" method="POST" class="li">
                     <input type="submit" value="投稿者一覧">
                 </form>
@@ -45,6 +41,7 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
             </div>
         </div>
     </header>
+    <main>
     <h2>投稿一覧</h2>
     <form method="GET" action="">
     <label for="sort">並び替え：</label>
@@ -53,43 +50,41 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
         <option value="good_desc" <?= ($_GET['sort'] ?? '') === 'good_desc' ? 'selected' : '' ?>>いいねが多い順</option>
         </select>
 </form>
-    <div class="home">  
+    <div class="home">
     <?php
         $sort = $_GET['sort'] ?? 'date_desc';
-
         $orderBy = match ($sort) {
             'date_desc' => 'toukou.date DESC',
             'good_desc' => 'good_count DESC, toukou.date DESC',
             default     => 'toukou.date DESC',
         };
-        
-        $sql = "SELECT toukou.*, user.user_name, user.icon, 
-                (SELECT COUNT(*) FROM good WHERE good.toukou_id = toukou.id) AS good_count 
-                FROM toukou 
-                LEFT JOIN user ON toukou.login_id = user.login_id 
+        $sql = "SELECT toukou.*, user.user_name, user.icon,
+                (SELECT COUNT(*) FROM good WHERE good.toukou_id = toukou.id) AS good_count
+                FROM toukou
+                LEFT JOIN user ON toukou.login_id = user.login_id
                 ORDER BY $orderBy";
-        
         $sql_res = $dbh->query($sql);
         while( $rec = $sql_res->fetch() ){
             $sql2 = "select count(*) as total from good where toukou_id = {$rec['id']} and login_id = '$login_id'";
             $sql_res2 = $dbh->query( $sql2 );
             $record = $sql_res2->fetch();
-        $_SESSION['total'] = $record['total'];
-        $_SESSION['toukou_id'] = $rec['id'];
-
-        echo <<<___EOF___
-            <div class="content">
-                <div class="border">
-                    <div class="flex">
-                        <p>{$rec['id']}</p>
-                        <p>【{$rec['title']}】</p>
-                        <h4><img src="images/{$rec['icon']}" width="30" height="30" style="border-radius: 50%;"></h4>
-                        <p>名前：{$rec['user_name']}</p>
-                        <p>({$rec['date']})</p><br>
-                    </div>
-                    <img src="images/{$rec['picture']}" width="400" height="200">
-                    <div class="wrap" contenteditable="true">{$rec['content']}</div>
+            $_SESSION['total'] = $record['total'];
+            $_SESSION['toukou_id'] = $rec['id'];
+            $contents = wordwrap($rec['content'], 30, '<br/>', true);
+    
+            echo "<div class='content'>";
+                echo "<div class='border'>";
+                echo "<a href='honbun.php?login_id={$rec['login_id']}&id={$rec['id']}' class='honbun'>";
+                    echo "<div class='flex'>";
+                        echo "<p>{$rec['id']}</p>";
+                        echo "<p>【{$rec['title']}】</p>";
+                        echo "<h4><img src='images/{$rec['icon']}' width='30' height='30' style='border-radius: 50%;'></h4>";
+                        echo "<p>名前：{$rec['user_name']}</p>";
+                        echo "<p>({$rec['date']})</p><br>";
+                    echo "</div>";
+                    echo "</a>";
                     
+<<<<<<< HEAD
                     <button id="like-button" data-toukou-id="{$rec['id']}" class="likeButton">
                     <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
                     </button>
@@ -116,18 +111,50 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
                 </div>
             </div>
             ___EOF___;
+=======
+                    if($_SESSION['login_id'] !== $rec['login_id']){            
+                    echo "<button id='like-button' data-toukou-id='{$rec['id']}' class='likeButton'>";
+                    echo "<svg class='likeButton__icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z'/></svg>";
+                    echo "</button>";
+                    echo "<span id='like-status'></span>";
+                    echo "<p class='count' data-toukou-id='{$rec['id']}'>{$rec['good_count']}</p>";
+                    }else{
+                    echo "<svg class='likeButton__icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z'/></svg>";
+                    echo "<span id='like-status'></span>";
+                    echo "<p class='count' data-toukou-id='{$rec['id']}'>{$rec['good_count']}</p>";
+                }
+                    
+        if($_SESSION['login_id'] === $rec['login_id']){
+                   echo "<form action='delete.php' method='POST'>";
+                       echo "<input type='hidden' name='id' value='{$rec['login_id']}'>";
+                       echo "<input type='hidden' name='toukou_id' value='{$rec['id']}'>";
+                       echo "<input type='submit' value='削除'>";
+                   echo "</form>";
+                   echo "<form action='update.php' method='POST'>";
+                       echo "<input type='hidden' name='id' value='{$rec['login_id']}'>";
+                       echo "<input type='hidden' name='toukou_id' value='{$rec['id']}'>";
+                       echo "<input type='submit' value='編集'>";
+                   echo "</form>";
         }
-        
+                   echo "<form action='comment.php' method='POST'>";
+                   echo "<input type='hidden' name='id' value='{$rec['login_id']}'>";
+                   echo "<input type='hidden' name='toukou_id' value='{$rec['id']}'>";
+                   echo "<input type='submit' value='コメント'>";
+                   echo "</form>";
+               echo "</div>";
+           echo "</div>";
+            
+>>>>>>> origin/ishidaaoi
+        }
     ?>
             </div>
         </div>
+    </main>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
     const login_id = "<?= $_SESSION['login_id'] ?>";
     const likeButtons = document.querySelectorAll('.likeButton');
-
     console.log("ログインID:", login_id);
-
     // ページロード時に「いいね」済みの投稿IDを取得して反映
     fetch('get_good.php')
         .then(response => response.json())
@@ -135,7 +162,6 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
             if (data.success) {
                 const likedPosts = data.likedPosts.map(String);
                 console.log("いいね済み投稿:", likedPosts);
-
                 likeButtons.forEach(button => {
                     const toukou_id = button.dataset.toukouId;
                     if (likedPosts.includes(toukou_id)) {
@@ -147,25 +173,20 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
             }
         })
         .catch(error => console.error('いいね状態の取得エラー:', error));
-
     // いいねボタンのクリック処理
     likeButtons.forEach(button => {
         button.addEventListener('click', function () {
             const toukou_id = this.dataset.toukouId;
             this.classList.toggle('liked');
-
             console.log(`投稿ID ${toukou_id}: ${this.classList.contains('liked') ? "いいね追加" : "いいね解除"}`);
-
             sendLikeData(toukou_id, login_id);
         });
     });
-
     // いいね数をリアルタイムで更新
     function updateLikeCounts() {
         document.querySelectorAll('.count').forEach(countElement => {
             const toukouId = countElement.dataset.toukouId;
             if (!toukouId) return;
-
             fetch(`get_good_count.php?toukou_id=${toukouId}`)
                 .then(response => response.json())
                 .then(data => {
@@ -176,14 +197,11 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
                 .catch(error => console.error('いいね数の取得エラー:', error));
         });
     }
-
     // 5秒ごとに「いいね」数を更新
     setInterval(updateLikeCounts, 5000);
-
     // サーバーに「いいね」状態を送信する関数
     function sendLikeData(toukouId, loginId) {
         console.log(`送信データ: toukou_id=${toukouId}, login_id=${loginId}`);
-
         fetch('good.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -200,7 +218,6 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
         .catch(error => console.error('通信エラー:', error));
     }
 });
-
 </script>
 </body>
 </html>
