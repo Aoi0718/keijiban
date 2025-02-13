@@ -84,34 +84,6 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
                     echo "</div>";
                     echo "</a>";
                     
-<<<<<<< HEAD
-                    <button id="like-button" data-toukou-id="{$rec['id']}" class="likeButton">
-                    <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
-                    </button>
-                    <span id="like-status"></span>
-                    <p class='count' data-toukou-id="{$rec['id']}">{$rec['good_count']}</p>
-
-                    <form action='delete.php' method='POST'>
-                        <input type='hidden' name='id' value='{$rec['login_id']}'>
-                        <input type='hidden' name='toukou_id' value="{$rec['id']}">
-                        <input type='submit' value='削除'>
-                    </form>
-                    <form action='update.php' method='POST'>
-                        <input type='hidden' name='login_id' value='{$rec['login_id']}'>
-                        <input type='hidden' name='toukou_id' value='{$rec['id']}'>
-                        <input type='submit' value='編集'>
-                    </form>
-
-                    <form action='comment.php' method='POST'>
-                    <input type='hidden' name='id' value='{$rec['login_id']}'>
-                    <input type='hidden' name='toukou_id' value='{$rec['id']}'>
-                    <input type='submit' value='コメント'>
-                    </form>
-
-                </div>
-            </div>
-            ___EOF___;
-=======
                     if($_SESSION['login_id'] !== $rec['login_id']){            
                     echo "<button id='like-button' data-toukou-id='{$rec['id']}' class='likeButton'>";
                     echo "<svg class='likeButton__icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z'/></svg>";
@@ -144,7 +116,6 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
                echo "</div>";
            echo "</div>";
             
->>>>>>> origin/ishidaaoi
         }
     ?>
             </div>
