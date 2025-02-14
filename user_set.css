@@ -44,5 +44,27 @@ a {
     padding-bottom: 50px;
 }                 
 a:hover {
-    background-color: skyblue;
+    background-color: black;
 }
+body {
+    background-color:#000;
+  }
+  .flash {
+    width: 300px;
+    margin: 50px auto 0;
+    background: #000;
+  }
+  
+  .flash h1{
+    color: #fff;
+    text-shadow: 0 0 10px #fff,0 0 15px #fff;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0.2em;
+  }
+  
+  
+  
+  
+  

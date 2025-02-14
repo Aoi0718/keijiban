@@ -21,7 +21,9 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
     </head>
     <body>
     <header>
-    <h1>掲示板</h1>
+    <div class="bb">
+        <h1>掲示板</h1>
+    </div>
         <div class="gg">
             <div class="ul">
                 <form action="user_set.php" method="POST" class="li">

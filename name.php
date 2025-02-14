@@ -15,6 +15,8 @@ session_start();
     <title>一覧画面</title>
 </head>
 <body>
+<div class="snow">●</div>
+<div class="snow snow2nd">●</div>
 <?php
 // SQL
 $sql = "select * from user";

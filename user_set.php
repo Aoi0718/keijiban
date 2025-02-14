@@ -13,7 +13,9 @@ if(empty($_SESSION['login_id'])){
     <link rel='stylesheet' href='user_set.css'>
 </head>
 <body>
+    <div class="flash">
     <h1>ユーザーの設定変更</h1>
+    </div>
     <div class="sa">
         <div class="ys">
             <form method="POST" action="user_update.php">

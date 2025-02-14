@@ -60,11 +60,9 @@ p{
     margin-left: 5%;
 }
 header{
-    color: blue;/*文字の色*/
-    display: flex;/*掲示板とaタグを横並びにする*/
-    justify-content: space-between;/*掲示板とaタグの間をあけるやつ*/
-    background-color: rgba(255, 255, 255, 0.8);
-
+    
+    margin: 15px; 
+    
 }
 .li{
     list-style: none;/*・をなくす*/
@@ -72,6 +70,7 @@ header{
 }
 .ul{
     display: flex;
+    margin: 15px; 
 }
 .aa{
     text-decoration: none;
@@ -84,6 +83,15 @@ header{
     display: flex;
     justify-content: center;
 }
+.bb{
+    
+    background: linear-gradient(to right, Magenta, yellow, Cyan, Magenta) 0% center/200%;
+    animation: gaming 2s linear infinite;
+}
+@keyframes gaming {
+    /* backgroundを移動させる */
+    100% { background-position-x: 200%; }
+  }
 
 .likeButton {
     color: #888;
@@ -208,7 +216,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #bf0a49;
+    border: 2px solid #FF3300;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -218,7 +226,7 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #bf0a49;
+    background: #FF3300;
 }
 .delete_button:hover {
     background-color: #5e33b3;
@@ -229,7 +237,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #caf435;
+    border: 2px solid #9900FF;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -239,7 +247,7 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #caf435;
+    background: #9900FF;
 }
 .update_button:hover {
     background-color: #5e33b3;
@@ -250,7 +258,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #07a95d;
+    border: 2px solid #009966;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -260,7 +268,7 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #07a95d;
+    background: #009966;
 }
 .comment_button:hover {
     background-color: #5e33b3;

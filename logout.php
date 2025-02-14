@@ -14,6 +14,7 @@ if(empty($_SESSION['login_id'])){
 
 </head>
 <body>
+
     <?php
         if (isset($_POST['id'])) {
             // SQL
