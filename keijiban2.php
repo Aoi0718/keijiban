@@ -74,7 +74,7 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
     
             echo "<div class='content'>";
                 echo "<div class='border'>";
-                echo "<a href='honbun.php?login_id={$rec['login_id']}&id={$rec['id']}' class='honbun'>";
+                echo "<a href='honbun.php?id={$rec['id']}' class='honbun'>";
                     echo "<div class='flex'>";
                         echo "<p>{$rec['id']}</p>";
                         echo "<p>【{$rec['title']}】</p>";
