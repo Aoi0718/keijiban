@@ -17,17 +17,18 @@ if(empty($_SESSION['login_id'])){
     <body>
     <div class="home">
 <?php
-$name = $_GET['user_name'];
-$login_id = $_SESSION['login_id'];
-$sql = "SELECT * FROM toukou LEFT JOIN user ON toukou.login_id = user.login_id where toukou.login_id = '$login_id' && user_name = '$name'";
+$name = $_POST['user_name'];
+$login_id = $_POST['login_id'];
+$sql = "SELECT * FROM toukou RIGHT JOIN user ON toukou.login_id = user.login_id where toukou.login_id = '$login_id' && user_name = '$name'";
 $sql_res = $dbh->query( $sql );
 #$rec = $sql_res->fetch();
 echo <<<___EOF___
-<h2>「{$name}」の投稿一覧</h2>
-<div class="container">
+    <h2>「{$name}」の投稿一覧</h2>
+    <div class="container">
         <a href="name.php" class="btn-border">戻る</a>
-</div>
+    </div>
 ___EOF___;
+
 while( $record = $sql_res->fetch() ) {
     $contents = wordwrap($record['content'], 30, '<br/>', true);
     echo <<<___EOF___

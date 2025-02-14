@@ -24,7 +24,11 @@ session_start();
 $sql = "select * from user";
 $sql_res = $dbh->query( $sql );
 while( $record = $sql_res->fetch() ){
-    echo "<p><a href='ichiran.php?user_name={$record['user_name']}'>{$record['user_name']}</a></p>";
+    echo "<form action='ichiran.php' method='POST'>";
+    echo "<input type='hidden' name='login_id' value='{$record['login_id']}'>";
+    echo "<input type='hidden' name='user_name' value='{$record['user_name']}'>";
+    echo "<input type='submit' value='{$record['user_name']}' class='button'>";
+    echo "</form>";
 }
 ?>
 </body>

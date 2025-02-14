@@ -39,6 +39,7 @@ a {
     border-radius: 4px;
     transition: .4s;
     background-color: #9ec34b;
+    margin-bottom: 30px;
   }
   
   .btn-border:hover {
@@ -46,6 +47,33 @@ a {
     border-color: #3c5b7a;
     color: #FFF;
   }
+
+  form{
+    text-align: center;
+  }
+
+  .button {
+    display: inline-block;
+    max-width: 180px;
+    text-align: center;
+    border: 2px solid #878888;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 11.2px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1em;
+    transition: .4s;
+    background: #fdfcfd;
+    margin-top: 10px;
+}
+.button:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
+}
 .container {
     font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
