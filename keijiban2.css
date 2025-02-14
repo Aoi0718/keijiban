@@ -7,6 +7,7 @@ body,html{
 }
 h1 {
     text-align: center;
+    margin-left: 40px;
 }
 
 h2 {
@@ -198,6 +199,7 @@ img{
     line-height: 1em;
     transition: .4s;
     background: #d0290c;
+    margin-right: 20px;
 }
 .logout_button:hover {
     background-color: #5e33b3;
@@ -240,6 +242,9 @@ img{
     line-height: 1em;
     transition: .4s;
     background: #caf435;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 10px;
 }
 .update_button:hover {
     background-color: #5e33b3;
