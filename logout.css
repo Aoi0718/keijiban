@@ -54,7 +54,7 @@ a:hover {
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #cbe585;
+    border: 2px solid #e13201fe;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -64,7 +64,7 @@ a:hover {
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #9ec34b;
+    background: #d0290c;
     margin: 22px 0px;
     margin-left: 20px;
 }
