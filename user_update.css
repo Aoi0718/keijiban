@@ -61,7 +61,7 @@ img {
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #07a95d;
+    border: 2px solid #cbe585;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -71,7 +71,7 @@ img {
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #07a95d;
+    background: #9ec34b;
     margin-top: 15px;
     margin-bottom: 20px;
 }

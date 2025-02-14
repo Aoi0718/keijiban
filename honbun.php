@@ -17,9 +17,8 @@ if(empty($_SESSION['login_id'])){
     <body>
     <div class="home">
 <?php
-$login_id = $_GET['login_id'];
 $toukou_id = $_GET['id'];
-$sql = "SELECT * FROM toukou LEFT JOIN user ON toukou.login_id = user.login_id where toukou.login_id = '{$login_id}' && id = '{$toukou_id}'";
+$sql = "SELECT * FROM toukou LEFT JOIN user ON toukou.login_id = user.login_id where id = '{$toukou_id}'";
 $sql_res = $dbh->query( $sql );
 $rec = $sql_res->fetch();
 $contents = wordwrap($rec['content'], 30, '<br/>', true);
