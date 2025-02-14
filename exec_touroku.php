@@ -69,8 +69,16 @@ session_start();
                                     // SQL
                                     $sql = "INSERT INTO user VALUES ('{$LoginID}', '{$pass}', '{$uname}', '{$icon}')";
                                     $sql_res = $dbh->query( $sql );
-                                    echo "<h2>ユーザーの登録が完了しました。</h2>";
-                                    echo "<p><a href='login.php'>ログイン画面に戻る</a></p>";
+                                    echo <<<___EOF___
+                                    <div class="contents">
+                                        <div class="border">
+                                            <h2>ユーザーの登録が完了しました。</h2>
+                                        <div class='container'>
+                                                <div class='container'><a href='login.php' class='btn-border'>ログイン画面に戻る</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    ___EOF___;
                                 } else {
                                     $message = '画像ファイルではありません。';
                                     echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";

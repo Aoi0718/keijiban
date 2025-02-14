@@ -18,9 +18,10 @@ if(empty($_SESSION['login_id'])){
     <div class="home">
 <?php
 $name = $_GET['user_name'];
-$id = $_GET['login_id'];
-$sql = "select * from toukou, user where toukou.login_id = '$id' && user_name = '$name'";
+$id = $_SESSION['login_id'];
+$sql = "SELECT * FROM toukou LEFT JOIN user ON toukou.login_id = user.login_id where toukou.login_id = '$id' && user_name = '$name'";
 $sql_res = $dbh->query( $sql );
+#$rec = $sql_res->fetch();
 echo <<<___EOF___
 <h2>「{$name}」の投稿一覧</h2>
 <div class="container">
@@ -28,6 +29,7 @@ echo <<<___EOF___
 </div>
 ___EOF___;
 while( $record = $sql_res->fetch() ) {
+    $contents = wordwrap($record['content'], 30, '<br/>', true);
     echo <<<___EOF___
         <div class="content">
             <div class="border">
@@ -35,11 +37,9 @@ while( $record = $sql_res->fetch() ) {
                 <p>【{$record['title']}】</p>
                 <p>名前：{$record['user_name']}</p>
                 <p>({$record['date']})</p>
-                <div class="wrap" contenteditable="true">{$record['content']}</div>
+                <div class="wrap">{$contents}</div>
             </div>
         </div>
-
-
     ___EOF___;
 }
 ?>

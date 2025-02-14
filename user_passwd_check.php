@@ -14,10 +14,8 @@ if(empty($_SESSION['login_id'])){
 </head>
 <body>
     <?php
-        if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
-            echo "<p>不正なアクセスです。</p>";
-        } else {
-            $loginID = $_POST["login_id"];
+        if ( $_SERVER["REQUEST_METHOD"] == "POST") {
+            $loginID = $_SESSION['login_id'];
             $ExPass = $_POST["ExPass"];         // 既存パスワード
             $NewPass = $_POST["NewPass"];       // 新規パスワード 
             $NewPassCon = $_POST["NewPassCon"]; // 新規パスワード(確認)
@@ -26,10 +24,10 @@ if(empty($_SESSION['login_id'])){
             $sql_res = $dbh->query( $sql );
             $rec = $sql_res->fetch();
 
-            if($rec && $rec['passwd'] === $ExPass) {
+            if($rec['passwd'] === $ExPass) {
                 if($NewPass === $NewPassCon) {
                     // SQL
-                    $sql ="UPDATE user SET passwd = '{$NewPass}'";
+                    $sql ="UPDATE user SET passwd = '{$NewPass}' WHERE login_id = '{$loginID}'";
                     $sql_res = $dbh->query( $sql );
                     $rec = $sql_res->fetch();
 
@@ -38,12 +36,14 @@ if(empty($_SESSION['login_id'])){
 
                 } else {
                     echo "<p>新規パスワードに誤りがあります。</p>";
-                    echo "<div class='container'><a href='user_passwd.php'>戻る</a></div>";
+                    echo "<div class='container'><a href='user_set.php'>戻る</a></div>";
                 }
             } else {
                 echo "<p>既存パスワードが間違っています。</p>";
-                echo "<div class='container'><a href='user_passwd.php' class='btn-border'>戻る</a></div>";
+                echo "<div class='container'><a href='user_set.php' class='btn-border'>戻る</a></div>";
             }
+        } else {
+            echo "<p>不正なアクセスです。</p>";
         }
     ?>
 </body>
