@@ -31,19 +31,42 @@ if(empty($_SESSION['login_id'])){
                     $sql_res = $dbh->query( $sql );
                     $rec = $sql_res->fetch();
 
-                    echo "<h2>パスワードが変更されました。</h2>";
-                    echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板戻る</a></div>";
-
+                    echo <<<___EOF___
+                    <div class="contents">
+                        <div class="border">
+                            <h2>パスワードが変更されました。</h2>
+                            <div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>
+                        </div>
+                    </div>
+                    ___EOF___;
                 } else {
-                    echo "<p>新規パスワードに誤りがあります。</p>";
-                    echo "<div class='container'><a href='user_set.php'>戻る</a></div>";
+                    echo <<<___EOF___
+                    <div class="contents">
+                        <div class="border">
+                            <h2>新規パスワードの入力に誤りがあります。</h2>
+                            <div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>
+                        </div>
+                    </div>
+                    ___EOF___;
                 }
             } else {
-                echo "<p>既存パスワードが間違っています。</p>";
-                echo "<div class='container'><a href='user_set.php' class='btn-border'>戻る</a></div>";
+                echo <<<___EOF___
+                <div class="contents">
+                    <div class="border">
+                        <h2>既存パスワードが間違っています。</h2>
+                        <div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>
+                    </div>
+                </div>
+                ___EOF___;
             }
         } else {
-            echo "<p>不正なアクセスです。</p>";
+            echo <<<___EOF___
+            <div class="contents">
+                <div class="border">
+                    <h2>不正なアクセスです。</h2>
+                </div>
+            </div>
+            ___EOF___;
         }
     ?>
 </body>

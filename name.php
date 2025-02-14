@@ -15,18 +15,21 @@ session_start();
     <title>一覧画面</title>
 </head>
 <body>
+<h2>投稿者一覧</h2>
+<div class="container">
+    <a href="keijiban2.php" class="btn-border">戻る</a>
+</div>
 <?php
 // SQL
 $sql = "select * from user";
 $sql_res = $dbh->query( $sql );
-
-echo "<h2>投稿者一覧</h2>";
 while( $record = $sql_res->fetch() ){
-    echo "<p><a href='ichiran.php?user_name={$record['user_name']}'>{$record['user_name']}</a></p>";
+    echo "<form action='ichiran.php' method='POST'>";
+    echo "<input type='hidden' name='login_id' value='{$record['login_id']}'>";
+    echo "<input type='hidden' name='user_name' value='{$record['user_name']}'>";
+    echo "<input type='submit' value='{$record['user_name']}' class='button'>";
+    echo "</form>";
 }
 ?>
-<div class="container">
-    <a href="keijiban2.php" class="btn-border">戻る</a>
-</div>
 </body>
 </html>
