@@ -19,7 +19,7 @@ if(empty($_SESSION['login_id'])){
 <?php
 $name = $_POST['user_name'];
 $login_id = $_POST['login_id'];
-$sql = "SELECT * FROM toukou RIGHT JOIN user ON toukou.login_id = user.login_id where toukou.login_id = '$login_id' && user_name = '$name'";
+$sql = "SELECT * FROM toukou LEFT JOIN user ON toukou.login_id = user.login_id where toukou.login_id = '$login_id' && user_name = '$name'";
 $sql_res = $dbh->query( $sql );
 #$rec = $sql_res->fetch();
 echo <<<___EOF___
@@ -38,6 +38,7 @@ while( $record = $sql_res->fetch() ) {
                 <p>【{$record['title']}】</p>
                 <p>名前：{$record['user_name']}</p>
                 <p>({$record['date']})</p>
+                <img src='images/{$record['picture']}' width='400' height='200'>
                 <div class="wrap">{$contents}</div>
             </div>
         </div>
