@@ -13,7 +13,13 @@ session_start();
 <body>
     <?php
         if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
-            echo "<p>不正なアクセスです。</p>";
+            echo <<<___EOF___
+            <div class="contents">
+                <div class="border">
+                    <h2>不正なアクセスです。</h2>
+                </div>
+            </div>
+            ___EOF___;
         } else {
             // 値の取り出し
             $LoginID = $_POST['id'];
@@ -33,22 +39,62 @@ session_start();
             if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
                 echo "<p>不正なアクセスです。</p>";
             } elseif($LoginID == null || $pass == null || $uname == null) {
-                echo "<p>入力されていない欄があります。</p>";
-                echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                echo <<<___EOF___
+                <div class="contents">
+                    <div class="border">
+                        <h2>入力されていない欄があります。</h2>
+                        <div class='container'>
+                            <div class='container'><a href='touroku.php' class='btn-border'>登録画面に戻る</a></div>
+                        </div>
+                    </div>
+                </div>
+                ___EOF___;
             } elseif(mb_strlen( $LoginID, "UTF-8") > 30) {
-                    echo "<p>30文字以内で入力してください。<p>";
-                    echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                    echo <<<___EOF___
+                    <div class="contents">
+                        <div class="border">
+                            <h2>30文字以内で入力してください。</h2>
+                            <div class='container'>
+                                <div class='container'><a href='touroku.php' class='btn-border'>登録画面に戻る</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    ___EOF___;
             } elseif(mb_strlen( $pass, "UTF-8") > 30) {
-                echo "<p>30文字以内で入力してください。<p>";
-                echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                echo <<<___EOF___
+                <div class="contents">
+                    <div class="border">
+                        <h2>30文字以内で入力してください。</h2>
+                        <div class='container'>
+                            <div class='container'><a href='touroku.php' class='btn-border'>登録画面に戻る</a></div>
+                        </div>
+                    </div>
+                </div>
+                ___EOF___;
             } elseif(mb_strlen( $uname, "UTF-8") > 30) {
-                echo "<p>30文字以内で入力してください。<p>";
-                echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                echo <<<___EOF___
+                <div class="contents">
+                    <div class="border">
+                        <h2>30文字以内で入力してください。</h2>
+                        <div class='container'>
+                            <div class='container'><a href='touroku.php' class='btn-border'>登録画面に戻る</a></div>
+                        </div>
+                    </div>
+                </div>
+                ___EOF___;
             } else { 
                 foreach($ids as $id) {
                     if($LoginID == $id) {
-                        echo "<p>すでに使われているIDです。</p>";
-                        echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                        echo <<<___EOF___
+                        <div class="contents">
+                            <div class="border">
+                                <h2>すでに使われているIDです。</h2>
+                                <div class='container'>
+                                    <div class='container'><a href='touroku.php' class='btn-border'>登録画面に戻る</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        ___EOF___;
                         exit;
                     }
                 }
@@ -80,24 +126,48 @@ session_start();
                                     </div>
                                     ___EOF___;
                                 } else {
-                                    $message = '画像ファイルではありません。';
-                                    echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                                    echo <<<___EOF___
+                                    <div class="contents">
+                                        <div class="border">
+                                            <h2>画像ファイルではありません。</h2>
+                                            <div class='container'><a href='touroku.php' class='btn-border'>登録画面に戻る</a></div>
+                                        </div>
+                                    </div>
+                                    ___EOF___;
                                 }
                             }
                         } else {
-                            echo "<h2>ファイルサイズが大きすぎます。</h2>";
-                            echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                            echo <<<___EOF___
+                            <div class="contents">
+                                <div class="border">
+                                    <h2>ファイルサイズが大きすぎます。</h2>
+                                    <div class='container'><a href='touroku.php' class='btn-border'>登録画面に戻る</a></div>
+                                </div>
+                            </div>
+                            ___EOF___;
                         }
                     } else {
-                        echo "<h2>許可されている拡張子ではありません。</h2>";
-                        echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                        echo <<<___EOF___
+                        <div class="contents">
+                            <div class="border">
+                                <h2>許可されている拡張子ではありません。</h2>
+                                <div class='container'><a href='touroku.php' class='btn-border'>登録画面に戻る</a></div>
+                            </div>
+                        </div>
+                        ___EOF___;
                     }
                 } else {
-                    echo "<h2>ファイルが選択されていません。</h2>";
-                    echo "<p><a href='touroku.php'>登録画面に戻る</a></p>";
+                    echo <<<___EOF___
+                    <div class="contents">
+                        <div class="border">
+                            <h2>ファイルが選択されていません。</h2>
+                            <div class='container'><a href='touroku.php' class='btn-border'>登録画面に戻る</a></div>
+                        </div>
+                    </div>
+                    ___EOF___;
                 }
-            }
-        }
+            } 
+        } 
     ?>
 
 </body>

@@ -18,14 +18,18 @@ if(empty($_SESSION['login_id'])){
             
             echo <<<___EOF___
                 <h2>パスワード変更</h2>
-                <form method="POST" action="user_passwd_check.php">
-                    <p>既存パスワード：<input type="password" name="ExPass"></p>
-                    <p>新規パスワード：<input type="password" name="NewPass"></p>
-                    <p>新規パスワード(確認)：<input type="password" name="NewPassCon"></p>
-                    <input type="submit" value="パスワードを変更">
-                </form>
+                <div class="contents">
+                    <div class="border">
+                        <form method="POST" action="user_passwd_check.php">
+                            <p>　　　既存パスワード：<input type="password" name="ExPass"></p>
+                            <p>　　　新規パスワード：<input type="password" name="NewPass"></p>
+                            <p>新規パスワード(確認)：<input type="password" name="NewPassCon"></p>
+                            <input type="submit" value="パスワードを変更" class='update_button'>
+                        </form>
+                    </div>
+                </div>
                 <div class="container">
-                <a href="user_set.php" class="btn-border">戻る</a>
+                    <a href="user_set.php" class="btn-border">戻る</a>
                 </div>
             ___EOF___;
         } else {

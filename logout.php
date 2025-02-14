@@ -22,15 +22,20 @@ if(empty($_SESSION['login_id'])){
             $rec = $sql_res->fetch();
 
             echo <<<___EOF___
-                <h1>確認</h1>
-                <h2>ログアウトしますか？</h2>
-                <form action="logout_check.php" method="POST">
-                    <input type="hidden" name="logout" value="{$rec['login_id']}">
-                    <input type="submit" value="ログアウト">
-                </form>
-                <div class="container">
-                <a href="keijiban2.php" class="btn-border">戻る</a>
+            <div class="center">
+                <div class="border">
+                    <h2>ログアウトしますか？</h2>
+                    <div class="flex">
+                        <div class="container">
+                            <a href="keijiban2.php" class="btn-border">戻る</a>
+                        </div>
+                        <form action="logout_check.php" method="POST">
+                            <input type="hidden" name="logout" value="{$rec['login_id']}">
+                            <input type="submit" value="ログアウト" class="logout_button">
+                        </form>
+                    </div>
                 </div>
+            </div>
             ___EOF___;
         } else {
             echo "<p>不正なアクセスです。</p>";
