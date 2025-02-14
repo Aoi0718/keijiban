@@ -122,3 +122,23 @@ a:hover {
 .border{
     background-color: white;
 }
+.flash3 {
+    width: 300px;
+    margin: 50px auto 0;
+    background: transparent;
+  }
+  
+  .flash-text3 {
+    color: #000;
+    text-shadow: 0 0 10px #fff,0 0 15px #fff;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    animation: flashing 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes flashing {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }

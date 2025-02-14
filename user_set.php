@@ -16,7 +16,10 @@ if(empty($_SESSION['login_id'])){
     <div class="middle">
         <div class="contents">
             <div class="border">
-                <h2>ユーザーの設定変更</h2>
+            <div class="flash3">
+             <div class="flash-text3"> ユーザーの設定変更</div>
+             </div>
+
                 <div class="flex">
                     <form method="POST" action="user_update.php">
                         <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">

@@ -13,6 +13,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="name.css" rel="stylesheet">
     <title>一覧画面</title>
+    <div class="snow">★</div>
+<div class="snow snow2nd">★</div>
 </head>
 <body>
 <h2>投稿者一覧</h2>

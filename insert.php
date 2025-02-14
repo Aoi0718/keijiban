@@ -33,5 +33,6 @@
     <div class="container">
         <a href="keijiban2.php" class="btn-border">戻る</a>
     </div>
+    
 </body>
 </html>
