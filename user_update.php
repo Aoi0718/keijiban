@@ -15,11 +15,10 @@ if(empty($_SESSION['login_id'])){
 <body>
     <h1>ユーザー情報の編集</h1>
     <?php
-        include "../db_open.php";
-
         if (isset($_POST['id'])) {
             // SQL
-            $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
+            $login_id = $_SESSION['login_id'];
+            $sql = "select * from user where login_id = '$login_id'";
             $sql_res = $dbh->query( $sql );
             $rec = $sql_res->fetch();
 
@@ -32,7 +31,7 @@ if(empty($_SESSION['login_id'])){
                         <img src="images/icon.jpg" id="img" width="100" height="100"><br>
                         <input type="file" name="icon" id="file">
                     </div>
-                    <input type="hidden" name="id" value="{$rec['login_id']}">
+                    <input type="hidden" name="id" value="$login_id">
                     <input type="submit" value="登録する">
                 </form>
             </div>

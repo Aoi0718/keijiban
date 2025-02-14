@@ -10,43 +10,41 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集</title>
-    <link rel="stylesheet" href="user_update_check.css">
+    <link rel="stylesheet" href="update.css">
 </head>
 <body>
-    <h1>    投稿の編集</h1>
+    <h2>投稿の編集</h2>
     <?php
         include "../db_open.php";
 
         if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
             echo "<p>不正なアクセスです。</p>";
         } else {
+            $toukou_id = $_POST['toukou_id'];
             // SQL
-            $sql = "select * from toukou left outer join user on toukou.login_id = user.login_id order by date desc";
+            $sql = "select * from toukou where id = $toukou_id";
             $sql_res = $dbh->query( $sql );
             $rec = $sql_res->fetch();
             echo <<<___EOF____
-    <div class="content">
-        <div class="border">
-            <form method="POST" enctype="multipart/form-data" action="update_check.php">
-                <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
-            <div class='content'>
-              <p class="toukou">編集内容：</p>
-             <textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea>
+            <div class="content">
+                <div class="border">
+                    <form method="POST" enctype="multipart/form-data" action="update_check.php">
+                        <p>タイトル：<input type="text" name="title" pattern=".*\S+.*" required placeholder="30文字以内"></p>
+                        <div class='content'>
+                            <p class="toukou">編集内容：</p>
+                            <textarea name="content" pattern=".*\S+.*" required placeholder="200文字以内"></textarea>
+                        </div>
+                        <input type="file" name="image">
+                        <input type="hidden" name="login_id" value='{$rec['login_id']}'>
+                        <input type="hidden" name="toukou_id" value='{$toukou_id}'><br>
+                        <input type="submit" value="編集して投稿する" class="button">
+                    </form>
+                </div>
             </div>
-              <input type="file" name="image">
-              
-              <input type="submit" value="編集して投稿する" class="sub"></p>
-              <input type="hidden" name="login_id" value='{$rec['login_id']}'>
-              <input type="hidden" name="id" value='{$rec['id']}'>
-            </form>
             <div class="container">
                 <a href="keijiban2.php" class="btn-border">戻る</a>
             </div>
-
-        </div>
-    </div>
-    ___EOF____;
-            
+            ___EOF____;   
         }
     ?>
     <script>
