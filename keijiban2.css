@@ -218,11 +218,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-<<<<<<< HEAD
-    border: 2px solid #FF3300;
-=======
     border: 2px solid #cbe585;
->>>>>>> origin/main
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -232,11 +228,7 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-<<<<<<< HEAD
-    background: #FF3300;
-=======
     background: #9ec34b;
->>>>>>> origin/main
 }
 .delete_button:hover {
     background-color: #5e33b3;
@@ -247,11 +239,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-<<<<<<< HEAD
-    border: 2px solid #9900FF;
-=======
     border: 2px solid #cbe585;
->>>>>>> origin/main
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -261,14 +249,10 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-<<<<<<< HEAD
-    background: #9900FF;
-=======
     background: #9ec34b;
     margin-right: 15px;
     margin-left: 15px;
     margin-bottom: 10px;
->>>>>>> origin/main
 }
 .update_button:hover {
     background-color: #5e33b3;
@@ -279,11 +263,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-<<<<<<< HEAD
-    border: 2px solid #009966;
-=======
     border: 2px solid #cbe585;
->>>>>>> origin/main
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -293,11 +273,7 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-<<<<<<< HEAD
-    background: #009966;
-=======
     background: #9ec34b;
->>>>>>> origin/main
 }
 .comment_button:hover {
     background-color: #5e33b3;
