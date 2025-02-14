@@ -16,12 +16,13 @@ session_start();
 </head>
 <body>
 <?php
+// SQL
 $sql = "select * from user";
 $sql_res = $dbh->query( $sql );
 
 echo "<h2>投稿者一覧</h2>";
 while( $record = $sql_res->fetch() ){
-    echo "<p><a href='ichiran.php?login_id={$record['login_id']}&user_name={$record['user_name']}'>{$record['user_name']}</a></p>";
+    echo "<p><a href='ichiran.php?user_name={$record['user_name']}'>{$record['user_name']}</a></p>";
 }
 ?>
 <div class="container">

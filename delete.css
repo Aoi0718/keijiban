@@ -1,14 +1,14 @@
 body {
     background-image: url("okumono_mahjonggara10-1536x864.png");
 }
-p{
+h2{
     text-align: center;
 }
 h3{
     text-align: center;
 }
-h2{
-    text-align: center;
+p {
+    display: inline-block;
 }
 a{
     text-decoration: none;
@@ -31,8 +31,24 @@ a:hover{
     text-align: center;
     
 }
-.sub{
-    box-shadow: 0px 0px 3px mediumseagreen;
+.button {
+    display: inline-block;
+    border-radius: 8%;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 16px;
+    background: #7c0990;
+    color: #FFFFFF;
+    line-height: 1em;
+    transition: .3s;
+    border: 2px solid #7c0990;
+    margin: 10px;
+}
+.button:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
 }
 .btn-border {
     display: inline-block;
@@ -47,15 +63,30 @@ a:hover{
     border-radius: 4px;
     transition: .4s;
     background-color: #9ec34b;
-  }
-  
-  .btn-border:hover {
+} 
+.btn-border:hover {
     background-color: #5e33b3;
     border-color: #3c5b7a;
     color: #FFF;
-  }
+}
 .container {
     font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
-    padding-top: 40px;
-  }
+    padding-top: 10px;
+}
+.contents {
+    text-align: center;
+    margin: 150px;
+}
+.border {
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 16px auto;
+    padding-left: 0;;
+	list-style: none;
+	display: inline-block;
+    padding: 20px 80px;
+}
+.border{
+    background-color: white;
+}

@@ -16,7 +16,7 @@
     <title>新規登録</title>
 </head>
 <body>
-    <h1>新規投稿画面</h1>
+    <h2>新規投稿画面</h2>
     <div class="content">
         <div class="border">
             <form method="POST" enctype="multipart/form-data" action="exec_insert.php">
@@ -25,15 +25,13 @@
                 <p class="toukou">投稿内容：</p>
                 <textarea name="content" pattern=".*\S+.*" required placeholder="8192文字以内"></textarea>
                 </div>
-                <input type="file" name="image">
-                <input type="submit" name="upload" value="投稿">
+                <input type="file" name="image"><br>
+                <input type="submit" name="upload" value="投稿" class="button">
             </form>
-            <div class="container">
-                <a href="keijiban2.php" class="btn-border">戻る</a>
-            </div>
-
         </div>
     </div>
-
+    <div class="container">
+        <a href="keijiban2.php" class="btn-border">戻る</a>
+    </div>
 </body>
 </html>

@@ -27,10 +27,16 @@ session_start();
             $_SESSION['id'] = $id;
             $_SESSION['login_id'] = $rec['login_id'];
             $_SESSION['icon']  = $rec['icon'];
-            echo "<p>ログインが完了しました。</p>";
-            echo "<div class='container'>";
-            echo "<a href='keijiban2.php' class='btn-border'>掲示板へ</a>";
-            echo "</div>";
+            echo <<<___EOF___
+            <div class="contents">
+                <div class="border">
+                    <h2>ログインが完了しました。</h2>
+                    <div class='container'>
+                        <a href='keijiban2.php' class='btn-border'>掲示板へ</a>
+                    </div>
+                </div>
+            </div>
+            ___EOF___;
             exit;
         }
     }

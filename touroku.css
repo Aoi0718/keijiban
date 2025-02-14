@@ -36,6 +36,7 @@ a{
 img {
     border-radius: 50%;
 }
+<<<<<<< HEAD
 body{
     background-image: url("okumono_mahjonggara10-1536x864.png");
 }
@@ -94,6 +95,10 @@ a {
     color: mediumseagreen;
  }
  .btn-border {
+=======
+
+.btn-border {
+>>>>>>> origin/main
     display: inline-block;
     max-width: 180px;
     text-align: left;
@@ -106,6 +111,7 @@ a {
     border-radius: 4px;
     transition: .4s;
     background-color: #9ec34b;
+<<<<<<< HEAD
   }
   
   .btn-border:hover {
@@ -150,4 +156,36 @@ a:hover {
         width: 1500px;
         height: 80;
     }
+=======
+} 
+
+.btn-border:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
+}
+
+.center {
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 8%;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 16px;
+    background: #7c0990;
+    color: #FFFFFF;
+    line-height: 1em;
+    transition: .3s;
+    border: 2px solid #7c0990;
+    margin: 10px;
+}
+.button:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
+>>>>>>> origin/main
 }

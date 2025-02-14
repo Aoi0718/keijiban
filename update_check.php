@@ -11,7 +11,7 @@
  <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集チェック</title>
-    <link rel="stylesheet" href="user_delete.css">
+    <link rel="stylesheet" href="update.css">
 </head>
 <body>
     <?php
@@ -57,8 +57,16 @@
                                     // SQL
                                     $sql = "UPDATE toukou set date = '{$date}', title = '{$title}', content = '{$content}', picture = '{$image}' where id = '{$id}' && login_id = '{$login_id}'";
                                     $sql_res = $dbh->query( $sql );
-                                    echo "<h2>投稿を編集しました。</h2>";
-                                    echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>";
+                                    echo <<<___EOF___
+                                        <div class="contents">
+                                            <div class="border">
+                                                <h2>投稿を編集しました。</h2>
+                                                <div class="container">
+                                                    <p><a href="keijiban2.php" class="btn-border">掲示板に戻る</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ___EOF___;
                                 } else {
                                     echo "<h2>画像ファイルではありません。</h2>";
                                     echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>";
