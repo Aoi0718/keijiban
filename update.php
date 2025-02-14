@@ -10,17 +10,10 @@ if(empty($_SESSION['login_id'])){
 <head>
     <meta charset="UTF-8">
     <title>ユーザー設定：編集</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="insert.css">
-</head>
-<body>
-    <h1>投稿の編集</h1>
-=======
     <link rel="stylesheet" href="update.css">
 </head>
 <body>
     <h2>投稿の編集</h2>
->>>>>>> origin/main
     <?php
         include "../db_open.php";
         if( $_SERVER["REQUEST_METHOD"] != "POST" ) {

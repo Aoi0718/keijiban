@@ -15,16 +15,6 @@ session_destroy();
 <h2>ログイン画面</h2>
 <h5>設定したIDとパスワードを入力してログイン</h5>
 <?php
-<<<<<<< HEAD
-    echo "<div>";
-    echo "<form method='POST' action='login_check.php'>";
-    echo "<p>　　　　ID:<input type='text' name='id' pattern='^[a-zA-Z0-9]+$+@+.*\S+.*' required placeholder='30文字以内'></p>";
-    echo "<p>パスワード:<input type='password' name='passwd' pattern='^[a-zA-Z0-9]+$+.*\S+.*'  required placeholder='30文字以内'></p>";
-    echo "<a href='touroku.php'><input type='button' id='button' value='新規登録'></a>";
-    echo "　　　　　　　　";
-    echo "<input type='submit' value='ログイン'>";
-    echo "</div>";
-=======
     echo <<<___EOF___
     <div class="container">
         <div class="border">
@@ -37,7 +27,6 @@ session_destroy();
         </div>
     </div>
     ___EOF___;
->>>>>>> origin/main
 ?>
 </body>
 </html>
