@@ -26,17 +26,17 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
             <div class="ul">
                 <form action="user_set.php" method="POST" class="li">
                     <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">
-                    <input type="submit" value="ユーザー設定">
+                    <input type="submit" value="ユーザー設定" class='user_button'>
                 </form>
                 <form action="name.php" method="POST" class="li">
-                    <input type="submit" value="投稿者一覧">
+                    <input type="submit" value="投稿者一覧" class='ichiran_button'>
                 </form>
                 <form action="insert.php" method="POST" class="li">
-                    <input type="submit" value="記事を投稿する">
+                    <input type="submit" value="記事を投稿する" class='toukou_button'>
                 </form>
                 <form action="logout.php" method="POST" class="li">
                     <input type="hidden" name="id" value="{<?php $rec['login_id']; ?>}">
-                    <input type="submit" value="ログアウト">
+                    <input type="submit" value="ログアウト" class='logout_button'>
                 </form>
             </div>
         </div>
@@ -95,27 +95,31 @@ while($rec = $sql_res->fetch()){$goods[] = $rec['toukou_id'];}
                     echo "<span id='like-status'></span>";
                     echo "<p class='count' data-toukou-id='{$rec['id']}'>{$rec['good_count']}</p>";
                 }
-                    
         if($_SESSION['login_id'] === $rec['login_id']){
-                   echo "<form action='delete.php' method='POST'>";
-                       echo "<input type='hidden' name='id' value='{$rec['login_id']}'>";
-                       echo "<input type='hidden' name='toukou_id' value='{$rec['id']}'>";
-                       echo "<input type='submit' value='削除'>";
-                   echo "</form>";
-                   echo "<form action='update.php' method='POST'>";
-                       echo "<input type='hidden' name='id' value='{$rec['login_id']}'>";
-                       echo "<input type='hidden' name='toukou_id' value='{$rec['id']}'>";
-                       echo "<input type='submit' value='編集'>";
-                   echo "</form>";
+            echo "<div class='paling'>";
+                echo "<div class='gg'>";
+                    echo "<div class='ul'>";
+                        echo "<form action='delete.php' method='POST'>";
+                            echo "<input type='hidden' name='id' value='{$rec['login_id']}'>";
+                            echo "<input type='hidden' name='toukou_id' value='{$rec['id']}'>";
+                            echo "<input type='submit' value='削除' class='delete_button'>";
+                        echo "</form>";
+                        echo "<form action='update.php' method='POST'>";
+                            echo "<input type='hidden' name='id' value='{$rec['login_id']}'>";
+                            echo "<input type='hidden' name='toukou_id' value='{$rec['id']}'>";
+                            echo "<input type='submit' value='編集' class='update_button'>";
+                        echo "</form>";
         }
-                   echo "<form action='comment.php' method='POST'>";
-                   echo "<input type='hidden' name='id' value='{$rec['login_id']}'>";
-                   echo "<input type='hidden' name='toukou_id' value='{$rec['id']}'>";
-                   echo "<input type='submit' value='コメント'>";
-                   echo "</form>";
-               echo "</div>";
-           echo "</div>";
-            
+                        echo "<form action='comment.php' method='POST'>";
+                            echo "<input type='hidden' name='id' value='{$rec['login_id']}'>";
+                            echo "<input type='hidden' name='toukou_id' value='{$rec['id']}'>";
+                            echo "<input type='submit' value='コメント' class='comment_button'>";
+                        echo "</form>";
+                    echo "</div>";
+                echo "</div>";  
+            echo "</div>";
+        echo "</div>";  
+    echo "</div>";
         }
     ?>
             </div>
