@@ -125,7 +125,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #14ce8d;
+    border: 2px solid #cbe585;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -135,7 +135,7 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #14ce8d;
+    background: #9ec34b;
 }
 .user_button:hover {
     background-color: #5e33b3;
@@ -146,7 +146,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #630ac9;
+    border: 2px solid #cbe585;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -156,7 +156,7 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #630ac9;
+    background: #9ec34b;
 }
 .ichiran_button:hover {
     background-color: #5e33b3;
@@ -167,7 +167,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #ddda0b;
+    border: 2px solid #cbe585;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -177,7 +177,7 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #ddda0b;
+    background: #9ec34b;
 }
 .toukou_button:hover {
     background-color: #5e33b3;
@@ -188,7 +188,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #d0290c;
+    border: 2px solid #e13201fe;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -210,7 +210,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #bf0a49;
+    border: 2px solid #cbe585;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -220,7 +220,7 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #bf0a49;
+    background: #9ec34b;
 }
 .delete_button:hover {
     background-color: #5e33b3;
@@ -231,7 +231,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #caf435;
+    border: 2px solid #cbe585;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -255,7 +255,7 @@ img{
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #07a95d;
+    border: 2px solid #cbe585;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -265,7 +265,7 @@ img{
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #07a95d;
+    background: #9ec34b;
 }
 .comment_button:hover {
     background-color: #5e33b3;

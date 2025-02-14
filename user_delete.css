@@ -61,7 +61,7 @@ a:hover {
     display: inline-block;
     max-width: 180px;
     text-align: center;
-    border: 2px solid #bf0a49;
+    border: 2px solid #cbe585;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
@@ -71,7 +71,7 @@ a:hover {
     border-radius: 4px;
     line-height: 1em;
     transition: .4s;
-    background: #bf0a49;
+    background: #9ec34b;
     margin-top: 20px;
 }
 .delete_button:hover {
