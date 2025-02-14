@@ -60,27 +60,63 @@ if(empty($_SESSION['login_id'])){
                                 $rec = $sql_res->fetch();
                                 $_SESSION['login_id'] = $loginID;
 
-                                echo "<h2>ユーザーの再登録が完了しました。</h2>";
-                                echo "<div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>";
+                                echo <<<___EOF___
+                                <div class="contents">
+                                    <div class="border">
+                                        <h2>ユーザーの再登録が完了しました。</h2>
+                                        <div class='container'><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></div>
+                                    </div>
+                                </div>
+                                ___EOF___;
                             } else {
-                                $message = '画像ファイルではありません。';
-                                echo "<div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>";
+                                echo <<<___EOF___
+                                <div class="contents">
+                                    <div class="border">
+                                        <h2>画像ファイルではありません。</h2>
+                                        <div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>
+                                    </div>
+                                </div>
+                                ___EOF___;
                             }
                         }
                     } else {
-                        echo "<h2>ファイルサイズが大きすぎます。</h2>";
-                        echo "<div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>";
+                        echo <<<___EOF___
+                        <div class="contents">
+                            <div class="border">
+                                <h2>ファイルサイズが大きすぎます。</h2>
+                                <div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>
+                            </div>
+                        </div>
+                        ___EOF___;
                     }
                 } else {
-                    echo "<h2>許可されている拡張子ではありません。</h2>";
-                    echo "<div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>";
+                    echo <<<___EOF___
+                    <div class="contents">
+                        <div class="border">
+                            <h2>許可されている拡張子ではありません。</h2>
+                            <div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>
+                        </div>
+                    </div>
+                    ___EOF___;
                 }
             } else {
-                echo "<h2>ファイルが選択されていません。</h2>";
-                echo "<div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>";
+                echo <<<___EOF___
+                <div class="contents">
+                    <div class="border">
+                        <h2>ファイルが選択されていません。</h2>
+                        <div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>
+                    </div>
+                </div>
+                ___EOF___;
             }
         } else {
-            echo "<p>不正なアクセスです。</p>";
+            echo <<<___EOF___
+            <div class="contents">
+                <div class="border">
+                    <h2>不正なアクセスです。</h2>
+                </div>
+            </div>
+            ___EOF___;
         }
     ?>
 </body>

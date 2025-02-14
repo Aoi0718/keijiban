@@ -13,7 +13,7 @@ if(empty($_SESSION['login_id'])){
     <link rel='stylesheet' href='user_update.css'>
 </head>
 <body>
-    <h1>ユーザー情報の編集</h1>
+    <h2>ユーザー情報の編集</h2>
     <?php
         if (isset($_POST['id'])) {
             // SQL
@@ -23,17 +23,21 @@ if(empty($_SESSION['login_id'])){
             $rec = $sql_res->fetch();
 
             echo <<<___EOF___
-            <div class="as">
-                <form method="POST" action="user_update_check.php" enctype="multipart/form-data">
-                    <p>ログインID：<input type="text" name="login_id" autocomplete="off"></p>
-                    <p>ユーザーネーム：<input type="text" name="uname" autocomplete="off"></p>
-                    <div>
-                        <img src="images/icon.jpg" id="img" width="100" height="100"><br>
-                        <input type="file" name="icon" id="file">
+            <div class="center">
+                <div class="contents">
+                    <div class="border">
+                        <form method="POST" action="user_update_check.php" enctype="multipart/form-data">
+                            <p>　　ログインID：<input type="text" name="login_id" autocomplete="off"></p>
+                            <p>ユーザーネーム：<input type="text" name="uname" autocomplete="off"></p>
+                            <div>
+                                <img src="images/icon.jpg" id="img" width="100" height="100" ><br>
+                                <input type="file" name="icon" id="file">
+                            </div>
+                            <input type="hidden" name="id" value="$login_id">
+                            <input type="submit" value="登録する" class="button">
+                        </form>
                     </div>
-                    <input type="hidden" name="id" value="$login_id">
-                    <input type="submit" value="登録する">
-                </form>
+                </div>
             </div>
             <div class="container">
                 <a href="user_set.php" class="btn-border">戻る</a>
