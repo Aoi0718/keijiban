@@ -13,17 +13,6 @@ if(empty($_SESSION['login_id'])){
     <link rel='stylesheet' href='user_set.css'>
 </head>
 <body>
-<<<<<<< HEAD
-    <div class="flash">
-    <h1>ユーザーの設定変更</h1>
-    </div>
-    <div class="sa">
-        <div class="ys">
-            <form method="POST" action="user_update.php">
-                <input type="hidden" name="id" value="{<?php $_SESSION['login_id']; ?>}">
-                <input type="submit" value="ユーザーの編集">
-            </form>
-=======
     <div class="middle">
         <div class="contents">
             <div class="border">
@@ -43,7 +32,6 @@ if(empty($_SESSION['login_id'])){
                     </form>
                 </div>
             </div>
->>>>>>> origin/main
         </div>
         <div class="container">
             <a href="keijiban2.php" class="btn-border">戻る</a>

@@ -122,10 +122,6 @@ if(empty($_SESSION['login_id'])){
                             ___EOF___;
                         }
                     } else {
-<<<<<<< HEAD
-                        echo "<h2>ファイルが選択されていません。</h2>";
-                        echo "<p><a href='insert.php'>投稿画面へ</a></p>";
-=======
                         echo <<<___EOF___
                         <div class="contents">
                             <div class="border">
@@ -134,7 +130,6 @@ if(empty($_SESSION['login_id'])){
                             </div>
                         </div>
                         ___EOF___;
->>>>>>> origin/main
                     }
                 }
             }

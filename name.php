@@ -15,15 +15,10 @@ session_start();
     <title>一覧画面</title>
 </head>
 <body>
-<<<<<<< HEAD
-<div class="snow">●</div>
-<div class="snow snow2nd">●</div>
-=======
 <h2>投稿者一覧</h2>
 <div class="container">
     <a href="keijiban2.php" class="btn-border">戻る</a>
 </div>
->>>>>>> origin/main
 <?php
 // SQL
 $sql = "select * from user";

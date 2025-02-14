@@ -36,69 +36,8 @@ a{
 img {
     border-radius: 50%;
 }
-<<<<<<< HEAD
-body{
-    background-image: url("okumono_mahjonggara10-1536x864.png");
-}
-.content {
-    border: 1px solid #000;
-    border-radius: 8px;
-    margin: 16px auto;
-    padding: 10px 100px;
-    background-color: white;
-    width: 34%;
-}
-img{
-    object-fit: cover;
-}
-.border{
-    text-align: center;
-}
-h1{
-    text-align: center;
-}
-textarea{
-    resize: none;
-    width:300px;
-    height:200px;
-}
-.msb{
-    text-align: center;
-}
-.hth {
-    border: 1px solid #000;
-    border-radius: 8px;
-    margin: 16px auto;
-    padding-left: 0;
-	list-style: none;
-	display: inline-block;
-    padding: 10px 100px;
-    background-color: white;
-}
-.do{
-    border: 1px solid #000;
-    border-radius: 8px;
-    margin: 16px auto;
-    padding-left: 0;
-	list-style: none;
-	display: inline-block;
-    padding: 10px 100px;
-    background-color: white;
-}
-.co{
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 20px;
-}
-a {
-    text-decoration: none;
-    color: mediumseagreen;
- }
- .btn-border {
-=======
 
 .btn-border {
->>>>>>> origin/main
     display: inline-block;
     max-width: 180px;
     text-align: left;
@@ -111,52 +50,6 @@ a {
     border-radius: 4px;
     transition: .4s;
     background-color: #9ec34b;
-<<<<<<< HEAD
-  }
-  
-  .btn-border:hover {
-    background-color: #5e33b3;
-    border-color: #3c5b7a;
-    color: #FFF;
-  }
- .container {
-    font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 50px;
-  }                 
-a:hover {
-    background-color: skyblue;
-}
-@media screen and (max-width:600px) {
-    .content{
-        border: 100px solid #000;
-        border-radius: 800px;
-        margin: 1600px auto;
-        list-style: none;
-    }
-    .do{
-        border: 100px solid #000;
-        border-radius: 800px;
-        margin: 1600px auto;
-        list-style: none;
-    }
-    .hth{
-        border: 100px solid #000;
-        border-radius: 800px;
-        margin: 1600px auto;
-        list-style: none;
-        display: inline-block;
-    }
-    img{
-        max-width: 100%;;
-    }
-    textarea{
-        resize: none;
-        width: 1500px;
-        height: 80;
-    }
-=======
 } 
 
 .btn-border:hover {
@@ -187,5 +80,4 @@ a:hover {
     background-color: #5e33b3;
     border-color: #3c5b7a;
     color: #FFF;
->>>>>>> origin/main
 }
