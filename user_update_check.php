@@ -36,8 +36,14 @@ if(empty($_SESSION['login_id'])){
             $size = $_FILES["icon"]["size"];
             foreach($ids as $id2) {
                 if($loginID == $id2) {
-                    echo "<p>すでに使われているIDです。</p>";
-                    echo "<p><a href='user_set.php'>登録画面に戻る</a></p>";
+                    echo <<<___EOF___
+                    <div class="contents">
+                        <div class="border">
+                            <h2>すでに使われているIDです。</h2>
+                            <div class='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>
+                        </div>
+                    </div>
+                    ___EOF___;
                     exit;
                 }
             }
