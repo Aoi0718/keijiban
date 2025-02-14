@@ -37,7 +37,7 @@ while( $record = $sql_res->fetch() ) {
                 <p>{$record['id']}</p>
                 <p>【{$record['title']}】</p>
                 <p>名前：{$record['user_name']}</p>
-                <p>({$record['date']})</p>
+                <p>({$record['date']})</p></br>
                 <img src='images/{$record['picture']}' width='400' height='200'>
                 <div class="wrap">{$contents}</div>
             </div>
