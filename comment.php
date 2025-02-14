@@ -56,7 +56,7 @@ if(empty($_SESSION['login_id'])){
                         <h3>返信</h3>
                         <form method="POST" enctype="multipart/form-data" action="exec_comment.php">
                         <textarea name="comment" pattern=".*\S+.*" required placeholder="空白だけで投稿しないでください"></textarea><br>
-                        <input type="submit" value="投稿">
+                        <input type="submit" value="投稿" class="button">
                         </form>
                     </div>
                 </div><br>
