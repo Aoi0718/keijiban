@@ -26,14 +26,32 @@ if(empty($_SESSION['login_id'])){
                 $sql = "DELETE FROM user where login_id = '{$loginID}'";
                 $sql_res = $dbh->query( $sql );
                 
-                echo "<p>ユーザーが削除されました。</p>";
-                echo "<div='container'><a href='login.php' class='btn-border'>ログイン画面に戻る</a></div>";
+                echo <<<___EOF___
+                <div class="contents">
+                    <div class="border">
+                        <h2>ユーザーが削除されました。</h2>
+                        <div='container'><a href='login.php' class='btn-border'>ログイン画面に戻る</a></div>
+                    </div>
+                </div>
+                ___EOF___;
             }else{
-                echo "<p>パスワードが違います。</p>";
-                echo "<div='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>";
+                echo <<<___EOF___
+                <div class="contents">
+                    <div class="border">
+                        <h2>パスワードが違います。</h2>
+                        <div='container'><a href='user_set.php' class='btn-border'>ユーザー編集画面に戻る</a></div>
+                    </div>
+                </div>
+                ___EOF___;
             }
         } else {
-            echo "<p>不正なアクセスです。</p>";
+            echo <<<___EOF___
+            <div class="contents">
+                <div class="border">
+                    <h2>不正なアクセスです。</h2>
+                </div>
+            </div>
+            ___EOF___;
         }
     ?>
 </body>

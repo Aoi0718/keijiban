@@ -18,7 +18,13 @@ if(empty($_SESSION['login_id'])){
         <?php
             
             if( $_SERVER["REQUEST_METHOD"] != "POST" ) {
-                echo "<p>不正なアクセスです。</p>";
+                echo <<<___EOF___
+                <div class="contents">
+                    <div class="border">
+                        <h2>不正なアクセスです。</h2>
+                    </div>
+                </div>
+                ___EOF___;
             } else {
                 // 値の取り出し
                 $title = $_POST['title'];
@@ -32,14 +38,32 @@ if(empty($_SESSION['login_id'])){
                 $content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
 
                 if(trim(str_replace('　','',$content)) === ''){
-                echo "スペースまたは空欄での投稿はできません";
-                echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
+                echo <<< ___EOF___
+                <div class="contents">
+                    <div class="border">
+                        <h2>スペースまたは空欄での投稿はできません</h2>
+                        <div class='container'><a href='insert.php' class='btn-border'>投稿画面に戻る</a></div>
+                    </div>
+                </div>
+                ___EOF___;
                 }elseif(mb_strlen( $title, "UTF-8") > 30){
-                    echo "<p>タイトルは30文字以内で入力してください。<p>";
-                    echo "<p><a href='keijiban2.php'>掲示板に戻る</a></p>";
+                    echo <<< ___EOF___
+                    <div class="contents">
+                        <div class="border">
+                            <h2>タイトルは30文字以内で入力してください。</h2>
+                            <div class='container'><a href='insert.php' class='btn-border'>投稿画面に戻る</a></div>
+                        </div>
+                    </div>
+                    ___EOF___;
                 }elseif(mb_strlen( $content, "UTF-8") > 8192){
-                    echo "<p>投稿内容は8192文字以内で入力してください。<p>";
-                    echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                    echo <<< ___EOF___
+                    <div class="contents">
+                        <div class="border">
+                            <h2>投稿内容は8192文字以内で入力してください。</h2>
+                            <div class='container'><a href='insert.php' class='btn-border'>投稿画面に戻る</a></div>
+                        </div>
+                    </div>
+                    ___EOF___;
                 } else {
                     $image = uniqid(mt_rand(), true);
                     $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);
@@ -62,26 +86,55 @@ if(empty($_SESSION['login_id'])){
                                         <div class="contents">
                                             <div class="border">
                                                 <h2>記事を追加しました。</h2>
-                                                <p><a href='keijiban2.php' class='btn-border'>投稿一覧に戻る</a></p>
+                                                <p><a href='keijiban2.php' class='btn-border'>掲示板に戻る</a></p>
                                             </div>
                                         </div>
                                         ___EOF___;
                                     } else {
-                                        echo "<h2>画像ファイルではありません。</h2>";
-                                        echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                                        echo <<<___EOF___
+                                        <div class="contents">
+                                            <div class="border">
+                                                <h2>画像ファイルではありません。</h2>
+                                                <div class='container'><a href='insert.php' class='btn-border'>投稿画面に戻る</a></div>
+                                            </div>
+                                        </div>
+                                        ___EOF___;
                                     }
                                 }
                             } else {
-                                echo "<h2>ファイルサイズが大きすぎます。</h2>";
-                                echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                                echo <<<___EOF___
+                                <div class="contents">
+                                    <div class="border">
+                                        <h2>ファイルサイズが大きすぎます。</h2>
+                                        <div class='container'><a href='insert.php' class='btn-border'>投稿画面に戻る</a></div>
+                                    </div>
+                                </div>
+                                ___EOF___;
                             }
                         } else {
-                            echo "<h2>許可されている拡張子ではありません。</h2>";
-                            echo "<p><a href='insert.php'>投稿画面に戻る</a></p>";
+                            echo <<<___EOF___
+                            <div class="contents">
+                                <div class="border">
+                                    <h2>許可されている拡張子ではありません。</h2>
+                                    <div class='container'><a href='insert.php' class='btn-border'>投稿画面に戻る</a></div>
+                                </div>
+                            </div>
+                            ___EOF___;
                         }
                     } else {
+<<<<<<< HEAD
                         echo "<h2>ファイルが選択されていません。</h2>";
                         echo "<p><a href='insert.php'>投稿画面へ</a></p>";
+=======
+                        echo <<<___EOF___
+                        <div class="contents">
+                            <div class="border">
+                                <h2>ファイルが選択されていません。</h2>
+                                <div class='container'><a href='insert.php' class='btn-border'>投稿画面に戻る</a></div>
+                            </div>
+                        </div>
+                        ___EOF___;
+>>>>>>> origin/main
                     }
                 }
             }
