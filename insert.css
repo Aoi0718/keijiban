@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-h1 {
+h2 {
     text-align: center;
 }
 
@@ -12,6 +12,9 @@ h1 {
 	list-style: none;
 	display: inline-block;
     padding: 10px 100px;
+}
+.border{
+    background-color: white;
 }
 
 .content {
@@ -72,6 +75,25 @@ a {
   }                 
 a:hover {
     background-color: skyblue;
+}
+.button {
+    display: inline-block;
+    border-radius: 8%;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 16px;
+    background: #7c0990;
+    color: #FFFFFF;
+    line-height: 1em;
+    transition: .3s;
+    border: 2px solid #7c0990;
+    margin: 10px;
+}
+.button:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
 }
 @media screen and (max-width:600px) {
     h1 {

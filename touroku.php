@@ -16,17 +16,19 @@
         <p class="small">IDとパスワード、ユーザーネームを設定してください</p>
         <div class="border">
             <form method="POST" action="exec_touroku.php" enctype="multipart/form-data">
-                <p>ログインID:<input type="text" name="id" pattern="^[a-zA-Z0-9]+$"></p>
-                <p>パスワード:<input type="password" name="pass" pattern="^[a-zA-Z0-9]+$"></p>
+                <p>　　ログインID:<input type="text" name="id" pattern="^[a-zA-Z0-9]+$"></p>
+                <p>　　パスワード:<input type="password" name="pass" pattern="^[a-zA-Z0-9]+$"></p>
                 <p>ユーザーネーム:<input type="text" name="uname"></p>
                 <div>
                     <img src="images/icon.jpg" id="img" width="100" height="100"><br>
                     <input type="file" name="icon" id="file">
                 </div>
-                <input type="submit" value="登録">
+                <input type="submit" value="登録" class="button">
             </form>
-            <p><a class='back' href='login.php'>戻る</a></p>
         </div>
+    </div>
+    <div class="center">
+        <a href='login.php' class='btn-border'>戻る</a>
     </div>
 
     <script>

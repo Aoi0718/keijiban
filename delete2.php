@@ -14,8 +14,7 @@ if(empty($_SESSION['login_id'])){
         <link rel="stylesheet" href="delete.css">
     </head>
     <body>
-        <h2>記事の削除</h2>
-<?php
+    <?php
     if( $_SERVER["REQUEST_METHOD"] != "POST" ){
         echo "<p>不正なアクセスです。</p>";
     }else{
@@ -31,14 +30,29 @@ if(empty($_SESSION['login_id'])){
         if($rec['passwd'] === $pass ) {
             $sql = "DELETE FROM toukou where id = '{$toukou_id}'";
             $sql_res = $dbh->query( $sql );
-            echo "<p>記事を削除しました。</p>";
+            echo <<<___EOF___
+            <div class="contents">
+                <div class="border">
+                    <h2>記事を削除しました。</h2>
+                    <div class="container">
+                        <p><a href="keijiban2.php" class="btn-border">掲示板に戻る</a></p>
+                    </div>
+                </div>
+            </div>
+            ___EOF___;
         }else{
-            echo "<p>パスワードが違います。</p>";
+            echo <<<___EOF___
+            <div class="contents">
+                <div class="border">
+                    <h2>パスワードが違います。</h2>
+                    <div class="container">
+                        <a href="keijiban2.php" class="btn-border">掲示板に戻る</a>
+                    </div>
+                </div>
+            </div>
+            ___EOF___;
         }
             }
-?>
-    <div class="container">
-        <a href="keijiban2.php" class="btn-border">戻る</a>
-    </div>
+    ?>
     </body>
 </html>
