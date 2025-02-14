@@ -5,17 +5,12 @@ body{
 a {
     text-decoration: none;
     color: mediumseagreen;
-}.sa{
+}
+.middle {
+    margin-top: 50px;
+}
+.flex {
     display: flex;
-}
-.ys{
-    margin-left: 30%;
-}
-.nz{
-    margin-left: 9%;
-}
-.ct{
-    margin-left: 9%;
 }
 /*ボタン*/
 .btn-border {
@@ -45,4 +40,85 @@ a {
 }                 
 a:hover {
     background-color: skyblue;
+}
+.delete_button {
+    display: inline-block;
+    max-width: 180px;
+    text-align: center;
+    border: 2px solid #bf0a49;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 11.2px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1em;
+    transition: .4s;
+    background: #bf0a49;
+    margin: 20px 20px;
+}
+.delete_button:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
+}
+.update_button {
+    display: inline-block;
+    max-width: 180px;
+    text-align: center;
+    border: 2px solid #caf435;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 11.2px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1em;
+    transition: .4s;
+    background: #caf435;
+    margin: 20px 0px;
+}
+.update_button:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
+}
+.pass_button {
+    display: inline-block;
+    max-width: 180px;
+    text-align: center;
+    border: 2px solid #07a95d;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 11.2px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1em;
+    transition: .4s;
+    background: #07a95d;
+    margin: 20px 0px;
+}
+.pass_button:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
+}
+.contents {
+    text-align: center;
+}
+.border {
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 16px auto;
+    padding-left: 0;;
+	list-style: none;
+	display: inline-block;
+    padding: 5px 50px;
+}
+.border{
+    background-color: white;
 }

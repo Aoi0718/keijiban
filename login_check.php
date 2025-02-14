@@ -40,10 +40,16 @@ session_start();
             exit;
         }
     }
-    echo "<p>IDまたはパスワードに誤りがあります。</p>";
-    echo "<div>";
-    echo "<div class='container'><a href='login.php' class='btn-border'>ログイン画面へ</a>";
-    echo "</div>";
+    echo <<<___EOF___
+    <div class="contents">
+        <div class="border">
+            <h2>IDまたはパスワードに誤りがあります。</h2>
+            <div class='container'>
+                <div class='container'><a href='login.php' class='btn-border'>ログイン画面へ</a></div>
+            </div>
+        </div>
+    </div>
+    ___EOF___;
 ?>
 </body>
 </html>

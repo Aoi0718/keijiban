@@ -30,8 +30,7 @@ a {
 .container {
     font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
 }                 
 a:hover {
     background-color: skyblue;

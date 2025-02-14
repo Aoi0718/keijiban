@@ -34,3 +34,41 @@ a {
 a:hover {
     background-color: skyblue;
 }
+.update_button {
+    display: inline-block;
+    max-width: 180px;
+    text-align: center;
+    border: 2px solid #35c3f7;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 11.2px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1em;
+    transition: .4s;
+    background: #35c3f7;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+.update_button:hover {
+    background-color: #5e33b3;
+    border-color: #3c5b7a;
+    color: #FFF;
+}
+.contents {
+    text-align: center;
+}
+.border {
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 16px auto;
+    padding-left: 0;;
+	list-style: none;
+	display: inline-block;
+    padding: 5px 50px;
+}
+.border{
+    background-color: white;
+}

@@ -5,8 +5,8 @@ body{
 a {
     text-decoration: none;
     color: mediumseagreen;
- }
- .btn-border {
+}
+.btn-border {
     display: inline-block;
     max-width: 180px;
     text-align: left;
@@ -19,19 +19,35 @@ a {
     border-radius: 4px;
     transition: .4s;
     background-color: #9ec34b;
-  }
-  
-  .btn-border:hover {
-    background-color: #5e33b3;
-    border-color: #3c5b7a;
-    color: #FFF;
-  }
- .container {
+}
+
+.btn-border:hover {
+  background-color: #5e33b3;
+  border-color: #3c5b7a;
+  color: #FFF;
+}
+.container {
     font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 50px;
-  }                 
+}                 
 a:hover {
     background-color: skyblue;
+}
+.contents {
+    text-align: center;
+    margin: 150px;
+}
+.border {
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 10px auto;
+    padding-left: 0;;
+    list-style: none;
+    display: inline-block;
+    padding: 5px 50px;
+}
+.border{
+    background-color: white;
 }
